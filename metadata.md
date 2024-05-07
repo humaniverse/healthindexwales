@@ -1,31 +1,40 @@
-## Wales Health Inequalities Vulnerability Metadata
+## Health Index for Wales Metadata
 
-| Domain | Indicator | Year | Source | License | Indicator Code Added to `R/` | Data Added to `data/` |
-| --- | --- | --- | --- | --- | --- | --- |
-| Healthy Lives | Alcohol Misuse | | | | | |
-| Healthy Lives | Drug Misuse | | | | | |
-| Healthy Lives | Healhy Eating | | | | | |
-| Healthy Lives | Physical Activity | | | | | |
-| Healthy Lives | Smoking | | | | | |
-| Healthy Lives | Early Years Development | | | | | |
-| Healthy Lives | GCSE Achievement | | | | | |
-| Healthy Lives | Pupil Absence | | | | | |
-| Healthy Lives | Young People's Education, Employment and Training | | | | | |
-| Healthy Lives | Hypertension | | | | | |
-| Healthy Lives | Overweight and Obesity in Adults | | | | | |
-| Healthy Lives | Cancer Screening | | | | | |
-| Healthy Lives | Sexual Health | | | | | |
-| Healthy Lives | Vaccination Coverage | | | | | |
-| Healthy Lives | Child Poverty | | | | | |
-| Healthy Lives | Children in State Care | | | | | |
-| Healthy Lives | Infant Mortality | | | | | |
-| Healthy Lives | Low Birth Weight | | | | | |
-| Healthy Lives | Overweight and Obesity in Children | | | | | |
-| Healthy Lives | Teenage Pregnancy | | | | | |
-| Healthy Lives | Unemployment | | | | | |
-| Healthy Lives | Job-related Training | | | | | |
-| Healthy Lives | Low Pay | | | | | |
-| Healthy Lives | Workplace Safety | | | | | |
+For details about what each indicator is measuring, see the [underlying indicators for the ONS Health Index for England](https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandwellbeing/datasets/healthindexunderlyingdataengland).
+
+| Domain | Sub-domain | Indicator | Year | Source | License | Indicator Code Added to `R/` | Data Added to `data/` |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Healthy Lives | Behavioural risk factors | Alcohol Misuse | | | | | |
+| Healthy Lives | Behavioural risk factors | Drug Misuse | | | | | |
+| Healthy Lives | Behavioural risk factors | Healhy Eating | | | | | |
+| Healthy Lives | Behavioural risk factors | Physical Activity | | | | | |
+| Healthy Lives | Behavioural risk factors | Sedentary behaviour | | | | | |
+| Healthy Lives | Behavioural risk factors | Sexually transmitted infections (testing rate) | | | | | |
+| Healthy Lives | Behavioural risk factors | Sexually transmitted infections (diagnosis) | | | | | |
+| Healthy Lives | Behavioural risk factors | Smoking | | | | | |
+| Healthy Lives | Children and young people | Early Years Development | | | | | |
+| Healthy Lives | Children and young people | Pupil Absence | | | | | |
+| Healthy Lives | Children and young people | Pupil Attainment | | | | | |
+| Healthy Lives | Children and young people | Teenage pregnancy | | | | | |
+| Healthy Lives | Children and young people | Young People's Education, Employment and Training | | | | | |
+| Healthy Lives | Physiological risk factors | Hypertension | | | | | |
+| Healthy Lives | Physiological risk factors | Low Birth Weight | | | | | |
+| Healthy Lives | Physiological risk factors | Overweight and Obesity in Adults | | | | | |
+| Healthy Lives | Physiological risk factors | Overweight and Obesity in Children (Reception) | | | | | |
+| Healthy Lives | Physiological risk factors | Overweight and Obesity in Children (Year 6) | | | | | |
+| Healthy Lives | Protective measures | Cancer Screening Attendace (Bowel) | | | | | |
+| Healthy Lives | Protective measures | Cancer Screening Attendace (Breast) | | | | | |
+| Healthy Lives | Protective measures | Cancer Screening Attendace (Cervical cancer aged 25-49 years old) | | | | | |
+| Healthy Lives | Protective measures | Child vaccination coverage (DTaP/IPV/Hib first birthday) | | | | | |
+| Healthy Lives | Protective measures | Child vaccination coverage (DTaP/IPV booster before fifth birthday) | | | | | |
+| Healthy Lives | Protective measures | Child vaccination coverage (Hib/MenC before second birthday) | | | | | |
+| Healthy Lives | Protective measures | Child vaccination coverage (MenB first birthday) | | | | | |
+| Healthy Lives | Protective measures | Child vaccination coverage (MenB booster before second birthday) | | | | | |
+| Healthy Lives | Protective measures | Child vaccination coverage (MMR before second birthday) | | | | | |
+| Healthy Lives | Protective measures | Child vaccination coverage (MMR fifth birthday) | | | | | |
+| Healthy Lives | Protective measures | Child vaccination coverage (PCV first birthday) | | | | | |
+| Healthy Lives | Protective measures | Child vaccination coverage (PCV before second birthday) | | | | | |
+| Healthy Lives | Protective measures | Child vaccination coverage (rotavirus first birthday) | | | | | |
 | Healthy People | Difficulty Completing Activities of Daily Living (ADLs) | 2018-20 | [StatsWales](https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-general-health-and-illness/genhealthillness-by-localauthorityhealthboard) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: - Does data need replacing/updating with IMD measure (Limiting long-term illness (rate per 100) - check if the data is the same): https://statswales.gov.wales/Catalogue/Community-Safety-and-Social-Inclusion/Welsh-Index-of-Multiple-Deprivation/WIMD-Indicator-data-2019/indicatordata-by-localauthority | :heavy_check_mark: |
 | Healthy People | Disability Impacting Daily Activities | 2020 | [Annual Population Survery](https://www.nomisweb.co.uk/query/construct/summary.asp?changing=yes&amp;dataset=17&amp;anal=5&amp;version=0) | [OGL3](https://www.nomisweb.co.uk/home/copyright.asp) |:heavy_check_mark: | :heavy_check_mark: |
 | Healthy People | Fraility | 2018-19 | [Public Health Observatory](https://public.tableau.com/app/profile/publichealthwalesobservatory/viz/PHOF2017LAHB-Charts/UHB-LAChart-Table) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: - used hip fractures as proxy | :heavy_check_mark: |
@@ -52,18 +61,21 @@
 | Healthy People | Musculoskeletal Conditions: Rheumatoid Arthritis | :x: | :x: | :x: | :x: - data unavialble | :x: |
 | Healthy People | Respiratory Conditions: Asthma | 2017-18 | [Health Map Wales](https://www.healthmapswales.wales.nhs.uk/IAS/dataviews/view?viewId=142) | :heavy_check_mark: - asthma emergency admission rate was used as a proxy | :heavy_check_mark: |
 | Healthy People | Respiratory Conditions: COPD | 2017-18 | [Health Map Wales](https://www.healthmapswales.wales.nhs.uk/IAS/dataviews/view?viewId=142) | :heavy_check_mark: - COPD emergency admission rate was used as a proxy | :heavy_check_mark: |
-| Healthy Places | Private Outdoor Space | | | | | |
-| Healthy Places | Public Green Space | | | | | |
-| Healthy Places | Household Overcrowding | | | | | |
-| Healthy Places | Housing Affordability | | | | | |
-| Healthy Places | Rough Sleeping | | | | | |
-| Healthy Places | Distance to GP Services | | | | | |
-| Healthy Places | Distance to Pharmacies | | | | | |
-| Healthy Places | Distance to Sports or Leisure Facilities | | | | | |
-| Healthy Places | Personal Crime | | | | | |
-| Healthy Places | Air Pollution | | | | | |
-| Healthy Places | Neighbourhood noise | | | | | |
-| Healthy Places | Road Safety | | | | | |
-| Healthy Places | Road Traffic Volume | | | | | |
-| Healthy Places | Transport noise: Daytime | | | | | |
-| Healthy Places | Transport noise: Nighttime | | | | | |
+| Healthy Places | Access to green space | Private Outdoor Space | | | | | |
+| Healthy Places | Access to green space | Public Green Space | | | | | |
+| Healthy Places | Access to services | Distance to GP Services | | | | | |
+| Healthy Places | Access to services | Distance to Pharmacies | | | | | |
+| Healthy Places | Access to services | Distance to Sports or Leisure Facilities | | | | | |
+| Healthy Places | Access to services | Internet access | | | | | |
+| Healthy Places | Access to services | Patients offered acceptable GP practice appointments | | | | | |
+| Healthy Places | Crime | Low-level crime | | | | | |
+| Healthy Places | Crime | Personal crime | | | | | |
+| Healthy Places | Economic and working conditions | Child poverty | | | | | |
+| Healthy Places | Economic and working conditions | Job-related Training | | | | | |
+| Healthy Places | Economic and working conditions | Unemployment | | | | | |
+| Healthy Places | Economic and working conditions | Workplace Safety | | | | | |
+| Healthy Places | Living conditions | Air Pollution | | | | | |
+| Healthy Places | Living conditions | Household Overcrowding | | | | | |
+| Healthy Places | Living conditions | Noise complaints | | | | | |
+| Healthy Places | Living conditions | Road Safety | | | | | |
+| Healthy Places | Living conditions | Rough Sleeping | | | | | |
