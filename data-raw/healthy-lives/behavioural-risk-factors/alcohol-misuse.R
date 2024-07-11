@@ -13,7 +13,7 @@ download.file(url, temp_file, mode = "wb")
 excel_data <- read_excel(temp_file)
 
 # ---- Clean data ----
-alcohol_data <- read_excel(temp_file, sheet = "Table_2", range = "A7:G366") |>
+hl_alcohol_misuse <- read_excel(temp_file, sheet = "Table_2", range = "A7:G366") |>
   filter(str_starts(`Area Code \r\n[note 2]`, "W0")) |>
   select(where(~ all(!is.na(.)))) |>
   mutate_at(vars(`2020 to 2022 \r\nRate per 100,000 \r\n[note 4]`), as.numeric) |>
@@ -29,4 +29,4 @@ alcohol_data <- read_excel(temp_file, sheet = "Table_2", range = "A7:G366") |>
   arrange(ltla21_code)
 
 # ---- Save output to data/ folder ----
-save(alcohol_data, file = "~/Documents/BRC/health-index-wales/data/hl-alcohol-misuse.rda")
+usethis::use_data(hl_alcohol_misuse, overwrite = TRUE)

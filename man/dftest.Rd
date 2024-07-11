@@ -3,7 +3,7 @@
 \docType{data}
 \name{dftest}
 \alias{dftest}
-\title{DF}
+\title{DF - test documentation - to be deleted}
 \format{
 A data frame with .. rows and . variables:
 \describe{
