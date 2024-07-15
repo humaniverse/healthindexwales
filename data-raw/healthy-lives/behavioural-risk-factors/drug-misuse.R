@@ -22,12 +22,15 @@ download.file(population_url, population_temp_file, mode = "wb")
 population_data <- read_excel(population_temp_file)
 
 # ---- Reduce datasets to only include Wales ----
+# ---- Drug dataset includes total number of deaths related to drug poisoning per Welsh local authority in 2022 ----
+# ---- Population dataset includes estimated population of each Welsh local authority in 2022 ----
 drug_wales <- read_excel(drug_temp_file, sheet = "Table 1", range = "A4:E432") |>
   filter(str_starts(`Area Codes`, "W0")) 
 population_wales <- read_excel(population_temp_file, sheet = "MYE2 - Persons", range = "A8:D365") |>
   filter(str_starts(`Code`, "W0")) 
 
 # ---- Merge datasets and clean ----
+# ---- Drug poisoning death rate variable is drug poisoning related deaths per 1000 people ----
 hl_drug_misuse <- drug_wales |>
   left_join(population_wales, by = c("Area Codes" = "Code")) |>
   select(where(~ all(!is.na(.)))) |>
@@ -38,15 +41,16 @@ hl_drug_misuse <- drug_wales |>
   ) |>
   rename(
     "ltla21_code" = `Area Codes`,
-    "Numerator" = `2022`,
-    "Denominator" = `All ages`
   ) |>
   arrange(ltla21_code) |>
   mutate(
-    Va = Numerator / Denominator * 1000,
+    "Drug poisoning death rate" = `2022` / `All ages` * 1000,
     Year = "2022"
   ) |>
-  select(ltla21_code, Va, Numerator, everything())
-
+  select(
+    -`2022`,
+    -`All ages`,
+    ) 
+ 
 # ---- Save output to data/ folder ----
 usethis::use_data(hl_drug_misuse, overwrite = TRUE)
