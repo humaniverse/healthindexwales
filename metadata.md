@@ -4,7 +4,7 @@ For details about what each indicator is measuring, see the [underlying indicato
 
 | Domain | Sub-domain | Indicator | Year | Source | License | Indicator Code Added to `R/` | Data Added to `data/` |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Healthy Lives | Behavioural risk factors | Alcohol Misuse | | | | | |
+| Healthy Lives | Behavioural risk factors | Alcohol Misuse | 2020-2022 | [ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/alcoholspecificdeathsintheukmaindataset)|[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: - used alcohol related deaths as proxy | :heavy_check_mark:|
 | Healthy Lives | Behavioural risk factors | Drug Misuse | | | | | |
 | Healthy Lives | Behavioural risk factors | Healhy Eating | | | | | |
 | Healthy Lives | Behavioural risk factors | Physical Activity | | | | | |
