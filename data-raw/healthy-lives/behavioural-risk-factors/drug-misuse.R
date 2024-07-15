@@ -54,3 +54,18 @@ hl_drug_misuse <- drug_wales |>
  
 # ---- Save output to data/ folder ----
 usethis::use_data(hl_drug_misuse, overwrite = TRUE)
+
+#' Drug Poisoning Death Rates 2022
+#'
+#' Dataset containing information about drug poisoning death rates in Wales for the year 2022.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code of the local authority}
+#'   \item{Drug poisoning death rate}{Drug poisoning related deaths per 1,000 people}
+#'   \item{Year}{Year of the data}
+#' }
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/drugmisusedeathsbylocalauthority}
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales}
+"hl_drug_misuse"
+
