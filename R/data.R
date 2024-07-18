@@ -41,3 +41,17 @@ NULL
 #' }
   #' @source \url{https://fieldsintrust.org/insights/green-space-index}
 "hp_greenspace_access"
+
+#' Smoking Wales 2021-2023
+#'
+#' Dataset containing information about the percentage of smokers in Wales
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Percent smokers}{Percentage of people aged 16 and over in each local authority who are self-reported smokers, age standardised}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
+"hl_smoking"
