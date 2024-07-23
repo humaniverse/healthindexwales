@@ -41,3 +41,31 @@ NULL
 #' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/drugmisusedeathsbylocalauthority}
 #' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales}
 "hl_drug_misuse"
+
+#' Greenspace Provision in Wales 2024
+#'
+#' Dataset containing information about greenspace provision in Wales
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{ltla21_name}{Area name}
+#'   \item{provision_per_person}{The amount of public greenspace available per person, SQM}
+#'.  ...
+#' }
+  #' @source \url{https://fieldsintrust.org/insights/green-space-index}
+"hp_greenspace_access"
+
+#' Healthy eating Wales 2021-2023
+#'
+#' Dataset containing information about healthy eating in Wales
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Percent adults who ate five fruit/veg yesterday}{Percentage of people aged 16 and over in each local authority claiming to have eaten at least 5 portions of fruit and vegetables the previous day, age standardised}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
+"hl_healthy_eating"
