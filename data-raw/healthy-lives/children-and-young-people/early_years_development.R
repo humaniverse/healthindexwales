@@ -23,8 +23,4 @@ hl_early_years_development <- df |>
 
 # ---- Save output to data/ folder ----
 usethis::use_data(hl_early_years_development, overwrite = TRUE)
-
-
-
-
          
