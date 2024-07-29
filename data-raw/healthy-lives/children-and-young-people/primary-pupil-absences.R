@@ -27,6 +27,8 @@ url <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/population
 # Download the file to a temporary location
 temp_file <- tempfile(fileext = ".xlsx")
 download.file(url, temp_file, mode = "wb")
+
+#Only include relevant columns
 code_lookup <- read_excel(temp_file, range = "A5:D366")|>
   filter(str_starts(`LA code`, "W0")) 
 
@@ -34,11 +36,11 @@ code_lookup <- read_excel(temp_file, range = "A5:D366")|>
 joined_data <- left_join(primary_data, code_lookup, by = c("Local authority" = "LA name"))
 
 # ---- Clean joined dataset ----
-primary_absence_data <- joined_data |>
+hl_primary_pupil_absences <- joined_data |>
   select(ltla21_code = `LA code`,
          `Primary percentage of absences`) |>
   mutate(Year = "2022/23") |>
   arrange(ltla21_code)
 
 # ---- Save output to data/ folder ----
-usethis::use_data(hl_alcohol_misuse, overwrite = TRUE)         
+usethis::use_data(hl_primary_pupil_absences, overwrite = TRUE)         
