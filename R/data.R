@@ -69,3 +69,17 @@ NULL
 #' }
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 "hl_healthy_eating"
+
+#' Secondary Pupil Absences Wales 2022/2023
+#'
+#' Dataset containing information about the percentage of absences for secondary school students in Wales for the academic year 2022/2023 up until the late May bank holiday
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Secondary percentage of absences}{Percentage of half day sessions missed for secondary school students, aged 11-15, for the academic year up until the late May bank holiday (due to effect of exams in May and June on absences), in Wales}
+#'   \item{Year}{Academic year (until late May bank holiday)}
+#'.  ...
+#' }
+#' @source \url{https://www.gov.wales/absenteeism-secondary-schools-september-2022-august-2023}
+"hl_secondary_pupil_absences"

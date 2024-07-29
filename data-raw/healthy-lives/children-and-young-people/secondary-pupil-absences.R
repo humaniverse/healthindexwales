@@ -5,11 +5,11 @@ library(readODS)
 library(dplyr)
 
 # ---- Scrape secondary schools URL ----
-#Source:https://www.gov.wales/absenteeism-secondary-schools
+#Source:https://www.gov.wales/absenteeism-secondary-schools-september-2022-august-2023
 download.file("https://www.gov.wales/sites/default/files/statistics-and-research/2023-10/absenteeism-from-secondary-schools-september-2022-to-august-2023-revised-936.ods", 
               destfile = "absenteeism.ods")
 
-# ---- Clean primary data ----
+# ---- Clean secondary data ----
 secondary_data <- read_ods("absenteeism.ods", sheet = 10, range = "A4:J92") |>
   filter(str_ends(Indicator, "missed")) |>
   select(`Local authority`,
@@ -28,6 +28,8 @@ url <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/population
 # Download the file to a temporary location
 temp_file <- tempfile(fileext = ".xlsx")
 download.file(url, temp_file, mode = "wb")
+
+#Select only relevant columns
 code_lookup <- read_excel(temp_file, range = "A5:D366")|>
   filter(str_starts(`LA code`, "W0")) 
 
