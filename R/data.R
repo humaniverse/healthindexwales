@@ -70,7 +70,6 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 "hl_smoking"
 
-
 #' Sedentary behaviour Wales 2021-2023
 #'
 #' Dataset containing information about the percentage of sedentary adults in Wales
@@ -84,4 +83,3 @@ NULL
 #' }
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 "hl_sedentary_behaviour"
-
