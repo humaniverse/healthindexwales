@@ -5,6 +5,7 @@ library(janitor)
 library(usethis)
 
 # Define URLs for datasets
+#Source: < insert landing page >
 ukcrimetables_url <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea/yearendingdecember2023/csptablesyedec23.xlsx"
 lookup_lda_cps_url <- "https://opendata.arcgis.com/api/v3/datasets/a90c5fce795e4df7af9f40d41f479405_0/downloads/data?format=csv&spatialRefId=4326&where=1%3D1"
 
@@ -51,7 +52,7 @@ hp_personal_crime <- hp_wales_crime |>
     ltla21_name = lad23nm
   )
 
-# Calculate personal crime rate per 1k population and add the date column
+# Calculate personal crime rate per 1k population and add the year column
 hp_personal_crime <- hp_personal_crime |>
   mutate(
     personal_crime_per_1k = (
@@ -61,7 +62,7 @@ hp_personal_crime <- hp_personal_crime |>
         theft_from_the_person +
         criminal_damage_and_arson
     ),
-    date = as.Date("2023-11-23")
+    year = "2023" 
   ) |>
   # Adjust Local Authority names and codes for Cwm Taf ("Combined Local Authority") into Merthyr Tydfil and Rhondda Cynon Taf
   mutate(
@@ -89,9 +90,8 @@ hp_personal_crime <- hp_personal_crime |>
     ltla21_code,
     ltla21_name,
     personal_crime_per_1k,
-    date
+    year  
   )
 
 # Save the data using USETHIS function
 usethis::use_data(hp_personal_crime, overwrite = TRUE)
-

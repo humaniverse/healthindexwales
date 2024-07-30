@@ -11,7 +11,7 @@ A data frame with the following columns:
 \item{local_authority_name}{Character. The name of the local authority.}
 \item{low_level_crime_score}{Numeric. The personal crime score, as calculated according to Health Index England, is the sum of Bicycle Theft and Shoplifting.This score is measured per 1,000 persons, based on the ONS mid-year population estimates for the local authority region. A lower score is better as it indicates lower crime for the region.}
 \item{low_level_crime_per_1k}{Numeric. The rate of low-level crime (bicycle theft and shoplifting) per 1,000 population, based on the ONS mid-year population estimates for the local authority region. A lower rate is better as it indicates lower crime for the region.}
-\item{date}{Date. The publication date of population snapshot.}
+\item{year}{Year. The year relevant to the data snapshot.}
 }
 }
 \source{

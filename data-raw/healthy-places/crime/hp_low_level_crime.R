@@ -6,6 +6,9 @@ library(devtools)
 library(usethis)
 
 # Define URLs for datasets
+#Sources: ukcrimetables <- https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea 
+#Sources: lookup_lda_cps_url <- https://geoportal.statistics.gov.uk/search?layout=grid&q=Lower%20Tier%20Local%20Authority%20to%20Upper%20Tier%20Local%20Authority%20Lookup
+
 ukcrimetables_url <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea/yearendingdecember2023/csptablesyedec23.xlsx"
 lookup_lda_cps_url <- "https://opendata.arcgis.com/api/v3/datasets/a90c5fce795e4df7af9f40d41f479405_0/downloads/data?format=csv&spatialRefId=4326&where=1%3D1"
 
@@ -57,7 +60,7 @@ hp_wales_crime <- hp_wales_crime |>
 hp_low_level_crimes <- hp_wales_crime |>
   mutate(
     low_level_crime_per_1k = (bicycle_theft + shoplifting),
-    date = as.Date("2023-11-23")
+    year = "2023"
   ) |>
   # Adjust Local Authority names and codes for Cwm Taf ("Combined Local Authority") into Merthyr Tydfil and Rhondda Cynon Taf
   mutate(
@@ -85,7 +88,7 @@ hp_low_level_crimes <- hp_wales_crime |>
     ltla21_code,
     ltla21_name,
     low_level_crime_per_1k,
-    date
+    year
   )
 
 # Saving using USETHIS function
