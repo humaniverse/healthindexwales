@@ -56,7 +56,6 @@ NULL
   #' @source \url{https://fieldsintrust.org/insights/green-space-index}
 "hp_greenspace_access"
 
-<<<<<<< HEAD
 #' Low-Level Crime Scores for Wales
 #'
 #' A dataset containing low-level crime scores for local authorities in Wales.
@@ -101,8 +100,8 @@ NULL
 #'   \item{year}{Year. The year relevant to the data snapshot}
 #' }
 #' @source \url{https://www.ons.gov.uk/} and \url{https://opendata.arcgis.com/}
-"hp_personal_crimes"
-=======
+"hp_personal_crime"
+
 #' Smoking Wales 2021-2023
 #'
 #' Dataset containing information about the percentage of smokers in Wales
@@ -131,4 +130,3 @@ NULL
 #' }
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 "hl_physical_activity"
->>>>>>> d2131efcdaa9cb96db0eb0a636555c22d095256a

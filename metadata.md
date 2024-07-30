@@ -68,8 +68,8 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy Places | Access to services | Distance to Sports or Leisure Facilities | | | | | |
 | Healthy Places | Access to services | Internet access | | | | | |
 | Healthy Places | Access to services | Patients offered acceptable GP practice appointments | | | | | |
-| Healthy Places | Crime | Low-level crime | 2023 | (https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea)|OGL3 |:heavy_check_mark:||
-| Healthy Places | Crime | Personal crime | 2023 |(https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea) | OGL3 |:heavy_check_mark:| |
+| Healthy Places | Crime | Low-level crime | 2023 |[ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea)|OGL3 |:heavy_check_mark:|:heavy_check_mark:|
+| Healthy Places | Crime | Personal crime | 2023 |[ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea) | OGL3 |:heavy_check_mark:|:heavy_check_mark: |
 | Healthy Places | Economic and working conditions | Child poverty | | | | | |
 | Healthy Places | Economic and working conditions | Job-related Training | | | | | |
 | Healthy Places | Economic and working conditions | Unemployment | | | | | |
