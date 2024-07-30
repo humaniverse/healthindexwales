@@ -70,6 +70,16 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 #' "hl_smoking"
 
+#' Sedentary behaviour Wales 2021-2023
+#'
+#' Dataset containing information about the percentage of sedentary adults in Wales
+#'   \item{Percent adults active less than 30 minutes last week}{Percentage of people aged 16 and over in each local authority claiming to have exercised for less than 30 minutes the previous week, age standardised}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
+"hl_sedentary_behaviour"
+
 #' Secondary Pupil Absences Wales 2022/2023
 #'
 #' Dataset containing information about the percentage of absences for secondary school students in Wales for the academic year 2022/2023 up until the late May bank holiday
