@@ -14,7 +14,7 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy Lives | Behavioural risk factors | Smoking | 2021-2023 |[StatsWales](https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles) |[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) |:heavy_check_mark: |:heavy_check_mark: |
 | Healthy Lives | Children and young people | Early Years Development | 2017 |[StatsWales](https://statswales.gov.wales/Catalogue/Education-and-Skills/Schools-and-Teachers/Examinations-and-Assessments/Foundation-Phase) |[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) |:heavy_check_mark: - used Foundation Phase as proxy, had to use 2017 data as Welsh Government stopped publishing local authority level foundation level data from 2018 onwards|:heavy_check_mark: |
 | Healthy Lives | Children and young people | Pupil Absence | | | | | |
-| Healthy Lives | Children and young people | Pupil Attainment | | | | | |
+| Healthy Lives | Children and young people | Pupil Attainment | 2022/23 |[StatsWales](https://statswales.gov.wales/Catalogue/Education-and-Skills/Schools-and-Teachers/Examinations-and-Assessments/Key-Stage-4) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)|:heavy_check_mark: - used Key Stage 4 Interim Measures of Literacy Point Score and Numeracy Point Score as proxy, split into two datasets | :heavy_check_mark:|
 | Healthy Lives | Children and young people | Teenage pregnancy | | | | | |
 | Healthy Lives | Children and young people | Young People's Education, Employment and Training | | | | | |
 | Healthy Lives | Physiological risk factors | Hypertension | | | | | |
