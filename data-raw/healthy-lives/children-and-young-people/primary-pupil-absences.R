@@ -3,6 +3,7 @@ library(tidyverse)
 library(httr)
 library(readODS)
 library(dplyr)
+library(readxl)
 
 # ---- Scrape primary schools URL ----
 #Source: https://www.gov.wales/absenteeism-primary-schools-september-2022-august-2023
