@@ -3,11 +3,11 @@
 \docType{data}
 \name{hl_early_years_development}
 \alias{hl_early_years_development}
-\title{Early Years Development Wales 2017}
+\title{Early Years Development Wales 2021-2023}
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
-#'   \item{ltla21_code}{Area code}
+\item{ltla21_code}{Area code}
 \item{Percent pupils achieving expected level across four foundation level tested areas}{Percentage of foundation phase students, aged 7, who achieve the expected level, level 5, in all four areas of the foundation phase tests per local authority. The four areas are 1) Personal and social development, well-being and cultural diversity, 2) Language, literacy and communication skills - English, 3) Language, literacy and communication skills - Welsh, 4) Mathematical development}
 \item{Year}{Time frame}
 .  ...
@@ -20,6 +20,6 @@ A data frame with 22 rows and 3 variables:
 hl_early_years_development
 }
 \description{
-Dataset containing information about the percentage of students in Wales achieving expected level at foundation phase, data used from 2017 as Welsh Government stopped publishing local authority level foundation level data from 2018 onwards
+Dataset containing information about the percentage of students in Wales achieving expected level at foundation phase
 }
 \keyword{datasets}
