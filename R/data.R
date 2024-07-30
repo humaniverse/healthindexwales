@@ -45,7 +45,7 @@ NULL
 
 #' Early Years Development Wales 2017
 #'
-#' Dataset containing information about the percentage of students in Wales achieving expected level at foundation phase
+#' Dataset containing information about the percentage of students in Wales achieving expected level at foundation phase, data used from 2017 as Welsh Government stopped publishing local authority level foundation level data from 2018 onwards
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
