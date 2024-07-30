@@ -59,6 +59,7 @@ NULL
 #' Smoking Wales 2021-2023
 #'
 #' Dataset containing information about the percentage of smokers in Wales
+
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
@@ -70,19 +71,20 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 "hl_smoking"
 
-#' Sedentary behaviour Wales 2021-2023
+#' Physical activity Wales 2021-2023
 #'
-#' Dataset containing information about the percentage of sedentary adults in Wales
+#' Dataset containing information about the percentage of physically active adults in Wales
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #'   \item{ltla21_code}{Area code}
-#'   \item{Percent adults active less than 30 minutes last week}{Percentage of people aged 16 and over in each local authority claiming to have exercised for less than 30 minutes the previous week, age standardised}
+#'   \item{Percent adults active at least 150 minutes last week}{Percentage of people aged 16 and over in each local authority claiming to have exercised for at least 150 minutes the previous week, age standardised}
 #'   \item{Year}{Time frame}
 #'.  ...
 #' }
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
-"hl_sedentary_behaviour"
+"hl_physical_activity"
+
 
 #' Primary Pupil Absences Wales 2022/2023
 #'
