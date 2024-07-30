@@ -5,7 +5,9 @@ library(janitor)
 library(usethis)
 
 # Define URLs for datasets
-#Source: < insert landing page >
+#Source: #Sources: ukcrimetables <- https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea 
+#Sources: lookup_lda_cps_url <- https://geoportal.statistics.gov.uk/search?layout=grid&q=Lower%20Tier%20Local%20Authority%20to%20Upper%20Tier%20Local%20Authority%20Lookup
+
 ukcrimetables_url <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea/yearendingdecember2023/csptablesyedec23.xlsx"
 lookup_lda_cps_url <- "https://opendata.arcgis.com/api/v3/datasets/a90c5fce795e4df7af9f40d41f479405_0/downloads/data?format=csv&spatialRefId=4326&where=1%3D1"
 
