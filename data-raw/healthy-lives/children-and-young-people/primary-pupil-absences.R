@@ -7,11 +7,16 @@ library(readxl)
 
 # ---- Scrape primary schools URL ----
 #Source: https://www.gov.wales/absenteeism-primary-schools-september-2022-august-2023
+# Create temporary directory and file path
+temp_dir <- tempdir()
+temp_file <- file.path(temp_dir, "absenteeism.ods")
+
+# Download primary absences file to the temporary directory
 download.file("https://www.gov.wales/sites/default/files/statistics-and-research/2024-03/absenteeism-from-primary-schools-september-2022-to-august-2023-113.ods", 
-              destfile = "absenteeism.ods")
+              destfile = temp_file)
 
 # ---- Clean primary data ----
-primary_data <- read_ods("absenteeism.ods", sheet = 10, range = "A4:J92")|>
+primary_data <- read_ods(temp_file, sheet = 10, range = "A4:J92")|>
   filter(str_ends(Measure, "missed")) |>
   select(`Local authority`,
          `Primary percentage of absences` = `2022/23`
