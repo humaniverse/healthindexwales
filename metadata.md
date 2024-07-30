@@ -11,7 +11,7 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy Lives | Behavioural risk factors | Sedentary behaviour | | | | | |
 | Healthy Lives | Behavioural risk factors | Sexually transmitted infections (testing rate) | | | | | |
 | Healthy Lives | Behavioural risk factors | Sexually transmitted infections (diagnosis) | | | | | |
-| Healthy Lives | Behavioural risk factors | Smoking | | | | | |
+| Healthy Lives | Behavioural risk factors | Smoking | 2021-2023 |[StatsWales](https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles) |[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) |:heavy_check_mark: |:heavy_check_mark: |
 | Healthy Lives | Children and young people | Early Years Development | | | | | |
 | Healthy Lives | Children and young people | Pupil Absence | 2022/2023 | [Welsh Government](https://www.gov.wales/absenteeism-primary-schools-september-2022-august-2023), [Welsh Government](https://www.gov.wales/absenteeism-secondary-schools-september-2022-august-2023)|[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: - used percentage of primary school absences and secondary school absences as proxy, split into two separate indicators|:heavy_check_mark: |
 | Healthy Lives | Children and young people | Pupil Attainment | | | | | |
