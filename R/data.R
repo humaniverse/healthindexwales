@@ -28,6 +28,20 @@ NULL
 #' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/alcoholspecificdeathsintheukmaindataset}
 "hl_alcohol_misuse"
 
+#' Drug Poisoning Death Rates 2022
+#'
+#' Dataset containing information about drug poisoning death rates in Wales for the year 2022.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code of the local authority}
+#'   \item{Drug poisoning death rate}{Drug poisoning related deaths per 1,000 people}
+#'   \item{Year}{Year of the data}
+#' }
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/drugmisusedeathsbylocalauthority}
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales}
+"hl_drug_misuse"
+
 #' Greenspace Provision in Wales 2024
 #'
 #' Dataset containing information about greenspace provision in Wales
@@ -41,6 +55,21 @@ NULL
 #' }
   #' @source \url{https://fieldsintrust.org/insights/green-space-index}
 "hp_greenspace_access"
+
+#' Smoking Wales 2021-2023
+#'
+#' Dataset containing information about the percentage of smokers in Wales
+
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Percent smokers}{Percentage of people aged 16 and over in each local authority who are self-reported smokers, age standardised}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
+"hl_smoking"
 
 #' Physical activity Wales 2021-2023
 #'

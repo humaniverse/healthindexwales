@@ -5,13 +5,14 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Domain | Sub-domain | Indicator | Year | Source | License | Indicator Code Added to `R/` | Data Added to `data/` |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Healthy Lives | Behavioural risk factors | Alcohol Misuse | | | | | |
-| Healthy Lives | Behavioural risk factors | Drug Misuse | | | | | |
-| Healthy Lives | Behavioural risk factors | Healhy Eating | | | | | |
+| Healthy Lives | Behavioural risk factors | Drug Misuse | 2022 | [ONS - drug misuse](https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/drugmisusedeathsbylocalauthority) [ONS - population estimates](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/estimatesofthepopulationforenglandandwales)|[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: - used drug related deaths as proxy|:heavy_check_mark: |
+| Healthy Lives | Behavioural risk factors | Healthy Eating | 2021-2023 |[StatsWales](https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles) |[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) |:heavy_check_mark: |:heavy_check_mark: |
 | Healthy Lives | Behavioural risk factors | Physical Activity | 2021-2023 |[StatsWales](https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles) |[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) |:heavy_check_mark: |:heavy_check_mark: |
+>>>>>>> main
 | Healthy Lives | Behavioural risk factors | Sedentary behaviour | | | | | |
 | Healthy Lives | Behavioural risk factors | Sexually transmitted infections (testing rate) | | | | | |
 | Healthy Lives | Behavioural risk factors | Sexually transmitted infections (diagnosis) | | | | | |
-| Healthy Lives | Behavioural risk factors | Smoking | | | | | |
+| Healthy Lives | Behavioural risk factors | Smoking | 2021-2023 |[StatsWales](https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles) |[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) |:heavy_check_mark: |:heavy_check_mark: |
 | Healthy Lives | Children and young people | Early Years Development | | | | | |
 | Healthy Lives | Children and young people | Pupil Absence | | | | | |
 | Healthy Lives | Children and young people | Pupil Attainment | | | | | |
