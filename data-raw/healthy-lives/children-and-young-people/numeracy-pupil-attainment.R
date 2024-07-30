@@ -13,7 +13,7 @@ df <- statswales_get_dataset("SCHS0198")
 #Or if using 1-9 grading system: Grade 9 score = 58, Grade 8 score = 55, Grade 7 score = 52, Grade 6 score = 48, Grade 5 score = 44, Grade 4 score = 40, Grade 3 score = 32, Grade 2 score = 24, Grade 1 score = 16, Grade U Score = 0
 hl_pupil_attainment_numeracy <- df |>
   filter(str_starts(Year_Code, "2023") &
-           str_starts(Measure_Code, "NumPoints") & #Filters column to only unclude numeracy score
+           str_starts(Measure_Code, "NumPoints") & #Filters column to only include numeracy score
            str_starts(Gender_Code, "P") & #Filters column to include all genders
            str_starts(Area_AltCode1, "W0") & #Filters column to only include local authority
            str_starts(FSM_Code, "10")) |>
