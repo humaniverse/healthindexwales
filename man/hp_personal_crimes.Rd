@@ -9,7 +9,8 @@ A data frame with the following columns:
 \describe{
 \item{local_authority_code}{Character. The code for the local authority.}
 \item{local_authority_name}{Character. The name of the local authority.}
-\item{personal_crime_score}{Numeric. The personal crime score, as calculated by Health Index England, is the sum of personal crime offences (violence against the person, sexual offences, robbery, theft, criminal damage, and arson). This score is measured per 1,000 persons, based on the ONS mid-year population estimates for the local authority region. A lower score is better as it indicates lower crime for the region.}
+\item{personal_crime_per_1k}{Numeric. The rate of personal crime (violence against the person, sexual offences, robbery, theft against the person, criminal damage and arson) per 1,000 population, based on the ONS mid-year population estimates for the local authority region. A lower rate is better as it indicates lower crime for the region.}
+\item{date}{Date. The publication date of the population snapshot}
 }
 }
 \source{

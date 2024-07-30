@@ -1,7 +1,7 @@
 # Load necessary libraries
 library(tidyverse)
 library(readxl)
-library(devtools)
+library(janitor)
 library(usethis)
 
 # Define URLs for datasets
@@ -28,8 +28,8 @@ ukcrimetables_with_ltla <- ukcrimetables |>
 hp_wales_crime <- ukcrimetables_with_ltla |>
   filter(grepl("^W", LAD23CD))
 
-# Define numeric columns and convert to numeric, replacing NA values with 0
-numeric_columns <- c(
+# Define numeric columns related to personal crime and convert to numeric, replacing NA values with 0
+personal_crime_columns <- c(
   "Violence against the person",
   "Sexual offences",
   "Robbery",
@@ -38,69 +38,60 @@ numeric_columns <- c(
   "Population figures (mid-2022) - rounded to 100"
 )
 
-hp_wales_crime[numeric_columns] <- lapply(
-  hp_wales_crime[numeric_columns],
+hp_wales_crime[personal_crime_columns] <- lapply(
+  hp_wales_crime[personal_crime_columns],
   function(x) as.numeric(x) |> replace_na(0)
 )
 
-# Rename columns for clarity
-hp_wales_crime <- hp_wales_crime |>
+# Clean column names using janitor and rename LTLA columns
+hp_personal_crime <- hp_wales_crime |>
+  clean_names() |>
   rename(
-    police_force_area_code = `Police Force Area code`,
-    police_force_area_name = `Police Force Area name`,
-    community_safety_partnership_code = `Community Safety Partnership code`,
-    community_safety_partnership_name = `Community Safety Partnership name`,
-    local_authority_code = `Local Authority code`,
-    local_authority_name = `Local Authority name`,
-    population_2022 = `Population figures (mid-2022) - rounded to 100`,
-    total_recorded_crime = `Total recorded crime\r\n (excluding fraud)`,
-    violence_person = `Violence against the person`,
-    sexual_offences = `Sexual offences`,
-    robbery = `Robbery`,
-    theft_person = `Theft from the person`,
-    criminal_damage_and_arson = `Criminal damage and arson`,
-    lad23cd = `LAD23CD`,
-    lad23nm = `LAD23NM`,
-    csp23nm = `CSP23NM`,
-    pfa23cd = `PFA23CD`,
-    pfa23nm = `PFA23NM`,
-    object_id = `ObjectId`
+    ltla21_code = lad23cd,
+    ltla21_name = lad23nm
   )
 
-# Calculate personal crime score 
-# Personal crime score according to the HIE is the sum of Violence against the person, Sexual offences, and Robbery.
-#The score value is per 1000 persons (of the total population measured using the ONS mid year population estimates) and the lower the value the better.
-hp_personal_crimes <- hp_wales_crime |>
+# Calculate personal crime rate per 1k population and add the date column
+hp_personal_crime <- hp_personal_crime |>
   mutate(
-    personal_crime_score = violence_person + sexual_offences + robbery
+    personal_crime_per_1k = (
+      violence_against_the_person +
+        sexual_offences +
+        robbery +
+        theft_from_the_person +
+        criminal_damage_and_arson
+    ),
+    date = as.Date("2023-11-23")
   ) |>
   # Adjust Local Authority names and codes for Cwm Taf ("Combined Local Authority") into Merthyr Tydfil and Rhondda Cynon Taf
   mutate(
-    local_authority_code = if_else(
-      local_authority_name == "Combined Local Authority",
+    ltla21_code = if_else(
+      ltla21_name == "Combined Local Authority",
       case_when(
         row_number() == 18 ~ "W06000016",
         row_number() == 19 ~ "W06000024",
-        TRUE ~ as.character(local_authority_code)
+        TRUE ~ as.character(ltla21_code)
       ),
-      as.character(local_authority_code)
+      as.character(ltla21_code)
     ),
-    local_authority_name = if_else(
-      local_authority_name == "Combined Local Authority",
+    ltla21_name = if_else(
+      ltla21_name == "Combined Local Authority",
       case_when(
         row_number() == 18 ~ "Rhondda Cynon Taf",
         row_number() == 19 ~ "Merthyr Tydfil",
-        TRUE ~ as.character(local_authority_name)
+        TRUE ~ as.character(ltla21_name)
       ),
-      as.character(local_authority_name)
+      as.character(ltla21_name)
     )
   ) |>
   # Select only relevant columns for final dataframe
   select(
-    local_authority_code,
-    local_authority_name,
-    personal_crime_score
+    ltla21_code,
+    ltla21_name,
+    personal_crime_per_1k,
+    date
   )
 
 # Save the data using USETHIS function
-usethis::use_data(hp_personal_crimes, overwrite = TRUE)
+usethis::use_data(hp_personal_crime, overwrite = TRUE)
+
