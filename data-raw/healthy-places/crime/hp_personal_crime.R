@@ -1,6 +1,7 @@
 # Load necessary libraries
 library(tidyverse)
 library(readxl)
+library(devtools)
 library(usethis)
 
 # Define URLs for datasets
@@ -19,7 +20,7 @@ download.file(lookup_lda_cps_url, temp_lookup_csv, mode = "wb")
 ukcrimetables <- read_excel(temp_ukcrime_xlsx, sheet = 8, skip = 7)
 lookup_data <- read_csv(temp_lookup_csv)
 
-# Merging UK crime tables with LTLA dataset
+# Merge UK crime tables with LTLA dataset
 ukcrimetables_with_ltla <- ukcrimetables |>
   left_join(lookup_data, by = c("Community Safety Partnership code" = "CSP23CD"))
 
@@ -27,15 +28,13 @@ ukcrimetables_with_ltla <- ukcrimetables |>
 hp_wales_crime <- ukcrimetables_with_ltla |>
   filter(grepl("^W", LAD23CD))
 
-# Defining numeric columns and converting to numeric, replacing NA values with 0
+# Define numeric columns and convert to numeric, replacing NA values with 0
 numeric_columns <- c(
   "Violence against the person",
   "Sexual offences",
   "Robbery",
   "Theft from the person",
   "Criminal damage and arson",
-  "Bicycle theft",
-  "Shoplifting",
   "Population figures (mid-2022) - rounded to 100"
 )
 
@@ -44,7 +43,7 @@ hp_wales_crime[numeric_columns] <- lapply(
   function(x) as.numeric(x) |> replace_na(0)
 )
 
-# Rename columns into snake_case for clarity
+# Rename columns for clarity
 hp_wales_crime <- hp_wales_crime |>
   rename(
     police_force_area_code = `Police Force Area code`,
@@ -56,28 +55,10 @@ hp_wales_crime <- hp_wales_crime |>
     population_2022 = `Population figures (mid-2022) - rounded to 100`,
     total_recorded_crime = `Total recorded crime\r\n (excluding fraud)`,
     violence_person = `Violence against the person`,
-    homicide = `Homicide`,
-    illegal_driving_death_or_serious_injury = `Death or serious injury caused by illegal driving`,
-    violence_with_injury = `Violence with injury`,
-    violence_without_injury = `Violence without injury`,
-    stalking_and_harassment = `Stalking and harassment`,
     sexual_offences = `Sexual offences`,
     robbery = `Robbery`,
-    theft_offences = `Theft offences`,
-    burglary = `Burglary`,
-    residential_burglary_per_1000_population = `Residential burglary (per 1,000 population)`,
-    residential_burglary_per_1000_household = `Residential burglary (per 1,000 household)`,
-    non_residential_burglary = `Non-residential burglary`,
-    vehicle_offences = `Vehicle offences`,
     theft_person = `Theft from the person`,
-    bicycle_theft = `Bicycle theft`,
-    shoplifting = `Shoplifting`,
-    all_other_theft_offences = `All other theft offences`,
     criminal_damage_and_arson = `Criminal damage and arson`,
-    drug_offences = `Drug offences`,
-    possession_of_weapons_offences = `Possession of weapons offences`,
-    public_order_offences = `Public order offences`,
-    miscellaneous_crimes_against_society = `Miscellaneous crimes against society`,
     lad23cd = `LAD23CD`,
     lad23nm = `LAD23NM`,
     csp23nm = `CSP23NM`,
@@ -86,11 +67,12 @@ hp_wales_crime <- hp_wales_crime |>
     object_id = `ObjectId`
   )
 
-# Calculate low-level crime score 
-#Low Level Crime according to HIE is the sum of Bicycle Theft and Shoplifting
-hp_low_level_crimes <- hp_wales_crime |>
+# Calculate personal crime score 
+# Personal crime score according to the HIE is the sum of Violence against the person, Sexual offences, and Robbery.
+#The score value is per 1000 persons (of the total population measured using the ONS mid year population estimates) and the lower the value the better.
+hp_personal_crimes <- hp_wales_crime |>
   mutate(
-    low_level_crime_score = bicycle_theft + shoplifting
+    personal_crime_score = violence_person + sexual_offences + robbery
   ) |>
   # Adjust Local Authority names and codes for Cwm Taf ("Combined Local Authority") into Merthyr Tydfil and Rhondda Cynon Taf
   mutate(
@@ -113,13 +95,12 @@ hp_low_level_crimes <- hp_wales_crime |>
       as.character(local_authority_name)
     )
   ) |>
-  # Selecting only relevant columns for final output
+  # Select only relevant columns for final dataframe
   select(
     local_authority_code,
     local_authority_name,
-    low_level_crime_score
+    personal_crime_score
   )
 
-#Saving using USETHIS function
-usethis::use_data(hp_low_level_crimes, overwrite = TRUE)
-
+# Save the data using USETHIS function
+usethis::use_data(hp_personal_crimes, overwrite = TRUE)
