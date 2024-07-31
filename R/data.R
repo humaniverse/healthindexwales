@@ -184,3 +184,18 @@ NULL
 #' }
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 "hl_adult_overweight_obese"
+
+#' Percentage of Overweight and Obese Children (aged 4-5) in Wales
+#'
+#' Dataset containing information about the percentage of overweight and obese children in Wales aged 4-5 (reception age)
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe
+#' Note: The local authority name for Powys in the original dataset was written as Powys THB representing the Teaching Health Board.
+#' The name was changed for consistency as Powys THB and Powys County Council cover the same areas.
+#'   \item{ltla21_code}{Area code} 
+#'   \item{Percentage_overweight_obese}{The percentage of overweight and obese children aged 4-5 in each local authority of Wales}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url {https://phw.nhs.wales/services-and-teams/child-measurement-programme/cmp-2022-23/}
+"hl_reception_overweight_obese"

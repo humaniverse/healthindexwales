@@ -20,7 +20,7 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy Lives | Physiological risk factors | Hypertension | | | | | |
 | Healthy Lives | Physiological risk factors | Low Birth Weight |2023 |[StatsWales](https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Community-Child-Health) |[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)| :heavy_check_mark:| :heavy_check_mark:|
 | Healthy Lives | Physiological risk factors | Overweight and Obesity in Adults |2021-2023|[StatsWales](https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Community-Child-Health) |[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)| :heavy_check_mark: |:heavy_check_mark: |
-| Healthy Lives | Physiological risk factors | Overweight and Obesity in Children (Reception) | | | | | |
+| Healthy Lives | Physiological risk factors | Overweight and Obesity in Children (Reception) |2022-2023|[PublicHealthWales](https://phw.nhs.wales/services-and-teams/child-measurement-programme/cmp-2022-23/)|[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)|:heavy_check_mark:|:heavy_check_mark:|
 | Healthy Lives | Physiological risk factors | Overweight and Obesity in Children (Year 6) | | | | | |
 | Healthy Lives | Protective measures | Cancer Screening Attendace (Bowel) | | | | | |
 | Healthy Lives | Protective measures | Cancer Screening Attendace (Breast) | | | | | |
