@@ -158,3 +158,45 @@ NULL
 #' }
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 "hl_physical_activity"
+
+#' Bowel Cancer Screening Attendance Wales 2021-2022
+#'
+#' Dataset containing information about the percentage of adults age 58-74 who attended bowel cancer screenings in Wales
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Screening uptake percentage}{Percentage of adults out of those invited to attend bowel cancer screening (aged 58-74) who attended their screening. Participants were deemed to have responded to their invitation if the bowel screening programme received a used test kit within six months following their invitation.}
+#'   \item{Year}{Financial Year}
+#'.  ...
+#' }
+#' @source \url{https://phw.nhs.wales/services-and-teams/screening/bowel-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+"hl_cancer_screening_bowel"
+
+#' Breast Cancer Screening Attendance Wales 2021-2022
+#'
+#' Dataset containing information about the percentage of women age 50-70 who attended breast cancer screenings
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Screening uptake percentage}{Percentage of adults out of those invited to attend breast cancer screening (aged 50-70) who attended their screening. Women were counted as having responded to their invitation if they attended for screening within six months of original invitation.}
+#'   \item{Year}{Time frame for last recorded Breast Cancer screening, May 2021}
+#'.  ...
+#' }
+#' @source \url{https://phw.nhs.wales/services-and-teams/screening/breast-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+"hl_cancer_screening_breast"
+
+#' Cervical Cancer Screening Attendance Wales 2021-2022
+#'
+#' Dataset containing information about the percentage of women age 25-64 who attended cervical cancer screenings
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Screening uptake percentage}{Percentage of adults out of those invited to attend cervical cancer screening (aged 25-64) who attended their screening. Women were counted as having responded if they are aged 25-49 years who have received an adequate test in the last 3.5 years and if they are aged 50-64 years who received an adequate test in the last 5.5 years.}
+#'   \item{Year}{Financial Year}
+#'.  ...
+#' }
+#' @source \url{https://phw.nhs.wales/services-and-teams/cervical-screening-wales/information-resources/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+"hl_cancer_screening_cervical"
