@@ -16,7 +16,7 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy Lives | Children and young people | Pupil Absence | | | | | |
 | Healthy Lives | Children and young people | Pupil Attainment | | | | | |
 | Healthy Lives | Children and young people | Teenage pregnancy | | | | | |
-| Healthy Lives | Children and young people | Young People's Education, Employment and Training | | | | | |
+| Healthy Lives | Children and young people | Young People's Education, Employment and Training |2009/2010 |[StatsWales](https://statswales.gov.wales/Catalogue/Education-and-Skills/Post-16-Education-and-Training/Further-Education-and-Work-Based-Learning/Standardised-Participation-Rates) |[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) |:heavy_check_mark: - aged 16-20 used as proxy | :heavy_check_mark:|
 | Healthy Lives | Physiological risk factors | Hypertension | | | | | |
 | Healthy Lives | Physiological risk factors | Low Birth Weight | | | | | |
 | Healthy Lives | Physiological risk factors | Overweight and Obesity in Adults | | | | | |
