@@ -158,3 +158,17 @@ NULL
 #' }
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 "hl_physical_activity"
+
+#' Low Birth Weight Percentage by year Wales
+#'
+#' Dataset containing information about the percentage of live births under 2500g in Wales
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Percentage_low_birth_weight}{The percentage of singleton live births under 2500g in each local authority of Wales}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
+"hl_low_birth_weight"
+
