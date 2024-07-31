@@ -172,3 +172,15 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 "hl_low_birth_weight"
 
+#' Percentage of Overweight and Obese Adults (aged 16+) in Wales
+#'
+#' Dataset containing information about the percentage of overweight and obese adults in Wales aged 16+
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Percentage_overweight_obese}{The percentage of overweight and obese adults in each local authority of Wales}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
+"hl_adult_overweight_obese"
