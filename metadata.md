@@ -14,7 +14,6 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy Lives | Behavioural risk factors | Smoking | 2021-2023 |[StatsWales](https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles) |[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) |:heavy_check_mark: |:heavy_check_mark: |
 | Healthy Lives | Children and young people | Early Years Development | 2017 |[StatsWales](https://statswales.gov.wales/Catalogue/Education-and-Skills/Schools-and-Teachers/Examinations-and-Assessments/Foundation-Phase) |[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) |:heavy_check_mark: - used Foundation Phase as proxy, had to use 2017 data as Welsh Government stopped publishing local authority level foundation level data from 2018 onwards|:heavy_check_mark: |
 | Healthy Lives | Children and young people | Pupil Absence |  2022/2023 | [Welsh Government](https://www.gov.wales/absenteeism-primary-schools-september-2022-august-2023), [Welsh Government](https://www.gov.wales/absenteeism-secondary-schools-september-2022-august-2023)|[OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: - used percentage of primary school absences and secondary school absences as proxy, split into two separate indicators|:heavy_check_mark: |
->>>>>>> main
 | Healthy Lives | Children and young people | Pupil Attainment | | | | | |
 | Healthy Lives | Children and young people | Teenage pregnancy | | | | | |
 | Healthy Lives | Children and young people | Young People's Education, Employment and Training | | | | | |
@@ -69,8 +68,8 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy Places | Access to services | Distance to Sports or Leisure Facilities | | | | | |
 | Healthy Places | Access to services | Internet access | | | | | |
 | Healthy Places | Access to services | Patients offered acceptable GP practice appointments | | | | | |
-| Healthy Places | Crime | Low-level crime | | | | | |
-| Healthy Places | Crime | Personal crime | | | | | |
+| Healthy Places | Crime | Low-level crime | 2023 |[ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea)|OGL3 |:heavy_check_mark:|:heavy_check_mark:|
+| Healthy Places | Crime | Personal crime | 2023 |[ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea) | OGL3 |:heavy_check_mark:|:heavy_check_mark: |
 | Healthy Places | Economic and working conditions | Child poverty | | | | | |
 | Healthy Places | Economic and working conditions | Job-related Training | | | | | |
 | Healthy Places | Economic and working conditions | Unemployment | | | | | |
