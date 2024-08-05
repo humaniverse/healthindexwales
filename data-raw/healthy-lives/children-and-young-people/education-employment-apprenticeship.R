@@ -5,7 +5,7 @@ library(readxl)
 # ---- Load dataset and filter ----
 #Participation rate under 20 is participation rate for under 20 year olds in the 2009/10 student cohort in post-16 (after Key Stage 4) Education and Training 
 #Participation rate is calculated using census data population count by local authority, with participation measured against the Welsh national average of 100. Participation rates above 100 reflect high participation rates, below 100 low participation rates
-eea_data <- read_excel("data/over_16.xlsx") |>
+eea_data <- read_excel("data-raw/healthy-lives/children-and-young-people/over_16.xlsx") |>
   filter(!str_starts(...1, "Wales")) |>
   select("LA name" = `...1`,
          "Participation rate under 20" = `Post-16 learners aged under 20`)
