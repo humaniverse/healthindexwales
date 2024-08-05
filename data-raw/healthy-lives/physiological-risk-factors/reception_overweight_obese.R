@@ -3,18 +3,12 @@ library(tidyverse)
 library(readxl)
 library(devtools)
 
-# ---- Define paths and URLs ----
-# Source: https://phw.nhs.wales/services-and-teams/child-measurement-programme/cmp-2022-23/
-# File path for Child Measurement Programme Data 2022-2023 (CMP)
-local_cmp_file_path <- "C:/Users/ZaraMorgan/Downloads/2. CMP_Data_2022_2023.xlsx"
-
+# ---- Load the LTLA code to name lookup file ----
 # URL for the LTLA lookup file
 ltla_url <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/migrationwithintheuk/datasets/userinformationenglandandwaleslocalauthoritytoregionlookup/june2020/lasregionew2021lookup.xlsx"
 
-# ---- Create a temporary file path for LTLA lookup ----
 temp_ltla_file <- tempfile(fileext = ".xlsx")
 
-# ---- Download the LTLA lookup file ----
 download.file(ltla_url, temp_ltla_file, mode = "wb")
 
 # ---- Read and filter the LTLA lookup file ----
@@ -22,7 +16,16 @@ code_lookup <- read_excel(temp_ltla_file, range = "A5:D366") |>
   filter(str_starts(`LA code`, "W0")) |>
   select(`LA code`, `LA name`)
 
-# ---- Define unwanted geographies ----
+# ---- Reading and filtering the CMP Data Excel file ----
+# Source: https://phw.nhs.wales/services-and-teams/child-measurement-programme/cmp-2022-23/
+
+cmp_url <- "https://phw.nhs.wales/services-and-teams/child-measurement-programme/cmp-2022-23/2-cmp-data-2022-2023/"
+
+temp_cmp <- tempfile(fileext = ".xlsx")
+
+download.file(cmp_url, temp_cmp, mode = "wb")
+
+# Remove unwanted geographies in the datatable
 unwanted_geographies <- c(
   "Wales", "Least deprived fifth", "Next least deprived",
   "Middle deprived", "Next most deprived", "Most deprived fifth",
@@ -30,9 +33,7 @@ unwanted_geographies <- c(
   "Cardiff and Vale UHB", "Hywel Dda UHB", "Aneurin Bevan UHB"
 )
 
-# ---- Reading and filtering the CMP Data Excel file ----
-# Read the CMP Data Excel file
-child_weight_data_2022_2023 <- read_excel(local_cmp_file_path, sheet = "3b", skip = 3) |>
+child_weight_data_2022_2023 <- read_excel(temp_cmp, sheet = "3b", skip = 3) |>
   filter(!Geography %in% unwanted_geographies) |>
   mutate(Geography = recode(Geography, "Powys THB" = "Powys"))
 
