@@ -173,3 +173,157 @@ NULL
 #' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/conceptionandfertilityrates/datasets/quarterlyconceptionstowomenagedunder18englandandwales}
 #' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland}
 "hl_teenage_pregnancy"?
+
+#' Bowel Cancer Screening Attendance Wales 2021-2022
+#'
+#' Dataset containing information about the percentage of adults age 58-74 who attended bowel cancer screenings in Wales
+
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Screening uptake percentage}{Percentage of adults out of those invited to attend bowel cancer screening (aged 58-74) who attended their screening. Participants were deemed to have responded to their invitation if the bowel screening programme received a used test kit within six months following their invitation.}
+#'   \item{Year}{Financial Year}
+#'.  ...
+#' }
+#' @source \url{https://phw.nhs.wales/services-and-teams/screening/bowel-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+"hl_cancer_screening_bowel"
+
+#' Breast Cancer Screening Attendance Wales 2021-2022
+#'
+#' Dataset containing information about the percentage of women age 50-70 who attended breast cancer screenings
+
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Screening uptake percentage}{Percentage of adults out of those invited to attend breast cancer screening (aged 50-70) who attended their screening. Women were counted as having responded to their invitation if they attended for screening within six months of original invitation.}
+#'   \item{Year}{Time frame for last recorded Breast Cancer screening, May 2021}
+#'.  ...
+#' }
+#' @source \url{https://phw.nhs.wales/services-and-teams/screening/breast-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+"hl_cancer_screening_breast"
+
+#' Cervical Cancer Screening Attendance Wales 2021-2022
+#'
+#' Dataset containing information about the percentage of women age 25-64 who attended cervical cancer screenings
+
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Screening uptake percentage}{Percentage of adults out of those invited to attend cervical cancer screening (aged 25-64) who attended their screening. Women were counted as having responded if they are aged 25-49 years who have received an adequate test in the last 3.5 years and if they are aged 50-64 years who received an adequate test in the last 5.5 years.}
+#'   \item{Year}{Financial Year}
+#'.  ...
+#' }
+#' @source \url{https://phw.nhs.wales/services-and-teams/cervical-screening-wales/information-resources/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+"hl_cancer_screening_cervical"
+
+#' Diphtheria vaccination coverage Wales 2021-2023
+#'
+#' Dataset containing information about the percentage of children in Wales immunized against diphtheria by their second birthday
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Diphtheria percentage coverage by 2nd birthday}{Percentage of children immunised against diphtheria reaching their second birthday in the year}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
+"hl_diphtheria_vaccination_coverage"
+
+#' Hib vaccination coverage Wales 2021-2023
+#'
+#' Dataset containing information about the percentage of children in Wales immunized against haemophilus influenzae type B by their second birthday
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Hib percentage coverage by 2nd birthday}{Percentage of children immunised against haemophilus influenzae type B reaching their second birthday in the year}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
+"hl_hib_vaccination_coverage"
+
+#' Tetanus vaccination coverage Wales 2021-2023
+#'
+#' Dataset containing information about the percentage of children in Wales immunized against tetanus by their second birthday
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Tetanus percentage coverage by 2nd birthday}{Percentage of children immunised against tetanus reaching their second birthday in the year}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
+"hl_tetanus_vaccination_coverage"
+
+#' Whooping cough vaccination coverage Wales 2021-2023
+#'
+#' Dataset containing information about the percentage of children in Wales immunized against whooping cough by their second birthday
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Whooping cough percentage coverage by 2nd birthday}{Percentage of children immunised against whooping cough reaching their second birthday in the year}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
+"hl_whooping_cough_vaccination_coverage"
+
+#' Polio vaccination coverage Wales 2021-2023
+#'
+#' Dataset containing information about the percentage of children in Wales immunized against polio by their second birthday
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Polio percentage coverage by 2nd birthday}{Percentage of children immunised against polio reaching their second birthday in the year}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
+"hl_polio_vaccination_coverage"
+
+#' MMR vaccination coverage Wales 2021-2023
+#'
+#' Dataset containing information about the percentage of children in Wales immunized against Measles, Mumps and Rubella (MMR) by their second birthday
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{MMR percentage coverage by 2nd birthday}{Percentage of children immunised against Measles, Mumps and Rubella (MMR) reaching their second birthday in the year}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
+"hl_mmr_vaccination_coverage"
+
+#' Pneumococcal vaccination coverage Wales 2021-2023
+#'
+#' Dataset containing information about the percentage of children in Wales immunized against pneumococcal disease by their second birthday
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Pneumococcal percentage coverage by 2nd birthday}{Percentage of children immunised against pneumococcal disease reaching their second birthday in the year}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
+"hl_pneumococcal_vaccination_coverage"
+
+#' Meningitis B vaccination coverage Wales 2021-2023
+#'
+#' Dataset containing information about the percentage of children in Wales immunized against meningitis B by their second birthday
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Meningitis B percentage coverage by 2nd birthday}{Percentage of children immunised against meningitis B reaching their second birthday in the year}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
+"hl_meningitisb_vaccination_coverage"
