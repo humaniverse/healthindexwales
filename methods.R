@@ -9,41 +9,46 @@ standardised <- function(file_path, value_column, ltla_column) {
   #Load dataset
   load(file_path)
   
-  #Extract dataset name
-  dataset_name <- gsub("data/", "", file_path)
-  dataset_name <- gsub(".rda", "", dataset_name)
+  #Extract dataset name (to get name as appears in global environment)
+  dataset_name <- gsub("data/", "", file_path) #Removes "data/"
+  dataset_name <- gsub(".rda", "", dataset_name) #Removes ".rda"
   
   #Get dataset variable dynamically
-  dataset <- get(ls(pattern = dataset_name))
+  dataset <- get(ls(pattern = dataset_name)) #Finds and retrieves object in R environment whose name matches string assigned to dataset_name
   
-  #Set up the plotting layout: 2 rows, 1 column
+  #Set up plotting layout to plot boxplot and density graph next to each other
   par(mfrow = c(1, 2))
   
   #Check for outliers
-  boxplot(dataset[[value_column]], main = paste("Boxplot of", value_column), cex.main = 0.5)
+  #Create boxplot
+  boxplot(dataset[[value_column]], main = paste("Boxplot of", value_column), cex.main = 0.5) #Sets font size to 0.5 so all fits on plots pane
+  
+  #Run grubbs test
   grubbs_test <- grubbs.test(dataset[[value_column]])
   grubbs_p_value <- grubbs_test$p.value
   if (grubbs_p_value < 0.05) {
     print(paste("Outliers test: Statistically significant (p =", grubbs_p_value, ")"))
   } else {
     print(paste("Outliers test: Not statistically significant (p =", grubbs_p_value, ")"))
-  }
+  } #Using 5% significance level
   
   # Check for skewness
+  #Create density plot
   plot(density(dataset[[value_column]]), main = paste("Density plot of", value_column), cex.main = 0.5)
+  
+  #Run shapiro test - tests whether data normally distributed
   skewness_value <- skewness(dataset[[value_column]], na.rm = TRUE)
   skew_test_p_value <- shapiro.test(dataset[[value_column]])$p.value
   if (skew_test_p_value < 0.05) {
     print(paste("Skewness test: Statistically significant (p =", skew_test_p_value, ", Skewness =", skewness_value, ")"))
   } else {
     print(paste("Skewness test: Not statistically significant (p =", skew_test_p_value, ", Skewness =", skewness_value, ")"))
-  }
+  } #Using 5% significance level
   
   # Standardize the data
-  library(dplyr)
   standardised_data <- dataset |>
-    dplyr::mutate(z_score = ((dataset[[value_column]] - mean(dataset[[value_column]], na.rm = TRUE)) / sd(dataset[[value_column]], na.rm = TRUE)) * -1) |>
-    dplyr::select(all_of(ltla_column), z_score)
+    dplyr::mutate(z_score = ((dataset[[value_column]] - mean(dataset[[value_column]], na.rm = TRUE)) / sd(dataset[[value_column]], na.rm = TRUE)) * -1) |> #Create new column of z scores
+    dplyr::select(all_of(ltla_column), z_score) 
 }
 
 # ---- Alcohol misuse standardised ----
