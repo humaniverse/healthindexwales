@@ -35,8 +35,8 @@ unwanted_geographies <- c(
 child_weight_data_2022_2023 <- read_excel(local_cmp_file_path, sheet = "3b", skip = 3) |>
   filter(!Geography %in% unwanted_geographies) |>
   mutate(Geography = recode(Geography, "Powys THB" = "Powys"))
-  
-  # ---- Merging child_weight_data_2022_2023 with code_lookup ----
+
+# ---- Merging child_weight_data_2022_2023 with code_lookup ----
 hl_reception_overweight_obese <- child_weight_data_2022_2023 |>
   left_join(code_lookup, by = c("Geography" = "LA name")) |>
   mutate(Year = "2022-2023") |>
@@ -45,5 +45,5 @@ hl_reception_overweight_obese <- child_weight_data_2022_2023 |>
     percentage_overweight_obese = `91st centile and above (%)`,
     Year
   )
-  # ---- Saving to data/ folder using usethis:: ----
-  usethis::use_data(hl_reception_overweight_obese, overwrite = TRUE)
+# ---- Saving to data/ folder using usethis:: ----
+usethis::use_data(hl_reception_overweight_obese, overwrite = TRUE)
