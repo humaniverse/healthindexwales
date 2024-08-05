@@ -165,7 +165,7 @@ NULL
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #'   \item{ltla21_code}{Area code}
-#'   \item{Percentage_low_birth_weight}{The percentage of singleton live births under 2500g in each local authority of Wales}
+#'   \item{percentage_low_birth_weight}{The percentage of singleton live births under 2500g in each local authority of Wales}
 #'   \item{Year}{Time frame}
 #'.  ...
 #' }
@@ -178,7 +178,7 @@ NULL
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #'   \item{ltla21_code}{Area code}
-#'   \item{Percentage_overweight_obese}{The percentage of overweight and obese adults in each local authority of Wales}
+#'   \item{percentage_overweight_obese}{The percentage of overweight and obese adults in each local authority of Wales}
 #'   \item{Year}{Time frame}
 #'.  ...
 #' }
@@ -193,7 +193,7 @@ NULL
 #' Note: The local authority name for Powys in the original dataset was written as Powys THB representing the Teaching Health Board.
 #' The name was changed for consistency as Powys THB and Powys County Council cover the same areas.
 #'   \item{ltla21_code}{Area code} 
-#'   \item{Percentage_overweight_obese}{The percentage of overweight and obese children aged 4-5 in each local authority of Wales}
+#'   \item{percentage_overweight_obese}{The percentage of overweight and obese children aged 4-5 in each local authority of Wales}
 #'   \item{Year}{Time frame}
 #'.  ...
 #' }
