@@ -3,8 +3,16 @@
 \docType{data}
 \name{hl_physical_activity}
 \alias{hl_physical_activity}
-\title{Physical activity Wales 2021-2023}
+\title{Smoking Wales 2021-2023}
 \format{
+A data frame with 22 rows and 3 variables:
+\describe{
+\item{ltla21_code}{Area code}
+\item{Percent smokers}{Percentage of people aged 16 and over in each local authority who are self-reported smokers, age standardised}
+\item{Year}{Time frame}
+.  ...
+}
+
 A data frame with 22 rows and 3 variables:
 \describe{
 \item{ltla21_code}{Area code}
@@ -15,11 +23,17 @@ A data frame with 22 rows and 3 variables:
 }
 \source{
 \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
+"hl_smoking"
+Physical activity Wales 2021-2023
+
+Dataset containing information about the percentage of physically active adults in Wales
+
+\url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 }
 \usage{
 hl_physical_activity
 }
 \description{
-Dataset containing information about the percentage of physically active adults in Wales
+Dataset containing information about the percentage of smokers in Wales
 }
 \keyword{datasets}
