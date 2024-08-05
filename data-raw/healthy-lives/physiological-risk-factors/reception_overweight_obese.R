@@ -24,7 +24,7 @@ unwanted_geographies <- c(
 # ---- Reading and filtering Excel file ----
 X2_CMP_Data_2022_2023 <- read_excel(temp_file, sheet = "3b", skip = 3) |>
   filter(!Geography %in% unwanted_geographies) |>
-  mutate(Geography = recode(Geography, "Powys THB" = "Powys"))
+  mutate(Geography = recode(Geography, "Powys THB" = "Powys")) 
 
 # ---- Scrape LTLA lookup file ----
 # Specify the URL

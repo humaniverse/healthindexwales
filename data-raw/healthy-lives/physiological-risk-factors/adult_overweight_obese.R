@@ -8,15 +8,15 @@ library(statswalesr)
 df <- statswales_get_dataset("hlth5072")
 
 # ---- Cleaning the dataset ----
-# filtered dataset includes percentage of adults aged 16+ with a BMI (>25) classified as overweight (including obese) in Wales.
+# Filtered dataset includes percentage of adults aged 16+ with a BMI (>25) classified as overweight (including obese) in Wales.
 hl_adult_overweight_obese <- df |>
   filter(
     str_starts(Variable_Code, "Dvbmiowob2") & # % of individuals who are overweight (including obese) BMI 25+
-      str_starts(Year_ItemName_ENG, "2021-22 & 2022-23") & # the years the data was collected, spanning a 2 year period
-      str_starts(Area_AltCode1, "W0") & # filters column by local authority
+      str_starts(Year_ItemName_ENG, "2021-22 & 2022-23") & # The years the data was collected, spanning a 2 year period
+      str_starts(Area_AltCode1, "W0") & # Filters column by local authority
       str_starts(Measure_ItemNotes_ENG, "mean not % where stated") & # when the percentage is not stated, the mean value is used instead
-      str_starts(Measure_Code, "1") & # measuring the percentage of adults (age 16+)
-      str_starts(Standardisation_Code, "agestand") # the standardised age
+      str_starts(Measure_Code, "1") & # Measuring the percentage of adults (age 16+)
+      str_starts(Standardisation_Code, "agestand") # The standardised age
   ) |>
   select(
     "ltla21_code" = Area_AltCode1,
