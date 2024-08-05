@@ -143,7 +143,7 @@ NULL
 #'.  ...
 #' }
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
-"hl_smoking"
+#' "hl_smoking"
 
 #' Physical activity Wales 2021-2023
 #'
@@ -158,6 +158,20 @@ NULL
 #' }
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 "hl_physical_activity"
+
+#' Pupil Attainment Wales 2022/2023
+#'
+#' Dataset containing information about the numeracy point score of GCSE students in Wales
+
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{Numeracy Point Score}{Score comparing GCSE numeracy ability in Wales. Score is calculated by taking the single best grade for each GCSE student out of GCSE Mathematics or GCSE Mathematics – numeracy. Each student is assigned a score based on that grade: Grade A* = 58, Grade A = 52, Grade B = 46, Grade C = 40, Grade D = 34, Grade E = 28, Grade F = 22, Grade G = 16, Grade U/X = 0. Or, if using the 1-9 grading system: Grade 9 score = 58, Grade 8 score = 55, Grade 7 score = 52, Grade 6 score = 48, Grade 5 score = 44, Grade 4 score = 40, Grade 3 score = 32, Grade 2 score = 24, Grade 1 score = 16, Grade U Score = 0. The literacy point score is the average of each student's score, calculated for each local authority}
+#'   \item{Year}{Academic year}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Education-and-Skills/Schools-and-Teachers/Examinations-and-Assessments/Key-Stage-4}
+"hl_pupil_attainment_numeracy"
 
 #' Teenage Pregnancy Wales 2021-2023
 #'
@@ -327,3 +341,4 @@ NULL
 #' }
 #' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
 "hl_meningitisb_vaccination_coverage"
+
