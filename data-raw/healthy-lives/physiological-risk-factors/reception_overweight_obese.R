@@ -36,7 +36,7 @@ child_weight_data_2022_2023 <- read_excel(local_cmp_file_path, sheet = "3b", ski
   filter(!Geography %in% unwanted_geographies) |>
   mutate(Geography = recode(Geography, "Powys THB" = "Powys"))
   
-  # ---- Merging X2_CMP_Data_2022_2023 with code_lookup ----
+  # ---- Merging child_weight_data_2022_2023 with code_lookup ----
 hl_reception_overweight_obese <- child_weight_data_2022_2023 |>
   left_join(code_lookup, by = c("Geography" = "LA name")) |>
   mutate(Year = "2022-2023") |>
