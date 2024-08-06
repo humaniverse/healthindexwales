@@ -3,6 +3,9 @@ library(dplyr)
 library(outliers)
 library(e1071)
 
+#Join datasets
+joined_data <- left_join("data/hl_alcohol_misuse", "data/hl_cancer_screening bowel", by = "ltla21_code")
+
 # ---- Create function ----
 standardised <- function(file_path, value_column, ltla_column) {
   
