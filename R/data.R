@@ -376,3 +376,44 @@ NULL
 #' }
 #' @source \url{https://statswales.gov.wales/Catalogue/Education-and-Skills/Post-16-Education-and-Training/Further-Education-and-Work-Based-Learning/Standardised-Participation-Rates}
 "hl_education_employment_apprenticeship"
+
+#' Low Birth Weight Percentage by year Wales
+#'
+#' Dataset containing information about the percentage of live births under 2500g in Wales
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{percentage_low_birth_weight}{The percentage of singleton live births under 2500g in each local authority of Wales}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
+"hl_low_birth_weight"
+
+#' Percentage of Overweight and Obese Adults (aged 16+) in Wales
+#'
+#' Dataset containing information about the percentage of overweight and obese adults in Wales aged 16+
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla21_code}{Area code}
+#'   \item{percentage_overweight_obese}{The percentage of overweight and obese adults in each local authority of Wales}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
+"hl_adult_overweight_obese"
+
+#' Percentage of Overweight and Obese Children (aged 4-5) in Wales
+#'
+#' Dataset containing information about the percentage of overweight and obese children in Wales aged 4-5 (reception age)
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe
+#' Note: The local authority name for Powys in the original dataset was written as Powys THB representing the Teaching Health Board.
+#' The name was changed for consistency as Powys THB and Powys County Council cover the same areas.
+#'   \item{ltla21_code}{Area code} 
+#'   \item{percentage_overweight_obese}{The percentage of overweight and obese children in the 91st centile aged 4-5 in each local authority of Wales}
+#'   \item{Year}{Time frame}
+#'.  ...
+#' }
+#' @source \url {https://phw.nhs.wales/services-and-teams/child-measurement-programme/cmp-2022-23/}
+"hl_reception_overweight_obese"
