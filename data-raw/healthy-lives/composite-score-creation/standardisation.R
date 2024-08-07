@@ -7,6 +7,10 @@ library(e1071)
 library(DescTools)
 library(ggpubr)
 library(ggplot2)
+library(MASS)
+library(psych)
+library(ggcorrplot)
+library(factoextra)
 
 # ---- Join all healthy lives datasets ----
 #Create a function to load and join datasets
@@ -41,11 +45,34 @@ joined_data <- join_datasets(data_folder, exclude_files)
 joined_data <- joined_data |>
   dplyr::select(-starts_with("ltla21_name"),
          -starts_with("Year"),
+         -starts_with("Hib"),  #The vaccination columns all had very high correlation so I only kept diphtheria
+         -starts_with("Pneumococcal"),
+         -starts_with("Polio"),
+         -starts_with("Tetanus"),
+         -starts_with("Whooping"),
+         -starts_with("Men"),
+         -starts_with("MMR"),
+         "Adult overweight/obese" = `percentage_overweight_obese.x`,
+         "Alcohol misuse" = `Alcohol death rate per 100,000`,
          "Bowel Cancer Screening" = `Screening uptake percentage.x`,
          "Breast Cancer Screening" = `Screening uptake percentage.y`,
          "Cervical Cancer Screening" = `Screening uptake percentage`,
-         "Adult overweight obese" = `percentage_overweight_obese.x`,
-         "Reception overweight obese" = `percentage_overweight_obese.y`)
+         "Diphteria vaccination" = `Diphtheria percentage coverage by 2nd birthday`,
+         "Drug misuse" = `Drug poisoning death rate`,
+         "Early years development" = `Percent pupils achieving expected level across four foundation phase tested areas`,
+         "Education employment apprenticeship" = `Participation rate under 20`,
+         "Healthy eating" = `Percent adults who ate five fruit/veg yesterday`,
+         "Literacy score" = `Literacy Point Score`,
+         "Low birth weight" = `percentage_low_birth_weights`,
+         "Numeracy score" = `Numeracy Point Score`,
+         "Physical activity" = `Percent adults active at least 150 minutes last week`,
+         "Primary absences" = `Primary percentage of absences`,
+         "Reception overweight/obese" = `percentage_overweight_obese.y`,
+         "Secondary absences" = `Secondary percentage of absences`,
+         "Sedentary behaviour" = `Percent adults active less than 30 minutes last week`,
+         "Smoking" = `Percentage smokers`,
+         "Teenage pregnancy" = `Percentage teenage pregnancies`)
+         
 
 # ---- Create function to check for outliers and skew, then standardise ----
 standardised <- function(dataset, value_column, ltla_column) {
@@ -115,14 +142,28 @@ for (value_column in value_columns) {
 
 #Adjust direction
 standardised_data <- joined_data |>
-  mutate(across(c(`Alcohol death rate per 100,000`,
-                  `Drug poisoning death rate`,
-                  `Percent adults active less than 30 minutes last week`,
-                  `Percentage smokers`,
-                  `Primary percentage of absences`,
-                  `Secondary percentage of absences`,
-                  `Percentage teenage pregnancies`,
-                  `percentage_low_birth_weights`,
-                  `Adult overweight obese`,
-                  `Reception overweight obese`), 
-                ~ . * -1))
+  mutate(across(c(`Alcohol misuse`,
+                  `Drug misuse`,
+                  `Sedentary behaviour`,
+                  `Smoking`,
+                  `Primary absences`,
+                  `Secondary absences`,
+                  `Teenage pregnancy`,
+                  `Low birth weight`,
+                  `Adult overweight/obese`,
+                  `Reception overweight/obese`), 
+                ~ . * -1)) |>
+  dplyr::select(-starts_with("ltla21_code"))
+
+# ---- Step 2: Check suitability of data for pca ----
+#Visually confirm that indicators are correlated
+corr_matrix <- cor(standardised_data) #Creates the correlation matrix
+ggcorrplot(corr_matrix) #Creates a correlation matrix heatmap
+
+#KMO and Bartlett's test
+#KMO score is 0.5
+#Barlett's test p-value is 0
+kmo_result <- KMO(standardised_data)
+bartlett_result <- cortest.bartlett(standardised_data)
+print(kmo_result)
+print(bartlett_result)
