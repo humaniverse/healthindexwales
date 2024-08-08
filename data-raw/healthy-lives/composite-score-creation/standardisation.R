@@ -1,4 +1,4 @@
-# ---- Step 1: Reduce skew ----
+# ---- Step 1: Standardise data ----
 
 # ---- Load packages ----
 library(dplyr)
@@ -185,7 +185,7 @@ bartlett_result <- cortest.bartlett(standardised_subset)
 print(kmo_result)
 print(bartlett_result)
 
-# ---- Find how many pcs to use ----
+#Find how many pcs to use
 #Compute principal components
 pca <- principal(standardised_data, nfactors = ncol(standardised_data), rotate = "none")
 
@@ -193,7 +193,7 @@ pca <- principal(standardised_data, nfactors = ncol(standardised_data), rotate =
 eigenvalues <- pca$values
 
 #Amount of variance explained
-# Calculate variance proportion
+#Calculate variance proportion
 variance_proportion <- eigenvalues / sum(eigenvalues)
 
 #Calculate cumulative variance
@@ -206,7 +206,6 @@ print(cumulative_variance)
 #Plot cumulative variance
 plot(cumulative_variance, type = "b", main = "Cumulative Variance Explained",
      xlab = "Number of Factors", ylab = "Cumulative Variance Explained")
-#Plot suggests should keep 8 pcs
 
 # ---- Step 3: run pca -----
 pca <- principal(standardised_data, nfactors = 8, rotate = "varimax")
@@ -232,7 +231,7 @@ loadings_table <- data.frame(
 scores <- as.data.frame(pca$scores)
 
 #Calculate sovi score
-# SoVI score = each rotated component * its variance / cum variance
+#SoVI score = each rotated component * its variance / cum variance
 scores$SoVI <- ((scores$RC1 * variance_proportion[1]) +
                   (scores$RC2 * variance_proportion[2]) +
                   (scores$RC3 * variance_proportion[3]) +
@@ -249,6 +248,8 @@ scores$SoVI <- ((scores$RC1 * variance_proportion[1]) +
                      variance_proportion[6] +
                      variance_proportion[7] +
                      variance_proportion[8]))
+
+#Create dataset with sovi scores and ltla codes
 hl_sovi <- tibble(
   ltla21_code = joined_data$ltla21_code,
   SoVI = scores$SoVI
