@@ -249,7 +249,11 @@ scores$SoVI <- ((scores$RC1 * variance_proportion[1]) +
                      variance_proportion[6] +
                      variance_proportion[7] +
                      variance_proportion[8]))
-sovi_hiw <- tibble(
+hl_sovi <- tibble(
   ltla21_code = joined_data$ltla21_code,
   SoVI = scores$SoVI
 )
+
+# ---- Save dataset ----
+# ---- Save datasets ----
+usethis::use_data(hl_sovi, overwrite = TRUE)
