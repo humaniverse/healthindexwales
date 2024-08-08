@@ -167,3 +167,89 @@ kmo_result <- KMO(standardised_data)
 bartlett_result <- cortest.bartlett(standardised_data)
 print(kmo_result)
 print(bartlett_result)
+
+#Create subset
+standardised_subset <- standardised_data |>
+  dplyr::select(`Adult overweight/obese`, `Alcohol misuse`, `Healthy eating`, `Physical activity`, `Sedentary behaviour`)
+
+# ---- try on subset ----
+#Visually confirm that indicators are correlated
+corr_matrix_subset <- cor(standardised_subset) #Creates the correlation matrix
+ggcorrplot(corr_matrix_subset) #Creates a correlation matrix heatmap
+
+#KMO and Bartlett's test
+#KMO score is 0.5
+#Barlett's test p-value is 0
+kmo_result <- KMO(standardised_subset)
+bartlett_result <- cortest.bartlett(standardised_subset)
+print(kmo_result)
+print(bartlett_result)
+
+# ---- Find how many pcs to use ----
+#Compute principal components
+pca <- principal(standardised_data, nfactors = ncol(standardised_data), rotate = "none")
+
+#Extract eigenvalues
+eigenvalues <- pca$values
+
+#Amount of variance explained
+# Calculate variance proportion
+variance_proportion <- eigenvalues / sum(eigenvalues)
+
+#Calculate cumulative variance
+cumulative_variance <- cumsum(variance_proportion)
+
+#Print variance proportion and cumulative variance
+print(variance_proportion)
+print(cumulative_variance)
+
+#Plot cumulative variance
+plot(cumulative_variance, type = "b", main = "Cumulative Variance Explained",
+     xlab = "Number of Factors", ylab = "Cumulative Variance Explained")
+#Plot suggests should keep 8 pcs
+
+# ---- Step 3: run pca -----
+pca <- principal(standardised_data, nfactors = 8, rotate = "varimax")
+
+variance_proportion <- eigenvalues / sum(eigenvalues)
+
+# Check loadings
+factor_loadings <- pca$loadings
+loadings_table <- data.frame(
+  Variable = colnames(standardised_data),
+  Factor1 = factor_loadings[, 1],
+  Factor2 = factor_loadings[, 2],
+  Factor3 = factor_loadings[, 3],
+  Factor4 = factor_loadings[, 4],
+  Factor5 = factor_loadings[, 5],
+  Factor6 = factor_loadings[, 6],
+  Factor7 = factor_loadings[, 7],
+  Factor8 = factor_loadings[, 8]
+)
+
+# ---- Step 4: calculate weights ----
+#Save loadings at table
+scores <- as.data.frame(pca$scores)
+
+#Calculate sovi score
+# SoVI score = each rotated component * its variance / cum variance
+scores$SoVI <- ((scores$RC1 * variance_proportion[1]) +
+                  (scores$RC2 * variance_proportion[2]) +
+                  (scores$RC3 * variance_proportion[3]) +
+                  (scores$RC4 * variance_proportion[4]) +
+                  (scores$RC5 * variance_proportion[5]) +
+                  (scores$RC6 * variance_proportion[6]) +
+                  (scores$RC7 * variance_proportion[7]) +
+                  (scores$RC8 * variance_proportion[8]) /
+                  (variance_proportion[1] + 
+                     variance_proportion[2] + 
+                     variance_proportion[3] + 
+                     variance_proportion[4] +
+                     variance_proportion[5] +
+                     variance_proportion[6] +
+                     variance_proportion[7] +
+                     variance_proportion[8]))
+sovi_hiw <- tibble(
+  ltla21_code = joined_data$ltla21_code,
+  SoVI = scores$SoVI
+)
