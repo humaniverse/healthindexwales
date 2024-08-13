@@ -38,123 +38,76 @@ join_datasets <- function(data_folder, exclude_files) {
 
 #Run the function on data folder
 data_folder <- "data"
-exclude_files <- c("dftest.rda", "reception_measurement_table_with_ltla.rda", "hp_greenspace_access.rda", "hp_low_level_crimes.rda", "hp_personal_crime.rda") #Exclude files not from healthy lives
+exclude_files <- c("dftest.rda", "reception_measurement_table_with_ltla.rda", "hp_greenspace_access.rda", "hp_low_level_crimes.rda", "hp_personal_crime.rda", "composite_score.rda") #Exclude files not from healthy lives
 joined_data <- join_datasets(data_folder, exclude_files)
 
 #Keep only required columns and rename unclear columns
 joined_data <- joined_data |>
   dplyr::select(-starts_with("ltla21_name"),
          -starts_with("Year"),
-         -starts_with("Hib"),  #The vaccination columns all had very high correlation so I only kept diphtheria
-         -starts_with("Pneumococcal"),
-         -starts_with("Polio"),
-         -starts_with("Tetanus"),
-         -starts_with("Whooping"),
-         -starts_with("Men"),
-         -starts_with("MMR"),
-         "Adult overweight/obese" = `percentage_overweight_obese.x`,
-         "Alcohol misuse" = `Alcohol death rate per 100,000`,
-         "Bowel Cancer Screening" = `Screening uptake percentage.x`,
-         "Breast Cancer Screening" = `Screening uptake percentage.y`,
-         "Cervical Cancer Screening" = `Screening uptake percentage`,
-         "Diphteria vaccination" = `Diphtheria percentage coverage by 2nd birthday`,
-         "Drug misuse" = `Drug poisoning death rate`,
-         "Early years development" = `Percent pupils achieving expected level across four foundation phase tested areas`,
-         "Education employment apprenticeship" = `Participation rate under 20`,
-         "Healthy eating" = `Percent adults who ate five fruit/veg yesterday`,
-         "Literacy score" = `Literacy Point Score`,
-         "Low birth weight" = `percentage_low_birth_weights`,
-         "Numeracy score" = `Numeracy Point Score`,
-         "Physical activity" = `Percent adults active at least 150 minutes last week`,
-         "Primary absences" = `Primary percentage of absences`,
-         "Reception overweight/obese" = `percentage_overweight_obese.y`,
-         "Secondary absences" = `Secondary percentage of absences`,
-         "Sedentary behaviour" = `Percent adults active less than 30 minutes last week`,
+         "Adult_overweight_obese" = `percentage_overweight_obese.x`,
+         "Alcohol_misuse" = `Alcohol death rate per 100,000`,
+         "Bowel_Cancer_Screening" = `Screening uptake percentage.x`,
+         "Breast_Cancer_Screening" = `Screening uptake percentage.y`,
+         "Cervical_Cancer_Screening" = `Screening uptake percentage`,
+         "Diphteria_vaccination" = `Diphtheria percentage coverage by 2nd birthday`,
+         "Drug_misuse" = `Drug poisoning death rate`,
+         "Early_years_development" = `Percent pupils achieving expected level across four foundation phase tested areas`,
+         "Education_employment_apprenticeship" = `Participation rate under 20`,
+         "Healthy_eating" = `Percent adults who ate five fruit/veg yesterday`,
+         "Hib_vaccination" = `Hib percentage coverage by 2nd birthday`,
+         "Literacy_score" = `Literacy Point Score`,
+         "Low_birth_weight" = `percentage_low_birth_weights`,
+         "MeningitisB_vaccination" = `Meningitis B percentage coverage by 2nd birthday`,
+         "MMR_vaccination" = `MMR percentage coverage by 2nd birthday`,
+         "Numeracy_score" = `Numeracy Point Score`,
+         "Physical_activity" = `Percent adults active at least 150 minutes last week`,
+         "Pneumococcal_vaccination" = `Pneumococcal percentage coverage by 2nd birthday`,
+         "Polio_vaccination" = `Polio percentage coverage by 2nd birthday`,
+         "Primary_absences" = `Primary percentage of absences`,
+         "Reception_overweight_obese" = `percentage_overweight_obese.y`,
+         "Secondary_absences" = `Secondary percentage of absences`,
+         "Sedentary_behaviour" = `Percent adults active less than 30 minutes last week`,
          "Smoking" = `Percentage smokers`,
-         "Teenage pregnancy" = `Percentage teenage pregnancies`)
+         "Teenage_pregnancy" = `Percentage teenage pregnancies`,
+         "Tetanus_vaccination" = `Tetanus percentage coverage by 2nd birthday`,
+         "Whooping_cough_vaccination" = `Whooping cough percentage coverage by 2nd birthday`)
          
 
-# ---- Create function to check for outliers and skew, then standardise ----
-standardised <- function(dataset, value_column, ltla_column) {
-  
-  #Check for outliers
-  grubbs_test <- grubbs.test(dataset[[value_column]])
-  grubbs_p_value <- grubbs_test$p.value
-  if (grubbs_p_value < 0.05) {
-    print(paste("Outliers test: Statistically significant (p =", grubbs_p_value, ")"))
-  } else {
-    print(paste("Outliers test: Not statistically significant (p =", grubbs_p_value, ")"))
-  }
-  
-  #Create boxplot 
-  p1 <- ggplot(dataset, aes(x = "", y = !!sym(value_column))) +
-    geom_boxplot() +
-    labs(title = paste("Boxplot of", value_column)) +
-    theme_minimal()
-  
-  #Create density plot 
-  p2 <- ggplot(dataset, aes(x = !!sym(value_column))) +
-    geom_density() +
-    labs(title = paste("Density plot of", value_column)) +
-    theme_minimal()
-  
-  #Arrange plots side by side
-  ggarrange(p1, p2, ncol = 2, nrow = 1)
-  
-  #Check for skewness
-  skewness_value <- skewness(dataset[[value_column]], na.rm = TRUE)
-  skew_test_p_value <- shapiro.test(dataset[[value_column]])$p.value
-  if (skew_test_p_value < 0.05) {
-    print(paste("Skewness test: Statistically significant (p =", skew_test_p_value, ", Skewness =", skewness_value, ")"))
-    
-    #Apply Box-Cox transformation if skewness is significant
-    #Box-Cox used as was found to be best transformation to reduce skew for drug misuse variable
-    boxcox_result <- boxcox(dataset[[value_column]] ~ 1, plotit = FALSE)
-    lambda <- boxcox_result$x[which.max(boxcox_result$y)]
-    dataset[[value_column]] <- (dataset[[value_column]]^lambda - 1) / lambda
-    
-    #Check again for skewness after transformation
-    skew_test_p_value <- shapiro.test(dataset[[value_column]])$p.value
-    skewness_value <- skewness(dataset[[value_column]], na.rm = TRUE)
-    print(paste("After Box-Cox transformation: Skewness test: p =", skew_test_p_value, ", Skewness =", skewness_value))
-  } else {
-    print(paste("Skewness test: Not statistically significant (p =", skew_test_p_value, ", Skewness =", skewness_value, ")"))
-  }
-  
-  #Standardize the data
-  dataset <- dataset |>
-    dplyr::mutate(!!sym(value_column) := (dataset[[value_column]] - mean(dataset[[value_column]], na.rm = TRUE)) / sd(dataset[[value_column]], na.rm = TRUE))
-  
-  return(dataset)
+#Define standardisation function
+standardised <- function(dataset, value_column) {
+  dataset |>
+    mutate(!!sym(value_column) := 
+             (.[[value_column]] - mean(.[[value_column]], na.rm = TRUE)) / 
+             sd(.[[value_column]], na.rm = TRUE))
 }
 
-#Assign ltla_column string to ltla21_code variable
-ltla_column <- "ltla21_code"
+#Define columns to adjust (multiply by -1 after standardization)
+columns_to_adjust <- c("Alcohol_misuse", "Drug_misuse", "Sedentary_behaviour",
+                       "Smoking", "Primary_absences", "Secondary_absences",
+                       "Teenage_pregnancy", "Low_birth_weight",
+                       "Adult_overweight_obese", "Reception_overweight_obese")
 
-#List of columns to use in function, excluding ltla column
-value_columns <- setdiff(names(joined_data), ltla_column)
+#Define columns to standardize (including the ones that will be adjusted)
+columns_to_standardize <- names(joined_data)[!names(joined_data) %in% c("ltla21_code")]
 
-#Run loop using 'standardised' function on each column
-for (value_column in value_columns) {
-  cat("Processing column:", value_column, "\n")
-  joined_data <- standardised(joined_data, value_column, ltla_column)
-}
-
-#Adjust direction
+#Standardize all columns, then adjust the specified columns
 standardised_data <- joined_data |>
-  mutate(across(c(`Alcohol misuse`,
-                  `Drug misuse`,
-                  `Sedentary behaviour`,
-                  `Smoking`,
-                  `Primary absences`,
-                  `Secondary absences`,
-                  `Teenage pregnancy`,
-                  `Low birth weight`,
-                  `Adult overweight/obese`,
-                  `Reception overweight/obese`), 
-                ~ . * -1)) |>
-  dplyr::select(-starts_with("ltla21_code"))
+  #Standardize all specified columns
+  mutate(across(all_of(columns_to_standardize), 
+                ~ ( . - mean(., na.rm = TRUE)) / sd(., na.rm = TRUE))) |>
+  #Adjust columns by multiplying by -1
+  mutate(across(all_of(columns_to_adjust), ~ . * -1)) |>
+  #Remove the 'ltla21_code' column
+  dplyr::select(-ltla21_code)
 
 #Add z scores to create composite score
-composite_score <- standardised_data|>
-  mutate(`Composite score` = rowSums(across(everything())))
+composite_score <- standardised_data |>
+  mutate(`Composite score` = rowSums(across(everything()))) |>
+  mutate(`Behavioural risk composite score` = `Alcohol_misuse` + `Drug_misuse` + `Healthy_eating` + `Sedentary_behaviour` + `Physical_activity` + `Smoking`) |>
+  mutate(`Children & young people composite score` = `Early_years_development` + `Primary_absences` + `Secondary_absences` + `Numeracy_score` + `Literacy_score` + `Teenage_pregnancy` + `Education_employment_apprenticeship`) |>
+  mutate(`Physiological risk factors composite score` = `Low_birth_weight` + `Reception_overweight_obese` + `Adult_overweight_obese`) |>
+  mutate(`Protective measures composite score` = `Bowel_Cancer_Screening` + `Cervical_Cancer_Screening` + `Breast_Cancer_Screening` + `Diphteria_vaccination` + `Hib_vaccination` + `MeningitisB_vaccination` + `Polio_vaccination` + `Tetanus_vaccination` + `MMR_vaccination` + `Pneumococcal_vaccination` + `Whooping_cough_vaccination`)
+  
+# ---- Save output to data/ folder ----
+usethis::use_data(composite_score, overwrite = TRUE)
