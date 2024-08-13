@@ -2,15 +2,8 @@
 
 # ---- Load packages ----
 library(dplyr)
-library(outliers)
-library(e1071)
-library(DescTools)
-library(ggpubr)
-library(ggplot2)
-library(MASS)
-library(psych)
-library(ggcorrplot)
-library(factoextra)
+library(readxl)
+library(tidyverse)
 
 # ---- Join all healthy lives datasets ----
 #Create a function to load and join datasets
@@ -38,7 +31,7 @@ join_datasets <- function(data_folder, exclude_files) {
 
 #Run the function on data folder
 data_folder <- "data"
-exclude_files <- c("dftest.rda", "reception_measurement_table_with_ltla.rda", "hp_greenspace_access.rda", "hp_low_level_crimes.rda", "hp_personal_crime.rda", "composite_score.rda") #Exclude files not from healthy lives
+exclude_files <- c("dftest.rda", "reception_measurement_table_with_ltla.rda", "hp_greenspace_access.rda", "hp_low_level_crimes.rda", "hp_personal_crime.rda", "hl_composite_score.rda") #Exclude files not from healthy lives
 joined_data <- join_datasets(data_folder, exclude_files)
 
 #Keep only required columns and rename unclear columns
@@ -73,7 +66,6 @@ joined_data <- joined_data |>
          "Tetanus_vaccination" = `Tetanus percentage coverage by 2nd birthday`,
          "Whooping_cough_vaccination" = `Whooping cough percentage coverage by 2nd birthday`)
          
-
 #Define standardisation function
 standardised <- function(dataset, value_column) {
   dataset |>
@@ -97,17 +89,37 @@ standardised_data <- joined_data |>
   mutate(across(all_of(columns_to_standardize), 
                 ~ ( . - mean(., na.rm = TRUE)) / sd(., na.rm = TRUE))) |>
   #Adjust columns by multiplying by -1
-  mutate(across(all_of(columns_to_adjust), ~ . * -1)) |>
-  #Remove the 'ltla21_code' column
-  dplyr::select(-ltla21_code)
+  mutate(across(all_of(columns_to_adjust), ~ . * -1))
 
 #Add z scores to create composite score
 composite_score <- standardised_data |>
-  mutate(`Composite score` = rowSums(across(everything()))) |>
+  mutate(`Composite score` = rowSums(across(-`ltla21_code`))) |>
   mutate(`Behavioural risk composite score` = `Alcohol_misuse` + `Drug_misuse` + `Healthy_eating` + `Sedentary_behaviour` + `Physical_activity` + `Smoking`) |>
   mutate(`Children & young people composite score` = `Early_years_development` + `Primary_absences` + `Secondary_absences` + `Numeracy_score` + `Literacy_score` + `Teenage_pregnancy` + `Education_employment_apprenticeship`) |>
   mutate(`Physiological risk factors composite score` = `Low_birth_weight` + `Reception_overweight_obese` + `Adult_overweight_obese`) |>
   mutate(`Protective measures composite score` = `Bowel_Cancer_Screening` + `Cervical_Cancer_Screening` + `Breast_Cancer_Screening` + `Diphteria_vaccination` + `Hib_vaccination` + `MeningitisB_vaccination` + `Polio_vaccination` + `Tetanus_vaccination` + `MMR_vaccination` + `Pneumococcal_vaccination` + `Whooping_cough_vaccination`)
+
+#Add ltla names
+#Scrape ltla lookup file
+# Specify the URL
+#Source: https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/migrationwithintheuk/datasets/userinformationenglandandwaleslocalauthoritytoregionlookup
+url <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/migrationwithintheuk/datasets/userinformationenglandandwaleslocalauthoritytoregionlookup/june2020/lasregionew2021lookup.xlsx"
+
+# Download the file to a temporary location
+temp_file <- tempfile(fileext = ".xlsx")
+download.file(url, temp_file, mode = "wb")
+
+#Only include relevant columns
+code_lookup <- read_excel(temp_file, range = "A5:D366")|>
+  filter(str_starts(`LA code`, "W0")) |>
+  dplyr::select(`LA code`, `LA name`)
+
+#Merge to composite score dataset
+hl_composite_score <- left_join(code_lookup, composite_score, by = c("LA code" = "ltla21_code")) |>
+  rename(
+    ltla21_code = `LA code`,
+    ltla21_name = `LA name`
+  )
   
 # ---- Save output to data/ folder ----
-usethis::use_data(composite_score, overwrite = TRUE)
+usethis::use_data(hl_composite_score, overwrite = TRUE)
