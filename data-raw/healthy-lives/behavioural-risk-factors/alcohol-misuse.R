@@ -10,7 +10,6 @@ url <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeat
 # ---- Download and read URL as temp file ----
 temp_file <- tempfile(fileext = ".xlsx")
 download.file(url, temp_file, mode = "wb")
-excel_data <- read_excel(temp_file)
 
 # ---- Clean data ----
 # Filtered dataset includes age standardised alcohol specific death rates per 100,000 people in Wales from 2020-2022
