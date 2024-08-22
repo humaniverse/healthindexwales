@@ -1,4 +1,4 @@
-# ---- Load necessary libraries ----
+# ---- Load packages ----
 library(tidyverse)
 library(readxl)
 library(devtools)
