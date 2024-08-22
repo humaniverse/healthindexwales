@@ -35,37 +35,52 @@ exclude_files <- c("dftest.rda", "reception_measurement_table_with_ltla.rda", "h
 joined_data <- join_datasets(data_folder, exclude_files)
 
 #Keep only required columns and rename unclear columns
+
+# Keep only required columns and rename unclear columns
+# Add Combined_vaccination column
 joined_data <- joined_data |>
-  dplyr::select(-starts_with("ltla21_name"),
-         -starts_with("Year"),
-         "Adult_overweight_obese" = `percentage_overweight_obese.x`,
-         "Alcohol_misuse" = `Alcohol death rate per 100,000`,
-         "Bowel_Cancer_Screening" = `Screening uptake percentage.x`,
-         "Breast_Cancer_Screening" = `Screening uptake percentage.y`,
-         "Cervical_Cancer_Screening" = `Screening uptake percentage`,
-         "Diphteria_vaccination" = `Diphtheria percentage coverage by 2nd birthday`,
-         "Drug_misuse" = `Drug poisoning death rate`,
-         "Early_years_development" = `Percent pupils achieving expected level across four foundation phase tested areas`,
-         "Education_employment_apprenticeship" = `Participation rate under 20`,
-         "Healthy_eating" = `Percent adults who ate five fruit/veg yesterday`,
-         "Hib_vaccination" = `Hib percentage coverage by 2nd birthday`,
-         "Literacy_score" = `Literacy Point Score`,
-         "Low_birth_weight" = `percentage_low_birth_weights`,
-         "MeningitisB_vaccination" = `Meningitis B percentage coverage by 2nd birthday`,
-         "MMR_vaccination" = `MMR percentage coverage by 2nd birthday`,
-         "Numeracy_score" = `Numeracy Point Score`,
-         "Physical_activity" = `Percent adults active at least 150 minutes last week`,
-         "Pneumococcal_vaccination" = `Pneumococcal percentage coverage by 2nd birthday`,
-         "Polio_vaccination" = `Polio percentage coverage by 2nd birthday`,
-         "Primary_absences" = `Primary percentage of absences`,
-         "Reception_overweight_obese" = `percentage_overweight_obese.y`,
-         "Secondary_absences" = `Secondary percentage of absences`,
-         "Sedentary_behaviour" = `Percent adults active less than 30 minutes last week`,
-         "Smoking" = `Percentage smokers`,
-         "Teenage_pregnancy" = `Percentage teenage pregnancies`,
-         "Tetanus_vaccination" = `Tetanus percentage coverage by 2nd birthday`,
-         "Whooping_cough_vaccination" = `Whooping cough percentage coverage by 2nd birthday`)
-         
+  mutate(`6 in 1 vaccination` = (
+    `Diphtheria percentage coverage by 2nd birthday` + 
+      `Tetanus percentage coverage by 2nd birthday` + 
+      `Whooping cough percentage coverage by 2nd birthday` + 
+      `Polio percentage coverage by 2nd birthday` + 
+      `Hib percentage coverage by 2nd birthday`) / 5)
+
+# Keep only required columns and rename unclear columns, making sure to position Combined_vaccination correctly
+joined_data <- joined_data |>
+  dplyr::select(
+    -`Diphtheria percentage coverage by 2nd birthday`,
+    -`Tetanus percentage coverage by 2nd birthday`,
+    -`Whooping cough percentage coverage by 2nd birthday`,
+    -`Polio percentage coverage by 2nd birthday`,
+    -`Hib percentage coverage by 2nd birthday`,
+    -starts_with("ltla21_name"),
+    -starts_with("Year"),
+    "6 in 1 vaccination",
+    "Adult overweight obese" = `percentage_overweight_obese.x`,
+    "Alcohol misuse" = `Alcohol death rate per 100,000`,
+    "Bowel Cancer Screening" = `Screening uptake percentage.x`,
+    "Breast Cancer Screening" = `Screening uptake percentage.y`,
+    "Cervical Cancer Screening" = `Screening uptake percentage`,
+    "Drug misuse" = `Drug poisoning death rate`,
+    "Early years development" = `Percent pupils achieving expected level across four foundation phase tested areas`,
+    "Education employment apprenticeship" = `Participation rate under 20`,
+    "Healthy eating" = `Percent adults who ate five fruit/veg yesterday`,
+    "Literacy score" = `Literacy Point Score`,
+    "Low birth weight" = `percentage_low_birth_weights`,
+    "MeningitisB vaccination" = `Meningitis B percentage coverage by 2nd birthday`,
+    "MMR vaccination" = `MMR percentage coverage by 2nd birthday`,
+    "Numeracy score" = `Numeracy Point Score`,
+    "Physical activity" = `Percent adults active at least 150 minutes last week`,
+    "Pneumococcal vaccination" = `Pneumococcal percentage coverage by 2nd birthday`,
+    "Primary absences" = `Primary percentage of absences`,
+    "Reception overweight obese" = `percentage_overweight_obese.y`,
+    "Secondary absences" = `Secondary percentage of absences`,
+    "Sedentary behaviour" = `Percent adults active less than 30 minutes last week`,
+    "Smoking" = `Percentage smokers`,
+    "Teenage pregnancy" = `Percentage teenage pregnancies`
+  )
+
 #Define standardisation function
 standardised <- function(dataset, value_column) {
   dataset |>
@@ -75,10 +90,10 @@ standardised <- function(dataset, value_column) {
 }
 
 #Define columns to adjust (multiply by -1 after standardization)
-columns_to_adjust <- c("Alcohol_misuse", "Drug_misuse", "Sedentary_behaviour",
-                       "Smoking", "Primary_absences", "Secondary_absences",
-                       "Teenage_pregnancy", "Low_birth_weight",
-                       "Adult_overweight_obese", "Reception_overweight_obese")
+columns_to_adjust <- c("Alcohol misuse", "Drug misuse", "Sedentary behaviour",
+                       "Smoking", "Primary absences", "Secondary absences",
+                       "Teenage pregnancy", "Low birth weight",
+                       "Adult overweight obese", "Reception overweight obese")
 
 #Define columns to standardize (including the ones that will be adjusted)
 columns_to_standardize <- names(joined_data)[!names(joined_data) %in% c("ltla21_code")]
@@ -91,13 +106,17 @@ standardised_data <- joined_data |>
   #Adjust columns by multiplying by -1
   mutate(across(all_of(columns_to_adjust), ~ . * -1))
 
-#Add z scores to create composite score
+#Create the composite score so 100 is welsh average
 composite_score <- standardised_data |>
-  mutate(`Composite score` = rowSums(across(-`ltla21_code`))) |>
-  mutate(`Behavioural risk composite score` = `Alcohol_misuse` + `Drug_misuse` + `Healthy_eating` + `Sedentary_behaviour` + `Physical_activity` + `Smoking`) |>
-  mutate(`Children & young people composite score` = `Early_years_development` + `Primary_absences` + `Secondary_absences` + `Numeracy_score` + `Literacy_score` + `Teenage_pregnancy` + `Education_employment_apprenticeship`) |>
-  mutate(`Physiological risk factors composite score` = `Low_birth_weight` + `Reception_overweight_obese` + `Adult_overweight_obese`) |>
-  mutate(`Protective measures composite score` = `Bowel_Cancer_Screening` + `Cervical_Cancer_Screening` + `Breast_Cancer_Screening` + `Diphteria_vaccination` + `Hib_vaccination` + `MeningitisB_vaccination` + `Polio_vaccination` + `Tetanus_vaccination` + `MMR_vaccination` + `Pneumococcal_vaccination` + `Whooping_cough_vaccination`)
+  mutate(across(all_of(columns_to_standardize), ~ . * 10 + 100)) 
+
+#Add composite score column and subdomain columns
+composite_score <- composite_score |>
+  mutate(`Composite score` = rowSums(across(-ltla21_code)) / 23) |>
+  mutate(`Behavioural risk score` = (`Alcohol misuse` + `Drug misuse` + `Healthy eating` + `Physical activity` + `Sedentary behaviour` + `Smoking`) / 6) |>
+  mutate(`Children & young people score` = (`Early years development` + `Primary absences` + `Secondary absences` + `Literacy score` + `Numeracy score` + `Teenage pregnancy` + `Education employment apprenticeship`) / 7) |>
+  mutate(`Physiological risk factors score` = (`Low birth weight` + `Reception overweight obese` + `Adult overweight obese`) / 3) |>
+  mutate(`Protective measures score` = (`6 in 1 vaccination` + `MMR vaccination` + `Pneumococcal vaccination` + `MeningitisB vaccination` + `Bowel Cancer Screening` + `Breast Cancer Screening` + `Cervical Cancer Screening`) / 7)
 
 #Add ltla names
 #Scrape ltla lookup file
