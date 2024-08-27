@@ -40,4 +40,3 @@ hpe_frailty <-
 
 # ---- Save output to data/ folder ----
 usethis::use_data(hpe_frailty, overwrite = TRUE)
-write_rds(hip_fractures, "data/vulnerability/health-inequalities/wales/healthy-people/frailty.rds")
