@@ -6,9 +6,9 @@ library(readxl)
 library(tidyverse)
 
 # ---- Join all healthy lives datasets ----
-#Create a function to load and join datasets
+# Create a function to load and join datasets
 join_datasets <- function(data_folder, exclude_files) {
-  #List all .rda files in the folder
+  # List all .rda files in the folder
   files <- list.files(path = data_folder, pattern = "\\.rda$", full.names = TRUE) #Gets all rda files from data folder
   files <- files[!basename(files) %in% exclude_files]  #Exclude specific files
   
@@ -17,7 +17,7 @@ join_datasets <- function(data_folder, exclude_files) {
     dataset_name <- ls()[ls() != "file"]
     dataset <- get(dataset_name) #Reads each file in the folder, lists and retrieves each dataset
     
-    #Rename 'ltla21code' to 'ltla21_code' in the reception overweight/obese dataset
+    # Rename 'ltla21code' to 'ltla21_code' in the reception overweight/obese dataset
     if (dataset_name == "hl_reception_overweight_obese" && "ltla21code" %in% names(dataset)) {
       names(dataset)[names(dataset) == "ltla21code"] <- "ltla21_code" 
     }
@@ -25,16 +25,14 @@ join_datasets <- function(data_folder, exclude_files) {
     dataset
   })
   
-  #Perform the full join
-  Reduce(function(x, y) full_join(x, y, by = "ltla21_code"), datasets) #Merges all datasets by ltla column
+  # Perform the full join
+  Reduce(function(x, y) full_join(x, y, by = "ltla21_code"), datasets) # Merges all datasets by ltla column
 }
 
-#Run the function on data folder
+# Run the function on data folder
 data_folder <- "data"
-exclude_files <- c("dftest.rda", "reception_measurement_table_with_ltla.rda", "hp_greenspace_access.rda", "hp_low_level_crimes.rda", "hp_personal_crime.rda", "hl_composite_score.rda") #Exclude files not from healthy lives
+exclude_files <- c("dftest.rda", "reception_measurement_table_with_ltla.rda", "hp_greenspace_access.rda", "hp_low_level_crimes.rda", "hp_personal_crime.rda", "hl_composite_score.rda") # Exclude files not from healthy lives
 joined_data <- join_datasets(data_folder, exclude_files)
-
-#Keep only required columns and rename unclear columns
 
 # Keep only required columns and rename unclear columns
 # Add Combined_vaccination column
@@ -81,7 +79,7 @@ joined_data <- joined_data |>
     "Teenage pregnancy" = `Percentage teenage pregnancies`
   )
 
-#Define standardisation function
+# Define standardisation function
 standardised <- function(dataset, value_column) {
   dataset |>
     mutate(!!sym(value_column) := 
@@ -89,28 +87,28 @@ standardised <- function(dataset, value_column) {
              sd(.[[value_column]], na.rm = TRUE))
 }
 
-#Define columns to adjust (multiply by -1 after standardization)
+# Define columns to adjust (multiply by -1 after standardization)
 columns_to_adjust <- c("Alcohol misuse", "Drug misuse", "Sedentary behaviour",
                        "Smoking", "Primary absences", "Secondary absences",
                        "Teenage pregnancy", "Low birth weight",
                        "Adult overweight obese", "Reception overweight obese")
 
-#Define columns to standardize (including the ones that will be adjusted)
+# Define columns to standardize (including the ones that will be adjusted)
 columns_to_standardize <- names(joined_data)[!names(joined_data) %in% c("ltla21_code")]
 
-#Standardize all columns, then adjust the specified columns
+# Standardize all columns, then adjust the specified columns
 standardised_data <- joined_data |>
-  #Standardize all specified columns
+  # Standardize all specified columns
   mutate(across(all_of(columns_to_standardize), 
                 ~ ( . - mean(., na.rm = TRUE)) / sd(., na.rm = TRUE))) |>
-  #Adjust columns by multiplying by -1
+  # Adjust columns by multiplying by -1
   mutate(across(all_of(columns_to_adjust), ~ . * -1))
 
-#Create the composite score so 100 is welsh average
+# Create the composite score so 100 is welsh average
 composite_score <- standardised_data |>
   mutate(across(all_of(columns_to_standardize), ~ . * 10 + 100)) 
 
-#Add composite score column and subdomain columns
+# Add composite score column and subdomain columns
 composite_score <- composite_score |>
   mutate(`Composite score` = rowSums(across(-ltla21_code)) / 23) |>
   mutate(`Behavioural risk score` = (`Alcohol misuse` + `Drug misuse` + `Healthy eating` + `Physical activity` + `Sedentary behaviour` + `Smoking`) / 6) |>
@@ -118,22 +116,22 @@ composite_score <- composite_score |>
   mutate(`Physiological risk factors score` = (`Low birth weight` + `Reception overweight obese` + `Adult overweight obese`) / 3) |>
   mutate(`Protective measures score` = (`6 in 1 vaccination` + `MMR vaccination` + `Pneumococcal vaccination` + `MeningitisB vaccination` + `Bowel Cancer Screening` + `Breast Cancer Screening` + `Cervical Cancer Screening`) / 7)
 
-#Add ltla names
-#Scrape ltla lookup file
+# Add ltla names
+# Scrape ltla lookup file
 # Specify the URL
-#Source: https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/migrationwithintheuk/datasets/userinformationenglandandwaleslocalauthoritytoregionlookup
+# Source: https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/migrationwithintheuk/datasets/userinformationenglandandwaleslocalauthoritytoregionlookup
 url <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/migrationwithintheuk/datasets/userinformationenglandandwaleslocalauthoritytoregionlookup/june2020/lasregionew2021lookup.xlsx"
 
 # Download the file to a temporary location
 temp_file <- tempfile(fileext = ".xlsx")
 download.file(url, temp_file, mode = "wb")
 
-#Only include relevant columns
+# Only include relevant columns
 code_lookup <- read_excel(temp_file, range = "A5:D366")|>
   filter(str_starts(`LA code`, "W0")) |>
   dplyr::select(`LA code`, `LA name`)
 
-#Merge to composite score dataset
+# Merge to composite score dataset
 hl_composite_score <- left_join(code_lookup, composite_score, by = c("LA code" = "ltla21_code")) |>
   rename(
     ltla21_code = `LA code`,
