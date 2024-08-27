@@ -5,11 +5,13 @@ library(dplyr)
 library(geographr)
 library(sf)
 
+# ---- Load data ----
+# Load Welsh ltla codes from geographr 
 wales_codes <-
-  boundaries_lad %>%
-  as_tibble() %>%
-  select(starts_with("lad")) %>%
-  filter_codes(lad_code, "W") %>%
+  boundaries_lad |>
+  as_tibble() |>
+  select(starts_with("lad")) |>
+  filter_codes(lad_code, "W") |>
   pull(lad_code)
 
 # ---- Retrieve data ----
