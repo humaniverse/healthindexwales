@@ -5,9 +5,6 @@ library(statswalesr)
 library(geographr)
 library(sf)
 
-# ---- Load functions from utils.R ----
-source("R/utils.R")
-
 # ---- Load data ----
 # Load Welsh ltla codes from geographr 
 wales_codes <-

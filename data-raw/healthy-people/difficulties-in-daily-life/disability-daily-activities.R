@@ -1,11 +1,9 @@
-# ---- Load ----
+# ---- Load packages ----
 library(readr)
 library(httr)
 library(dplyr)
 library(geographr)
 library(sf)
-
-source("R/utils.R")
 
 wales_codes <-
   boundaries_lad %>%
