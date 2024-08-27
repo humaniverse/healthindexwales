@@ -1,4 +1,4 @@
-# ---- Load ----
+# ---- Load packages ----
 library(tidyverse)
 library(geographr)
 library(sf)
@@ -14,27 +14,16 @@ wales_lookup <-
   select(starts_with("ltla21")) |>
   filter_codes(ltla21_code, "^W")
 
-# Scrape raw data
-raw <-
-  read_csv("https://www.healthmapswales.wales.nhs.uk/data-catalog-explorer/indicator/I171")
-
-# ---- Clean data ----
-asthma_unmatched <-
-  raw |>
+# ---- Extract and clean ----
+# Source: https://www.healthmapswales.wales.nhs.uk/data-catalog-explorer/indicator/I924/
+hpe_asthma <- read.csv("data-raw/healthy-people/physical-health-conditions/asthma.csv") |>
   select(
-    ltla21_name = Name,
-    asthma_admission_rate_per_100000 = `Asthma: Emergency Admission Rates (Age-Standardised) per 100K pop(FY 17/18)`
-  ) |>
-  filter(lad_name != "Wales") |>
-  mutate(
-    lad_name = if_else(
-      lad_name == "The Vale of Glamorgan",
-      "Vale of Glamorgan",
-      lad_name
-    )
+    ltla21_name = `NAME`,
+    asthma_emergency_admissions_per_100000 = `X2022.23` # Column contains asthma emergency admissions per 100,000 people, age standardised
   ) |>
   right_join(wales_lookup) |>
-  relocate(ltla21_code) |>
-  select(-ltla21_name)
+  select(ltla21_code, asthma_emergency_admissions_per_100000) |>
+  arrange(ltla21_code)
 
-write_rds(asthma, "data/vulnerability/health-inequalities/wales/healthy-people/asthma.rds")
+# ---- Save output to data/ folder ----
+usethis::use_data(hpe_asthma, overwrite = TRUE)

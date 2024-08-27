@@ -18,22 +18,22 @@ wales_lookup <-
   filter_codes(ltla21_code, "^W")
 
 # Scrape URL and save dataset as tempfile
-# Source: https://www.ons.gov.uk/datasets/wellbeing-local-authority/editions/time-series/versions/1
+# Source: https://www.ons.gov.uk/datasets/wellbeing-local-authority/editions/time-series/versions/4
 GET(
-  "https://download.ons.gov.uk/downloads/datasets/wellbeing-local-authority/editions/time-series/versions/1.xlsx",
+  "https://download.ons.gov.uk/downloads/datasets/wellbeing-local-authority/editions/time-series/versions/4.xlsx",
   write_disk(tf <- tempfile(fileext = ".xlsx"))
 )
 
 # ---- Clean data ----
 # The 'Average (mean)' estimate provides the score out of 0-10. The other estimates are
 # thresholds (percentages) described in the QMI: https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/methodologies/personalwellbeingintheukqmi
-hpe_life_satisfaction <-
+hpe_life_satisfaction <- 
   read_excel(tf, sheet = "Dataset", skip = 2) |>
   filter(Estimate == "Average (mean)") |>
-  filter(MeasureOfWellbeing == "Life Satisfaction") |>
+  filter(MeasureOfWellbeing == "Life satisfaction") |>
   select(
     ltla21_code = `Geography code`,
-    life_satisfaction_score_out_of_10 = `2019-20`
+    life_satisfaction_score_out_of_10 = `2022-23`
   ) |>
   right_join(wales_lookup) |>
   select(-ltla21_name)

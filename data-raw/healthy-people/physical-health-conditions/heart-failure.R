@@ -1,39 +1,29 @@
-# ---- Load ----
+# ---- Load packages ----
 library(tidyverse)
 library(geographr)
 library(sf)
 
+# ---- Load functions from utils.R ----
 source("R/utils.R")
 
+# ---- Load data ----
+# Load Welsh ltla codes and names from geographr 
 wales_lookup <-
-  boundaries_lad %>%
-  as_tibble() %>%
-  select(starts_with("lad")) %>%
-  filter_codes(lad_code, "^W")
+  boundaries_ltla21 |>
+  as_tibble() |>
+  select(starts_with("ltla21")) |>
+  filter_codes(ltla21_code, "^W")
 
 # ---- Extract and clean ----
-raw <-
-  read_csv("https://www.healthmapswales.wales.nhs.uk/IAS/data/csv?viewId=224&geoId=108&subsetId=&viewer=CSV")
-
-hf_unmatched <-
-  raw %>%
+# Source: https://www.healthmapswales.wales.nhs.uk/data-catalog-explorer/indicator/I502?geoId=G108&view=metadata
+hpe_heart_failure <- read.csv("data-raw/healthy-people/physical-health-conditions/heart-failure.csv") |>
   select(
-    lad_name = Name,
-    heart_failure_admissions_rate_per_10000 = `HF_1 Rate of emergency heart failure admissions (age-standardised per 10,000 population)(FY 17/18)`
-  )
+    ltla21_name = `NAME`,
+    heart_failure_admissions_per_100000 = `X2022.23` # Column contains heart failure emergency admissions per 100,000 people, age standardised
+  ) |>
+  right_join(wales_lookup) |>
+  select(ltla21_code, heart_failure_admissions_per_100000) |>
+  arrange(ltla21_code)
 
-hf <-
-  hf_unmatched %>%
-  filter(lad_name != "Wales") %>%
-  mutate(
-    lad_name = if_else(
-      lad_name == "The Vale of Glamorgan",
-      "Vale of Glamorgan",
-      lad_name
-    )
-  ) %>%
-  left_join(wales_lookup) %>%
-  relocate(lad_code) %>%
-  select(-lad_name)
-
-write_rds(hf, "data/vulnerability/health-inequalities/wales/healthy-people/heart-failure.rds")
+# ---- Save output to data/ folder ----
+usethis::use_data(hpe_heart_failure, overwrite = TRUE)

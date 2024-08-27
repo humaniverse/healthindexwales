@@ -17,21 +17,22 @@ wales_lookup <-
   filter_codes(ltla21_code, "^W")
 
 # Scrape URL and save dataset as tempfile
+# Source: https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/avoidablemortalitybylocalauthorityinenglandandwales
 GET(
-  "https://www.ons.gov.uk/file?uri=%2fpeoplepopulationandcommunity%2fhealthandsocialcare%2fcausesofdeath%2fdatasets%2favoidablemortalitybylocalauthorityinenglandandwales%2f2019/avoidablemortalitybylocalauthority2019.xls",
-  write_disk(tf <- tempfile(fileext = ".xls"))
+  "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/avoidablemortalitybylocalauthorityinenglandandwales/2022/avoidablemortalitybylocalauthority2022postcheckgc.xlsx",
+  write_disk(tf <- tempfile(fileext = ".xlsx"))
 )
-
+  
 # ---- Clean data ----
-hpe_avoidable_deaths <-
-  read_excel(
-    tf,
-    sheet = "Table 1 ",
-    range = "B5:BS435"
-  ) |>
+hpe_avoidable_deaths <-  read_excel(
+  tf,
+  sheet = "Table_1",
+  range = "A7:CE1075"
+) |>
+  filter(str_starts(`Sex`, "Persons")) |>
   select(
-    ltla21_code = `...1`,
-    avoidable_deaths_per_100000 = `Rate per 100,000 population...67`
+    ltla21_code = `Area Code`,
+    avoidable_deaths_per_100000 = `Rate per 100,000 population\r\n2020-2022`
   ) |>
   right_join(wales_lookup) |>
   select(-ltla21_name)

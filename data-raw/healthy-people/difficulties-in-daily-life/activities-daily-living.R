@@ -18,7 +18,8 @@ wales_codes <-
   pull(ltla21_code)
 
 # Scrape data from stats wales
-raw <- statswales_get_dataset("hlth5052")
+# Source: https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-general-health-and-illness
+raw <- statswales_get_dataset("hlth5082")
 
 # ---- Clean data ----
 adl_unmatched <-
@@ -33,7 +34,7 @@ adl_unmatched <-
     year = Year_ItemName_ENG
   ) |>
   filter(variable == "Limited at all by longstanding illness") |>
-  filter(year == "2018-19 & 2019-20") |>
+  filter(year == "2022-23") |>
   filter(measure == "Percentage of adults (16)") |>
   filter(standardisation == "Age standardised") |>
   select("ltla21_code" = lad_code,

@@ -17,9 +17,9 @@ wales_lookup <-
   filter_codes(ltla21_code, "^W")
 
 # Scrape URL and save dataset as tempfile
-# Source: https://www.ons.gov.uk/datasets/wellbeing-local-authority/editions/time-series/versions/1
+# Source: https://www.ons.gov.uk/datasets/wellbeing-local-authority/editions/time-series/versions/4
 GET(
-  "https://download.ons.gov.uk/downloads/datasets/wellbeing-local-authority/editions/time-series/versions/1.xlsx",
+  "https://download.ons.gov.uk/downloads/datasets/wellbeing-local-authority/editions/time-series/versions/4.xlsx",
   write_disk(tf <- tempfile(fileext = ".xlsx"))
 )
 
@@ -32,7 +32,7 @@ hpe_life_worthwhileness <-
   filter(MeasureOfWellbeing == "Worthwhile") |>
   select(
     ltla21_code = `Geography code`,
-    life_worthwhileness_score_out_of_10 = `2019-20`
+    life_satisfaction_score_out_of_10 = `2022-23`
   ) |>
   right_join(wales_lookup) |>
   select(-ltla21_name)

@@ -17,25 +17,25 @@ wales_lookup <-
   filter_codes(ltla21_code, "^W")
 
 # Scrape URL and save dataset as tempfile
+# Source: https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/suicidesbylocalauthority
 GET(
-  "https://www2.nphs.wales.nhs.uk/PubHObservatoryProjDocs.nsf/3653c00e7bb6259d80256f27004900db/920b258a5a6102fc802581a1003c196d/$FILE/PHOFDataDownload2017_v1.xlsx",
+  "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/suicidesbylocalauthority/current/suicidesbylocalauthority2022.xlsx",
   write_disk(tf <- tempfile(fileext = ".xslx"))
 )
 
 # ---- Clean data ----
-hpe_suicides <-
-  read_excel(
-    tf,
-    sheet = "Wales, HB & LA most recent data" # Read sheet containing most recent data
-  ) |>
-  filter(Title == "Suicides, 2014 to 2018") |> # Filter to only include hip suicide variable
+# Table 2 contains suicide rates every 100,000 people age standardised
+hpe_suicides <- read_excel(
+  tf,
+  sheet = "Table_2",
+  range = "A8:F383"
+) |>
   select(
-    ltla21_name = Area,
-    suicides_per_100000 = `Area Value`
+    ltla21_code = `Area Code \r\n[note 2]`,
+    suicides_per_100000 = `2020 to 2022 \r\nRate per 100,000 \r\n[note 4]`
   ) |>
-  mutate(suicides_per_100000 = as.double(suicides_per_100000)) |>
   right_join(wales_lookup) |>
-  select(ltla21_code, suicides_per_100000)
+  select(-ltla21_name)
 
 # ---- Save output to data/ folder ----
 usethis::use_data(hpe_suicides, overwrite = TRUE)
