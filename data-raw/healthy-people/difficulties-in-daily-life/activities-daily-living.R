@@ -40,7 +40,7 @@ adl_unmatched <-
          limited_adl_percentage = value) |> # Select only required columns
   arrange(ltla21_code) # Arrange in order of ltla code
 
-# Only include ltla codes 
+# Check ltla codes match
 hpe_activities_daily_living <-
   adl_unmatched |>
   filter(ltla21_code %in% wales_codes)
