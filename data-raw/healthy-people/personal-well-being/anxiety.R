@@ -1,39 +1,41 @@
-# ---- Load ----
+# ---- Load packages ----
 library(tidyverse)
 library(httr)
 library(readxl)
 library(geographr)
 library(sf)
 
+# ---- Load functions from utils.R ----
 source("R/utils.R")
 
+# ---- Load data ----
+# Load Welsh ltla codes and names from geographr 
 wales_lookup <-
-  boundaries_lad %>%
-  as_tibble() %>%
-  select(starts_with("lad")) %>%
-  filter_codes(lad_code, "^W")
+  boundaries_ltla21 |>
+  as_tibble() |>
+  select(starts_with("ltla21")) |>
+  filter_codes(ltla21_code, "^W")
 
-# ---- Extract data ----
+# Scrape URL and save dataset as tempfile
 # Source: https://www.ons.gov.uk/datasets/wellbeing-local-authority/editions/time-series/versions/1
 GET(
   "https://download.ons.gov.uk/downloads/datasets/wellbeing-local-authority/editions/time-series/versions/1.xlsx",
   write_disk(tf <- tempfile(fileext = ".xlsx"))
 )
 
-anxiety_raw <-
-  read_excel(tf, sheet = "Dataset", skip = 2)
-
+# ---- Clean data ----
 # The 'Average (mean)' estimate provides the score out of 0-10. The other estimates are
 # thresholds (percentages) described in the QMI: https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/methodologies/personalwellbeingintheukqmi
-anxiety <-
-  anxiety_raw %>%
-  filter(Estimate == "Average (mean)") %>%
-  filter(MeasureOfWellbeing == "Anxiety") %>%
+hpe_anxiety <-
+  read_excel(tf, sheet = "Dataset", skip = 2) |>
+  filter(Estimate == "Average (mean)") |>
+  filter(MeasureOfWellbeing == "Anxiety") |>
   select(
-    lad_code = `Geography code`,
+    ltla21_code = `Geography code`,
     anxiety_score_out_of_10 = `2019-20`
-  ) %>%
-  right_join(wales_lookup) %>%
-  select(-lad_name)
+  ) |>
+  right_join(wales_lookup) |>
+  select(-ltla21_name)
 
-write_rds(anxiety, "data/vulnerability/health-inequalities/wales/healthy-people/anxiety.rds")
+# ---- Save output to data/ folder ----
+usethis::use_data(hpe_anxiety, overwrite = TRUE)
