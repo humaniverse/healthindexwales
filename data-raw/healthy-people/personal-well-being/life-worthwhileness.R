@@ -32,7 +32,7 @@ hpe_life_worthwhileness <-
   filter(MeasureOfWellbeing == "Worthwhile") |>
   select(
     ltla21_code = `Geography code`,
-    life_satisfaction_score_out_of_10 = `2022-23`
+    worthwhileness_score_out_of_10 = `2022-23`
   ) |>
   right_join(wales_lookup) |>
   select(-ltla21_name)
