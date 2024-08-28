@@ -42,8 +42,8 @@ hl_reception_overweight_obese <- child_weight_data_2022_2023 |>
   left_join(code_lookup, by = c("Geography" = "LA name")) |>
   mutate(Year = "2022-2023") |>
   select(
-    ltla21code = `LA code`,
-    percentage_overweight_obese = `91st centile and above (%)`,
+    ltla21_code = `LA code`,
+    `Reception overweight obese` = `91st centile and above (%)`,
     Year
   )
 # ---- Saving to data/ folder using usethis:: ----

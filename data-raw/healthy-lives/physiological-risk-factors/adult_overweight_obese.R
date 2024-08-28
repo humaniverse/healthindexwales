@@ -20,7 +20,7 @@ hl_adult_overweight_obese <- df |>
   ) |>
   select(
     "ltla21_code" = Area_AltCode1,
-    "percentage_overweight_obese" = Data,
+    "Adult overweight obese" = Data,
     "Year" = Year_ItemName_ENG
   ) |>
   arrange(ltla21_code)
