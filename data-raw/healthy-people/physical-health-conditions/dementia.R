@@ -19,7 +19,7 @@ wales_lookup <-
 hpe_dementia <- read.csv("data-raw/healthy-people/physical-health-conditions/dementia.csv") |>
   select(
     ltla21_name = `NAME`,
-    dementia_mortality_per_100000 = `X2022` # Column contains dimentia and alzheimers deaths per 100,000, age standardised
+    dementia_mortality_per_100000 = `X2022` # Column contains dementia and alzheimers deaths per 100,000, age standardised
   ) |>
   right_join(wales_lookup) |>
   select(ltla21_code, dementia_mortality_per_100000) |>
