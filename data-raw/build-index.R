@@ -9,37 +9,34 @@
 #   - https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/833951/IoD2019_Technical_Report.pdf
 
 # Steps:
-#   1. Scale (align) indicators so that higher value = worse health to align
-#      with the other resilience indices (higher = worse).
-#   2. Missing step: Apply functional transformations (e.g. log, square) to
-#      address skewness in the distributions.
-#   3. Normalise to mean of 0 and SD +-1 and then apply MFLA.
-#   4. Optional step: Weight the indicators within domains: apply MFLA.
-#   5. Calculate domain scores: add together normalised indicator scores
-#      (weighted or unweighted) and rank and qunatise.
-#   6. Combine domains with equal weighting to produce composite score: rank
-#      and quantise output.
+#   1. Scale (align) indicators so that higher value = better health (to align 
+#      with HIE) by muliplying indicators where worse is higher by -1
+#   2. Normalise to mean of 0 and SD +-1 (z scores) .
+#   3. Create indicator composite scores: multiply z scores by 10 then add 100.
+#.     Create domain and subdomain composite scores: take average of all 
+#.     indicators composite scores for domain composite score and average of all
 
 # ---- Load libraries and Functions ----
 library(tidyverse)
+library(geographr)
 source("R/utils.R")
 
 # ---- Build Healthy People Domain ----
 # Load Healthy People indicators
 healthy_people_indicators <- load_indicators(
-  path_pattern = "data/hpe*",  # Files starting with 'hpe'
+  path_pattern = "data/hpe*",  # Only include files starting with 'hpe' (healthy people)
   key = "ltla21_code"
 )
 
+# ---- Build Healthy Lives Domain ----
 # Load Healthy Lives indicators
 healthy_lives_indicators <- load_indicators(
-  path_pattern = "data/hl*",  # Files starting with 'hl'
+  path_pattern = "data/hl*",  # Only include files starting with 'hl' (healthy lives)
   key = "ltla21_code"
-) %>%
-  select(-starts_with("Year"))
+) |>
+  select(-starts_with("Year")) # Exclude year columns
 
-# Keep only required columns and rename unclear columns
-# Add Combined_vaccination column
+# Add 6 in 1 vaccination column
 healthy_lives_indicators <- healthy_lives_indicators |>
   mutate(`6 in 1 vaccination` = (
     `Diphtheria percentage coverage by 2nd birthday` + 
@@ -48,7 +45,7 @@ healthy_lives_indicators <- healthy_lives_indicators |>
       `Polio percentage coverage by 2nd birthday` + 
       `Hib percentage coverage by 2nd birthday`) / 5)
 
-# Keep only required columns and rename unclear columns, making sure to position Combined_vaccination correctly
+# Keep only required columns and rename unclear columns
 healthy_lives_indicators <- healthy_lives_indicators |>
   dplyr::select(
     -`Diphtheria percentage coverage by 2nd birthday`,
@@ -81,7 +78,7 @@ healthy_lives_indicators <- healthy_lives_indicators |>
   )
 
 # 1. Scale (align) indicators - Higher value = worse health.
-# Convert to numeric
+# Convert healthy people columns to numeric
 healthy_people_indicators <- healthy_people_indicators |>
   mutate(across(-ltla21_code, ~ as.numeric(as.character(.))))
 
@@ -121,7 +118,7 @@ healthy_lives_scaled <-
     `Reception overweight obese` = `Reception overweight obese` * -1
   )
 
-# 3. Weight the indicators within the domain
+# 2. Standardise indicators
 healthy_people_weighted <-
   healthy_people_scaled |>
   normalise_indicators()
@@ -130,71 +127,54 @@ healthy_lives_weighted <-
   healthy_lives_scaled |>
   normalise_indicators()
 
-# 4. Create composite score
+# 3. Create composite score
 # For healthy lives
 # Create the composite score so 100 is welsh average
-# Define columns to standardize (excluding 'ltla21_code')
-columns_to_transform <- names(healthy_lives_weighted)[!names(healthy_lives_weighted) %in% c("ltla21_code")]
+healthy_lives_subdomains <- list(
+  `Behavioural risk` = c("Alcohol misuse", "Drug misuse", "Healthy eating", "Physical activity", "Sedentary behaviour", "Smoking"),
+  `Children & young people` = c("Early years development", "Primary absences", "Secondary absences", "Literacy score", "Numeracy score", "Teenage pregnancy", "Education employment apprenticeship"),
+  `Physiological risk factors` = c("Low birth weight", "Reception overweight obese", "Adult overweight obese"),
+  `Protective measures` = c("6 in 1 vaccination", "MMR vaccination", "Pneumococcal vaccination", "MeningitisB vaccination", "Bowel Cancer Screening", "Breast Cancer Screening", "Cervical Cancer Screening")
+)
 
-# Apply transformation: multiply by 10 and add 100
-healthy_lives_composite_score <- healthy_lives_weighted |>
-  mutate(across(all_of(columns_to_transform), ~ . * 10 + 100))
+healthy_lives_composite_score <- create_composite_scores(
+  healthy_lives_weighted,
+  columns_to_exclude = "ltla21_code",
+  num_columns_composite = 23,
+  subdomain_indicators = healthy_lives_subdomains
+)
 
-# Add composite score column and subdomain columns
-healthy_lives_composite_score <- healthy_lives_composite_score |>
-  mutate(`Composite score` = rowSums(across(-ltla21_code)) / 23) |>
-  mutate(`Behavioural risk score` = (`Alcohol misuse` + `Drug misuse` + `Healthy eating` + `Physical activity` + `Sedentary behaviour` + `Smoking`) / 6) |>
-  mutate(`Children & young people score` = (`Early years development` + `Primary absences` + `Secondary absences` + `Literacy score` + `Numeracy score` + `Teenage pregnancy` + `Education employment apprenticeship`) / 7) |>
-  mutate(`Physiological risk factors score` = (`Low birth weight` + `Reception overweight obese` + `Adult overweight obese`) / 3) |>
-  mutate(`Protective measures score` = (`6 in 1 vaccination` + `MMR vaccination` + `Pneumococcal vaccination` + `MeningitisB vaccination` + `Bowel Cancer Screening` + `Breast Cancer Screening` + `Cervical Cancer Screening`) / 7)
+#For healthy people
+healthy_people_subdomains <- list(
+  `Difficulties in daily life` = c("limited_adl_percentage", "disability_daily_activities_percent", "hip_fractures_per_100000"),
+  `Mental health` = c("suicides_per_100000"),
+  `Mortality` = c("avoidable_deaths_per_100000", "healthy_life_expectancy"),
+  `Personal well-being` = c("anxiety_score_out_of_10", "happiness_score_out_of_10", "life_satisfaction_score_out_of_10", "worthwhileness_score_out_of_10"),
+  `Physical health conditions` = c("asthma_emergency_admissions_per_100000", "cancer_incidence_per_100000", "copd_mortality_per_100000", "heart_disease_deaths_per_100000", "dementia_mortality_per_100000", "heart_failure_admissions_per_100000", "kidney_disease_mortality_per_100000", "stroke_emergency_admissions_per_100000")
+)
 
-# For healthy people
-columns_to_transform <- names(healthy_people_weighted)[!names(healthy_people_weighted) %in% c("ltla21_code")]
+healthy_people_composite_score <- create_composite_scores(
+  healthy_people_weighted,
+  columns_to_exclude = "ltla21_code",
+  num_columns_composite = 18,
+  subdomain_indicators = healthy_people_subdomains
+)
 
-# Apply transformation: multiply by 10 and add 100
-healthy_people_composite_score <- healthy_people_weighted |>
-  mutate(across(all_of(columns_to_transform), ~ . * 10 + 100))
+# Add ltla names column
+# Load Welsh ltla codes and names from geographr 
+wales_lookup <-
+  boundaries_ltla21 |>
+  as_tibble() |>
+  select(starts_with("ltla21")) |>
+  filter_codes(ltla21_code, "^W")
 
-# Add composite score column and subdomain columns
-healthy_people_composite_score <- healthy_people_composite_score |>
-  mutate(`Composite score` = rowSums(across(-ltla21_code)) / 18) |>
-  mutate(`Difficulties in daily life score` = (`limited_adl_percentage` + `disability_daily_activities_percent` + `hip_fractures_per_100000`) / 3) |>
-  mutate(`Mental health score` = (`suicides_per_100000`)) |>
-  mutate(`Mortality score` = (`avoidable_deaths_per_100000` + `healthy_life_expectancy`) / 2) |>
-  mutate(`Personal well-being score` = (`anxiety_score_out_of_10` + `happiness_score_out_of_10` + `life_satisfaction_score_out_of_10` + `worthwhileness_score_out_of_10`) / 4) |>
-  mutate(`Physical health conditions` = (`asthma_emergency_admissions_per_100000` + `cancer_incidence_per_100000` + `copd_mortality_per_100000` + `heart_disease_deaths_per_100000` + `dementia_mortality_per_100000` + `heart_failure_admissions_per_100000` + `kidney_disease_mortality_per_100000` + `stroke_emergency_admissions_per_100000`) / 8)
+# Join to healthy people
+healthy_people_composite_score <- left_join(wales_lookup, healthy_people_composite_score, by = "ltla21_code")
 
-# 5. Add ltla names column
-# Add ltla names
-# Scrape ltla lookup file
-# Specify the URL
-# Source: https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/migrationwithintheuk/datasets/userinformationenglandandwaleslocalauthoritytoregionlookup
-url <- "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/migrationwithintheuk/datasets/userinformationenglandandwaleslocalauthoritytoregionlookup/june2020/lasregionew2021lookup.xlsx"
+# Join to healthy lives
+healthy_lives_composite_score <- left_join(wales_lookup, healthy_lives_composite_score, by = "ltla21_code")
 
-# Download the file to a temporary location
-temp_file <- tempfile(fileext = ".xlsx")
-download.file(url, temp_file, mode = "wb")
-
-# Only include relevant columns
-code_lookup <- read_excel(temp_file, range = "A5:D366")|>
-  filter(str_starts(`LA code`, "W0")) |>
-  dplyr::select(`LA code`, `LA name`)
-
-# Merge to healthy lives composite score dataset
-healthy_lives_composite_score <- left_join(code_lookup, healthy_lives_composite_score, by = c("LA code" = "ltla21_code")) |>
-  rename(
-    ltla21_code = `LA code`,
-    ltla21_name = `LA name`
-  )
-
-# Merge to healthy people composite score dataset
-healthy_people_composite_score <- left_join(code_lookup, healthy_people_composite_score, by = c("LA code" = "ltla21_code")) |>
-  rename(
-    ltla21_code = `LA code`,
-    ltla21_name = `LA name`
-  )
-
-# 6 . Save datasets to data folder
+# Save datasets to data folder
 # ---- Save output to data/ folder ----
 usethis::use_data(healthy_lives_composite_score, overwrite = TRUE)
 usethis::use_data(healthy_people_composite_score, overwrite = TRUE)
