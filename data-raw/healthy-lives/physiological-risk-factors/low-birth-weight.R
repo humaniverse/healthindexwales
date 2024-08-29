@@ -15,7 +15,7 @@ hl_low_birth_weight <- df |>
     str_starts(Measure_ItemNotes_ENG, "Percentage of singleton births") |> # Filter for total number of singleton births (one birth, rather than twins)
   select(
     "ltla21_code" = Area_AltCode1,
-    "percentage_low_birth_weights" = Data,
+    "Low birth weight" = Data,
     "Year" = Year_ItemName_ENG
   ) |>
   arrange(ltla21_code) # Arrange in order of ltla code

@@ -293,21 +293,30 @@ calculate_extent_depreciated <-
 #' a key
 #' @param path Relative path to the folder containing the .rds files to be read
 #' @param key The key to join the variables
-load_indicators <-
-  function(path, key) {
-    file_list <-
-      dir(
-        path,
-        pattern = ".rds",
-        full.names = TRUE
-      )
-    file_list |>
-      map(read_rds) |>
-      reduce(
-        left_join,
-        by = key
-      )
-  }
+load_indicators <- function(path_pattern, key) {
+  # Extract the directory path and base pattern from the input path_pattern
+  dir_path <- dirname(path_pattern)
+  base_pattern <- basename(path_pattern)
+  
+  # Ensure base_pattern is correctly used in the file matching
+  file_pattern <- gsub("\\*", ".*", base_pattern)
+  
+  # List all .rda files in the directory that match the pattern
+  file_list <- list.files(
+    path = dir_path, 
+    pattern = paste0("^", file_pattern, "\\.rda$"), 
+    full.names = TRUE
+  )
+  
+  # Print file list for debugging
+  print(file_list)
+  
+  # Load and combine data frames
+  data_list <- map(file_list, ~ get(load(.x)))
+  
+  # Combine the data frames using left_join
+  reduce(data_list, left_join, by = key)
+}
 
 #' Normalise indicators to Mean = 0, SD = 1. This function will calculate over
 #' all numeric variables in a dataframe.
@@ -462,3 +471,26 @@ theme_map <-
         ...
       )
   }
+
+# Composite score function
+create_composite_scores <- function(data, columns_to_exclude, num_columns_composite, subdomain_indicators) {
+  # Define columns to standardize (to exclude ltla21_code)
+  columns_to_transform <- names(data)[!names(data) %in% columns_to_exclude]
+  
+  # Apply transformation: multiply by 10 and add 100
+  data_transformed <- data |>
+    mutate(across(all_of(columns_to_transform), ~ . * 10 + 100))
+  
+  # Create composite score column
+  data_transformed <- data_transformed |>
+    mutate(`Composite score` = rowSums(across(-all_of(columns_to_exclude))) / num_columns_composite) # Calculates mean of all indicator scores
+  
+  # Add subdomain columns
+  for (subdomain in names(subdomain_indicators)) {
+    columns <- subdomain_indicators[[subdomain]]
+    data_transformed <- data_transformed |>
+      mutate(!!sym(paste0(subdomain, " score")) := rowMeans(across(all_of(columns)))) # Create new column called (subdomain name) score, containing mean of the indicator scores in that subdomain
+  }
+  
+  return(data_transformed)
+}

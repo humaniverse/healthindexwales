@@ -1,67 +1,69 @@
-# ---- Load libraries ----
+# ---- Load packages ----
 library(tidyverse)
 library(httr)
 library(readxl)
 library(geographr)
 library(sf)
 
+# ---- Load functions from utils.R ----
 source("R/utils.R")
 
+# ---- Load data ----
+# Load Welsh ltla codes and names from geographr 
 wales_lookup <-
-  boundaries_lad %>%
-  as_tibble() %>%
-  select(starts_with("lad")) %>%
-  filter_codes(lad_code, "^W")
+  boundaries_ltla21 |>
+  as_tibble() |>
+  select(starts_with("ltla21")) |>
+  filter_codes(ltla21_code, "^W")
 
-# ---- Retrieve data ----
+# Scrape URL and save dataset as tempfile
 GET(
   "https://www.ons.gov.uk/file?uri=%2fpeoplepopulationandcommunity%2fhealthandsocialcare%2fhealthandlifeexpectancies%2fdatasets%2fhealthstatelifeexpectancyatbirthandatage65bylocalareasuk%2fcurrent/hsleatbirthandatage65byukla201618.xlsx",
   write_disk(tf <- tempfile(fileext = ".xlsx"))
 )
 
-raw_males <-
+# ---- Clean data ----
+# Clean male data
+hle_males <-
   read_excel(
     tf,
     sheet = "HE - Male at birth",
     range = "A4:I441"
-  )
-
-hle_males <-
-  raw_males %>%
+  ) |>
   select(
-    lad_code = `Area Codes`,
+    ltla21_code = `Area Codes`,
     healthy_life_expectancy_male = HLE
-  ) %>%
-  right_join(wales_lookup) %>%
-  select(-lad_name)
+  ) |>
+  right_join(wales_lookup) |>
+  select(-ltla21_name)
 
-raw_females <-
+# Clean female data
+hle_females <-
   read_excel(
     tf,
     sheet = "HE - Female at birth",
     range = "A4:I441"
-  )
-
-hle_females <-
-  raw_females %>%
+  ) |>
   select(
-    lad_code = `Area Codes`,
+    ltla21_code = `Area Codes`,
     healthy_life_expectancy_female = HLE
-  ) %>%
-  right_join(wales_lookup) %>%
-  select(-lad_name)
+  ) |>
+  right_join(wales_lookup) |>
+  select(-ltla21_name)
 
+# Join male and female cleaned datasets
 hle_joined <-
-  hle_males %>%
+  hle_males |>
   left_join(hle_females)
 
 # ---- Calculate female/male weighted population estimates ----
+# Scrape population file URL
 GET(
   "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland/mid2019april2020localauthoritydistrictcodes/ukmidyearestimates20192020ladcodes.xls",
   write_disk(tf <- tempfile(fileext = ".xls"))
 )
 
-# Total pop
+# Total population
 raw_pop_total <-
   read_excel(
     tf,
@@ -70,14 +72,14 @@ raw_pop_total <-
   )
 
 pop_total <-
-  raw_pop_total %>%
+  raw_pop_total |>
   select(
-    lad_code = Code, pop_total = `All ages`
-  ) %>%
-  right_join(wales_lookup) %>%
-  select(-lad_name)
+    ltla21_code = Code, pop_total = `All ages`
+  ) |>
+  right_join(wales_lookup) |>
+  select(-ltla21_name)
 
-# Males
+# Male population 
 raw_pop_male <-
   read_excel(
     tf,
@@ -86,14 +88,14 @@ raw_pop_male <-
   )
 
 pop_male <-
-  raw_pop_male %>%
+  raw_pop_male |>
   select(
-    lad_code = Code, pop_male = `All ages`
-  ) %>%
-  right_join(wales_lookup) %>%
-  select(-lad_name)
+    ltla21_code = Code, pop_male = `All ages`
+  ) |>
+  right_join(wales_lookup) |>
+  select(-ltla21_name)
 
-# Females
+# Female population 
 raw_pop_female <-
   read_excel(
     tf,
@@ -102,34 +104,35 @@ raw_pop_female <-
   )
 
 pop_female <-
-  raw_pop_female %>%
+  raw_pop_female |>
   select(
-    lad_code = Code, pop_female = `All ages`
-  ) %>%
-  right_join(wales_lookup) %>%
-  select(-lad_name)
+    ltla21_code = Code, pop_female = `All ages`
+  ) |>
+  right_join(wales_lookup) |>
+  select(-ltla21_name)
 
 # Calculate proportions
 pop_proportions <-
-  pop_total %>%
-  left_join(pop_male) %>%
-  left_join(pop_female) %>%
-  rowwise() %>%
+  pop_total |>
+  left_join(pop_male) |>
+  left_join(pop_female) |>
+  rowwise() |>
   mutate(
     proportion_male = pop_male / pop_total,
     proportion_female = pop_female / pop_total
-  ) %>%
-  ungroup() %>%
-  select(lad_code, starts_with("proportion"))
+  ) |>
+  ungroup() |>
+  select(ltla21_code, starts_with("proportion"))
 
 # Compute population weighted mean HLE
-hle <-
-  hle_joined %>%
-  left_join(pop_proportions) %>%
-  rowwise(lad_code) %>%
+hpe_healthy_life_expectancy <-
+  hle_joined |>
+  left_join(pop_proportions) |>
+  rowwise(ltla21_code) |>
   summarise(
     healthy_life_expectancy = (healthy_life_expectancy_male * proportion_male) + (healthy_life_expectancy_female * proportion_female),
     .groups = "drop"
   )
 
-write_rds(hle, "data/vulnerability/health-inequalities/wales/healthy-people/healthy-life-expectancy.rds")
+# ---- Save output to data/ folder ----
+usethis::use_data(hpe_healthy_life_expectancy, overwrite = TRUE)
