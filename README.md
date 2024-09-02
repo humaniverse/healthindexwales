@@ -5,3 +5,5 @@ The Health Index for Wales is based on the [Office for National Statistics Healt
 - Healthy people
 - Healthy lives
 - Healthy places
+
+This repo is a work in progress. All data and outputs need to be carefully reviewed.
