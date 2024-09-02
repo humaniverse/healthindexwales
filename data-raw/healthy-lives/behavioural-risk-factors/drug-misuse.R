@@ -22,20 +22,20 @@ download.file(population_url, population_temp_file, mode = "wb")
 # ---- Reduce datasets to only include Wales ----
 #Drug dataset includes total number of deaths related to drug poisoning per Welsh local authority in 2022 
 #Population dataset includes estimated population of each Welsh local authority in 2022 
-drug_wales <- read_excel(drug_temp_file, sheet = "Table 1", range = "A4:E432") |>
-  filter(str_starts(`Area Codes`, "W0")) 
+drug_wales <- read_excel(drug_temp_file, sheet = "Table 1", range = "A4:E432") |> # Specify right tab from excel file
+  filter(str_starts(`Area Codes`, "W0"))  # Filter to only include Welsh ltlas
 population_wales <- read_excel(population_temp_file, sheet = "MYE2 - Persons", range = "A8:D365") |>
-  filter(str_starts(`Code`, "W0")) 
+  filter(str_starts(`Code`, "W0"))  # Filter to only include Welsh ltlas
 
 # ---- Merge datasets and clean ----
 #Drug poisoning death rate variable is drug poisoning related deaths per 1000 people ----
 hl_drug_misuse <- drug_wales |>
-  left_join(population_wales, by = c("Area Codes" = "Code")) |>
-  select(where(~ all(!is.na(.)))) |>
+  left_join(population_wales, by = c("Area Codes" = "Code")) |> # Join population dataset to drug deaths dataset
+  select(where(~ all(!is.na(.)))) |> # Exclude columns with NA values
   select(
     -`...4`,
     -`Name`,
-    -`Geography`
+    -`Geography` # Select columns
   ) |>
   rename(
     "ltla21_code" = `Area Codes`,
