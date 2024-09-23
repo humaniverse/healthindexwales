@@ -3,7 +3,7 @@
 \docType{data}
 \name{hl_pupil_attainment_numeracy}
 \alias{hl_pupil_attainment_numeracy}
-\title{Pupil Attainment Wales 2022/2023}
+\title{Pupil Numeracy Attainment Wales 2022/2023}
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{

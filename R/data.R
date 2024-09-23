@@ -417,3 +417,20 @@ NULL
 #' }
 #' @source \url {https://phw.nhs.wales/services-and-teams/child-measurement-programme/cmp-2022-23/}
 "hl_reception_overweight_obese"
+
+#' Wales rough sleepers - (2023)
+#'
+#' A dataset containing statistics on rates of rough sleepers by 1,000, by
+#' Local Authority
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla22_name}{Local Authority Code}
+#' \item{rough_sleepers_per_1000}{People assessed as rough sleepers per 1,000
+#' individuals in the Local Authority}
+#' \item{year}{Date}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Housing/Homelessness/homelessness-accommodation-provision-and-rough-sleeping/roughsleepers-by-localauthority}
+"hp_rough_sleepers"
