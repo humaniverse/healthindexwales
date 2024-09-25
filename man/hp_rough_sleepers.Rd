@@ -3,12 +3,12 @@
 \docType{data}
 \name{hp_rough_sleepers}
 \alias{hp_rough_sleepers}
-\title{Wales rough sleepers - (2023)}
+\title{Rates of Rough Sleepers in Wales (2023-24)}
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
-\item{ltla22_name}{Local Authority Code}
-\item{rough_sleepers_per_1000}{People assessed as rough sleepers per 1,000
+\item{ltla22_code}{Local Authority Code}
+\item{rough_sleepers_per_1k_population}{Annual rate of people assessed as rough sleepers per 1,000
 individuals in the Local Authority}
 \item{year}{Date}
 
@@ -17,12 +17,20 @@ individuals in the Local Authority}
 }
 \source{
 \url{https://statswales.gov.wales/Catalogue/Housing/Homelessness/homelessness-accommodation-provision-and-rough-sleeping/roughsleepers-by-localauthority}
+and \url{https://statswales.gov.wales/Catalogue/Population-and-Migration/Population/Estimates/Local-Authority/populationestimates-by-localauthority-year}
 }
 \usage{
 hp_rough_sleepers
 }
 \description{
-A dataset containing statistics on rates of rough sleepers by 1,000, by
-Local Authority
+A dataset containing statistics on rates of rough sleepers per 1,000 individuals, by
+Local Authority, 2023-2024.
+}
+\details{
+Rough sleepers are defined as persons who are sleeping overnight in the open air
+(such as shop doorways, bus shelters or parks) or in buildings, vehicles or other
+places not designed for habitation (such as stairwells, barns, sheds, car parks, tents, cars/vans).
+
+Mid-year population estimates for 2023 are used.
 }
 \keyword{datasets}
