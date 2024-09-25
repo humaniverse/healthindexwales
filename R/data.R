@@ -421,11 +421,11 @@ NULL
 #' Wales rough sleepers - (2023)
 #'
 #' A dataset containing statistics on rates of rough sleepers by 1,000, by
-#' Local Authority
+#' Local Authority, 2023-2024. Population data mid-2023.
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla22_name}{Local Authority Code}
+#' \item{ltla22_code}{Local Authority Code}
 #' \item{rough_sleepers_per_1000}{People assessed as rough sleepers per 1,000
 #' individuals in the Local Authority}
 #' \item{year}{Date}

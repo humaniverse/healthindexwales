@@ -1,25 +1,26 @@
-# ---- Installing  libraries ----
+# ---- Loading  libraries ----
 library(tidyverse)
-library(readxl)
 library(geographr)
+library(here)
 
-# ---- Upload csv files for rough sleepers and population data ----
+# ---- Read csv files for rough sleepers and population data ----
 # Source: https://statswales.gov.wales/Catalogue/Housing/Homelessness/homelessness-accommodation-provision-and-rough-sleeping/roughsleepers-by-localauthority. 
 # Data needs to be manually downloaded and saved in the raw-data/ folder
-rough_sleepers_data <- read.csv("~/GitHub/health-index-wales/data-raw/healthy-places/living-conditions/raw-data/rough_sleepers_data.csv")
+rough_sleepers_data <- read_csv(here("data-raw", "healthy-places", "living-conditions", "raw-data", "rough_sleepers_data.csv"))
+
 
 # Source: https://statswales.gov.wales/Catalogue/Population-and-Migration/Population/Estimates/Local-Authority/populationestimates-by-localauthority-year.
 # Data needs to be manually downloaded and saved in the raw-data/ folder
-population_df_wales <- read.csv("~/GitHub/health-index-wales/data-raw/healthy-places/living-conditions/raw-data/export.csv")
+population_df_wales <- read_csv(here("data-raw", "healthy-places", "living-conditions", "raw-data", "export.csv"))
 
 # Filter to include mid-year 2023 data
 population_df_wales <- population_df_wales |>
-  select(`X.2`, `X.11`) |>
+  select(`...4`, `...13`) |>
   slice(12:33)
 
 # Filter to include data from June 2023 - June 2024 
 rough_sleepers_data <- rough_sleepers_data |>
-  select(1, `X.2`:`X.14`) |>
+  select(1, `...4`:`...16`) |>
   slice(4:25) 
 
 # ---- Merge data sets to  calculate the % of people in each LA who are rough ----
@@ -29,15 +30,15 @@ names(rough_sleepers_data)[1] <- "local_authority"
 names(population_df_wales)[1] <- "local_authority"
 
 rough_sleepers_data <- rough_sleepers_data |>
-  mutate(across(`X.2`:`X.14`, as.numeric))
+  mutate(across(`...4`:`...16`, as.numeric))
 
 rough_sleepers_data <- rough_sleepers_data |>
   rowwise() |>
-  mutate(year_sum = sum(c_across(`X.2`:`X.14`), na.rm = TRUE)) |>
+  mutate(year_sum = sum(c_across(`...4`:`...16`), na.rm = TRUE)) |>
   ungroup() # sum for number of rough sleepers per LA June 2023 to June 2024
 
 population_df_wales <- population_df_wales |>
-  mutate(across(`X.11`, as.numeric))
+  mutate(across(`...13`, as.numeric))
 
 hp_rough_sleepers <- rough_sleepers_data |>
   left_join(population_df_wales, by = c("local_authority"))
@@ -45,15 +46,12 @@ hp_rough_sleepers <- rough_sleepers_data |>
 # Remove monthly columns from June-2023 to June 2024
 hp_rough_sleepers <- hp_rough_sleepers[, -2:-14]
 
-names(hp_rough_sleepers)[3] <- "pop_av"
-
-
 # Calculate % of how many people in each Welsh LA are rough sleepers. New
 # column created to show this data.
 hp_rough_sleepers <- hp_rough_sleepers |>
   mutate(
     percentage =
-      (hp_rough_sleepers$year_sum / hp_rough_sleepers$pop_av) * 100
+      (hp_rough_sleepers$year_sum / hp_rough_sleepers$...13.y) * 100
   )
 
 hp_rough_sleepers <- hp_rough_sleepers |>
@@ -72,9 +70,11 @@ hp_rough_sleepers <- hp_rough_sleepers |>
 hp_rough_sleepers <- hp_rough_sleepers |>
   left_join(lookup_ltla22_ltla23, by = c("ltla22_name"))
 
-# Remove extra columns and reorganise
 hp_rough_sleepers <- hp_rough_sleepers |>
-  select(-4:-6)
+  select(-1, -5, -6)
+
+hp_rough_sleepers <- hp_rough_sleepers |>
+  select(3, everything())
 
 # ---- Save output to data/ folder ----
 usethis::use_data(hp_rough_sleepers, overwrite = TRUE)
