@@ -8,7 +8,7 @@
 A data frame with 22 rows and 3 variables:
 \describe{
 \item{ltla21_code}{Area code}
-\item{Percentage_low_birth_weight}{The percentage of singleton live births under 2500g in each local authority of Wales}
+\item{percentage_low_birth_weight}{The percentage of singleton live births under 2500g in each local authority of Wales}
 \item{Year}{Time frame}
 .  ...
 }

@@ -78,4 +78,4 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy Places | Living conditions | Household Overcrowding | | | | | |
 | Healthy Places | Living conditions | Noise complaints | | | | | |
 | Healthy Places | Living conditions | Road Safety | | | | | |
-| Healthy Places | Living conditions | Rough Sleeping | | | | | |
+| Healthy Places | Living conditions | Rough Sleeping | 2023-2024 | [StatsWales](https://statswales.gov.wales/Catalogue/Housing/Homelessness/homelessness-accommodation-provision-and-rough-sleeping/roughsleepers-by-localauthority) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: | :heavy_check_mark:|

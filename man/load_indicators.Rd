@@ -5,12 +5,12 @@
 \title{Load indicators saved as .rds files within a folder into a tibble, joined by
 a key}
 \usage{
-load_indicators(path, key)
+load_indicators(path_pattern, key)
 }
 \arguments{
-\item{path}{Relative path to the folder containing the .rds files to be read}
-
 \item{key}{The key to join the variables}
+
+\item{path}{Relative path to the folder containing the .rds files to be read}
 }
 \description{
 Load indicators saved as .rds files within a folder into a tibble, joined by

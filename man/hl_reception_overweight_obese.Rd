@@ -10,7 +10,7 @@ A data frame with 22 rows and 3 variables:
 Note: The local authority name for Powys in the original dataset was written as Powys THB representing the Teaching Health Board.
 The name was changed for consistency as Powys THB and Powys County Council cover the same areas.
 \item{ltla21_code}{Area code}
-\item{Percentage_overweight_obese}{The percentage of overweight and obese children aged 4-5 in each local authority of Wales}
+\item{percentage_overweight_obese}{The percentage of overweight and obese children in the 91st centile aged 4-5 in each local authority of Wales}
 \item{Year}{Time frame}
 .  ...
 }
