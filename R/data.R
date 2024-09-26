@@ -441,3 +441,21 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/Housing/Homelessness/homelessness-accommodation-provision-and-rough-sleeping/roughsleepers-by-localauthority}
 #' and \url{https://statswales.gov.wales/Catalogue/Population-and-Migration/Population/Estimates/Local-Authority/populationestimates-by-localauthority-year}
 "hp_rough_sleepers"
+#' 
+#' Percentage of children (Under 16) in Absolute Poverty in Wales (2022)
+#' 
+#' A dataset containing statistics on the percentage of children under 16 experiencing
+#' absolute poverty, by Local Authority, 2022.
+#' 
+#' Absolute poverty refers to people living in households with income below 60% of median income in a base year, usually 2010/11.
+#' 
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla21_code}{Local Authority Code}
+#' \item{percentage_children_absolute_poverty}{Annual percentage of children (under 16) assessed as living in absolute poverty in 2022}
+#' \item{year}{Date}
+#' 
+#' ...
+#' }
+#' @source \url{https://assets.publishing.service.gov.uk/media/641c5cdb5155a200136ad550/children-in-low-income-families-local-area-statistics-2014-to-2022.ods}
+#' "hp_child_poverty
