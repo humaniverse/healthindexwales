@@ -7,8 +7,8 @@
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
-\item{ltla21_code}{Area code}
-\item{Alcohol death rate per 100,000}{Age standardised alcohol-specific death rate per 100,000}
+\item{ltla21_code}{Local Authority area code}
+\item{alcohol_death_rate_per_100k}{Age standardised alcohol-specific death rate per 100,000}
 \item{Year}{Time frame}
 .  ...
 }
