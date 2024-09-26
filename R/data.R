@@ -365,12 +365,18 @@ NULL
 
 #' Young people in education, employment and apprenticeships Wales 2009/2010
 #'
-#' Dataset containing information about the standard participation rate in sustained education, employment or an apprenticeship for 16-24 year olds after key stage 4
+#' Dataset containing information about the standard participation rate in sustained education, 
+#' employment or an apprenticeship for 16-24 year olds after key stage 4
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #'   \item{ltla21_code}{Area code}
-#'   \item{Participation rate under 20}{Participation rate in post-16 (after Key Stage 4) Education and Training in Wales for under 20 year olds. Participation rate is calculated using census data population count by local authority, with participation measured against the Welsh national average of 100. Participation rates above 100 reflect high participation rates, below 100 low participation rates}
+#'   \item{participation_rate_eea}{Participation rate in post-16 (after Key Stage 4) 
+#'   Education and Training in Wales for under 20 year olds. Participation rate 
+#'   is calculated using census data population count by local authority, 
+#'   with participation measured against the Welsh national average of 100. 
+#'   Participation rates above 100 reflect high participation rates, below 100 
+#'   low participation rates}
 #'   \item{Year}{Academic year}
 #'.  ...
 #' }
