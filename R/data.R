@@ -98,12 +98,14 @@ NULL
 
 #' Primary Pupil Absences Wales 2022/2023
 #'
-#' Dataset containing information about the percentage of absences for primary school students in Wales for the academic year 2022/2023
+#' Dataset containing information about the percentage of absences for primary 
+#' school students in Wales for the academic year 2022/2023
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #'   \item{ltla21_code}{Area code}
-#'   \item{Primary percentage of absences}{Percentage of half day sessions missed for primary school students, aged 5-10, for the full academic year, in Wales}
+#'   \item{Primary percentage of absences}{Percentage of half day sessions missed 
+#'   for primary school students, aged 5-10, for the full academic year, in Wales}
 #'   \item{Year}{Academic year}
 #'.  ...
 #' }
