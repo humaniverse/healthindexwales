@@ -70,12 +70,12 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy Places | Access to services | Patients offered acceptable GP practice appointments | | | | | |
 | Healthy Places | Crime | Low-level crime | 2023 |[ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea)|OGL3 |:heavy_check_mark:|:heavy_check_mark:|
 | Healthy Places | Crime | Personal crime | 2023 |[ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea) | OGL3 |:heavy_check_mark:|:heavy_check_mark: |
-| Healthy Places | Economic and working conditions | Child poverty | | | | | |
+| Healthy Places | Economic and working conditions | Child poverty || | |  |  |
 | Healthy Places | Economic and working conditions | Job-related Training | | | | | |
 | Healthy Places | Economic and working conditions | Unemployment | | | | | |
 | Healthy Places | Economic and working conditions | Workplace Safety | | | | | |
 | Healthy Places | Living conditions | Air Pollution | | | | | |
-| Healthy Places | Living conditions | Household Overcrowding | | | | | |
+| Healthy Places | Living conditions | Household Overcrowding | 2021 | [ONS](https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/housing/datasets/overcrowdingandunderoccupancybyhouseholdcharacteristicsenglandandwalescensus2021/census2021/hou04dataset.xlsx) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: | :heavy_check_mark: |
 | Healthy Places | Living conditions | Noise complaints | | | | | |
 | Healthy Places | Living conditions | Road Safety | | | | | |
 | Healthy Places | Living conditions | Rough Sleeping | 2023-2024 | [StatsWales](https://statswales.gov.wales/Catalogue/Housing/Homelessness/homelessness-accommodation-provision-and-rough-sleeping/roughsleepers-by-localauthority) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: | :heavy_check_mark:|
