@@ -59,13 +59,16 @@ NULL
 
 #' Secondary Pupil Absences Wales 2022/2023
 #'
-#' Dataset containing information about the percentage of absences for secondary school students in Wales for the academic year 2022/2023 up until the late May bank holiday
+#' Dataset containing information about the percentage of absences for secondary 
+#' school students in Wales for the academic year 2022/2023 up until the late May bank holiday
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #'   \item{ltla21_code}{Area code}
-#'   \item{Secondary percentage of absences}{Percentage of half day sessions missed for secondary school students, aged 11-15, for the academic year up until the late May bank holiday (due to effect of exams in May and June on absences), in Wales}
-#'   \item{Year}{Academic year (until late May bank holiday)}
+#'   \item{secondary_school_absence_percentage}{Percentage of half day sessions 
+#'   missed for secondary school students, aged 11-15, for the academic year up 
+#'   until the late May bank holiday (due to effect of exams in May and June on absences), in Wales}
+#'   \item{year}{Academic year (until late May bank holiday)}
 #'.  ...
 #' }
 #' @source \url{https://www.gov.wales/absenteeism-secondary-schools-september-2022-august-2023}
@@ -104,9 +107,9 @@ NULL
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #'   \item{ltla21_code}{Area code}
-#'   \item{Primary percentage of absences}{Percentage of half day sessions missed 
+#'   \item{primary_school_absence_percentage}{Percentage of half day sessions missed 
 #'   for primary school students, aged 5-10, for the full academic year, in Wales}
-#'   \item{Year}{Academic year}
+#'   \item{year}{Academic year}
 #'.  ...
 #' }
 #' @source \url{https://www.gov.wales/absenteeism-primary-schools-september-2022-august-2023}

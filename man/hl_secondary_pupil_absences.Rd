@@ -8,8 +8,10 @@
 A data frame with 22 rows and 3 variables:
 \describe{
 \item{ltla21_code}{Area code}
-\item{Secondary percentage of absences}{Percentage of half day sessions missed for secondary school students, aged 11-15, for the academic year up until the late May bank holiday (due to effect of exams in May and June on absences), in Wales}
-\item{Year}{Academic year (until late May bank holiday)}
+\item{secondary_school_absence_percentage}{Percentage of half day sessions
+missed for secondary school students, aged 11-15, for the academic year up
+until the late May bank holiday (due to effect of exams in May and June on absences), in Wales}
+\item{year}{Academic year (until late May bank holiday)}
 .  ...
 }
 }
@@ -20,6 +22,7 @@ A data frame with 22 rows and 3 variables:
 hl_secondary_pupil_absences
 }
 \description{
-Dataset containing information about the percentage of absences for secondary school students in Wales for the academic year 2022/2023 up until the late May bank holiday
+Dataset containing information about the percentage of absences for secondary
+school students in Wales for the academic year 2022/2023 up until the late May bank holiday
 }
 \keyword{datasets}
