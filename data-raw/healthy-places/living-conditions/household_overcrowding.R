@@ -17,19 +17,22 @@ hp_household_overcrowding <- overcrowding_raw |>
   filter(str_starts(`Area code`, "W")) |>
   slice(2:23) |>
   rowwise() |>
-  mutate(household_sum = 
-           sum(c_across(`Occupancy rating of -1 or less`:`Occupancy rating of +2 or more`), na.rm = TRUE)) |>
-  ungroup() |> # sum for number of households per LA
-  select(`Area code`, `Occupancy rating of -1 or less`,`household_sum`) |>
-  rename(ltla21_code = 1,
-    overcrowding_occupancy_rating = 2) |>
   mutate(
-    percentage_households_overcrowding = 
+    household_sum =
+      sum(c_across(`Occupancy rating of -1 or less`:`Occupancy rating of +2 or more`), na.rm = TRUE)
+  ) |>
+  ungroup() |> # sum for number of households per LA
+  select(`Area code`, `Occupancy rating of -1 or less`, `household_sum`) |>
+  rename(
+    ltla21_code = 1,
+    overcrowding_occupancy_rating = 2
+  ) |>
+  mutate(
+    percentage_households_overcrowding =
       (overcrowding_occupancy_rating / household_sum) * 100,
-    year = "2021") |>
+    year = "2021"
+  ) |>
   select(`ltla21_code`, `percentage_households_overcrowding`, `year`)
 
 # ---- Save output to data/ folder ----
 usethis::use_data(hp_household_overcrowding, overwrite = TRUE)
-
-
