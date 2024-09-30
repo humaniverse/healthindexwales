@@ -17,14 +17,15 @@ child_poverty_raw <- read_ods(temp_ods, sheet = 8, skip = 9)
 hp_child_poverty <- child_poverty_raw |>
   filter(str_starts(`Area Code`, "W")) |>
   select(`Area Code`, `Percentage of children \nFYE 2022\n(%)\n[p] [note 3]`) |>
-  rename(percentage_children_absolute_poverty = 2,
-         ltla21_code = 1) |>
+  rename(
+    percentage_children_absolute_poverty = 2,
+    ltla21_code = 1
+  ) |>
   mutate(
     year = "2022",
-    percentage_children_absolute_poverty = percentage_children_absolute_poverty 
+    percentage_children_absolute_poverty = percentage_children_absolute_poverty
     * 100
   )
 
 # ---- Save output to data/ folder ----
 usethis::use_data(hp_child_poverty, overwrite = TRUE)
-
