@@ -70,7 +70,7 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy Places | Access to services | Patients offered acceptable GP practice appointments | | | | | |
 | Healthy Places | Crime | Low-level crime | 2023 |[ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea)|OGL3 |:heavy_check_mark:|:heavy_check_mark:|
 | Healthy Places | Crime | Personal crime | 2023 |[ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea) | OGL3 |:heavy_check_mark:|:heavy_check_mark: |
-| Healthy Places | Economic and working conditions | Child poverty | 2022 | [DWP](https://assets.publishing.service.gov.uk/media/641c5cdb5155a200136ad550/children-in-low-income-families-local-area-statistics-2014-to-2022.ods) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: | :heavy_check_mark:|
+| Healthy Places | Economic and working conditions | Child poverty | 2022 | [DWP](https://www.gov.uk/government/statistics/children-in-low-income-families-local-area-statistics-2014-to-2022) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: | :heavy_check_mark:|
 | Healthy Places | Economic and working conditions | Job-related Training | | | | | |
 | Healthy Places | Economic and working conditions | Unemployment | | | | | |
 | Healthy Places | Economic and working conditions | Workplace Safety | | | | | |

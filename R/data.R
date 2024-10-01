@@ -457,5 +457,5 @@ NULL
 #' 
 #' ...
 #' }
-#' @source \url{https://assets.publishing.service.gov.uk/media/641c5cdb5155a200136ad550/children-in-low-income-families-local-area-statistics-2014-to-2022.ods}
+#' @source \url{https://www.gov.uk/government/statistics/children-in-low-income-families-local-area-statistics-2014-to-2022}
 #' "hp_child_poverty
