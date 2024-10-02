@@ -1,6 +1,5 @@
 library(tidyverse)
 library(httr)
-library(readxl)
 library(readODS)
 
 # ---- Scrape URL ----
