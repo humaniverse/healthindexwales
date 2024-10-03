@@ -441,6 +441,7 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/Housing/Homelessness/homelessness-accommodation-provision-and-rough-sleeping/roughsleepers-by-localauthority}
 #' and \url{https://statswales.gov.wales/Catalogue/Population-and-Migration/Population/Estimates/Local-Authority/populationestimates-by-localauthority-year}
 "hp_rough_sleepers"
+
 #'
 #' Percentage of children (Under 16) in Absolute Poverty in Wales (2022)
 #'
@@ -459,3 +460,22 @@ NULL
 #' }
 #' @source \url{https://www.gov.uk/government/statistics/children-in-low-income-families-local-area-statistics-2014-to-2022}
 #' "hp_child_poverty"
+
+#' Percentage of Households Experiencing Overcrowding in Wales (2021 Census)
+#' 
+#' A dataset containing statistics on the percentage of households in each LA that are experiencing overcrowding, 2021.
+#' 
+#' Overcrowding is defined as households with an occupancy rating of -1 or less, 
+#' which implies that a household has at least one fewer bedroom than required.
+#' 
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla21_code}{Local Authority Code}
+#' \item{percentage_households_overcrowding}{Percentage of households assessed 
+#' as overcrowded at the time of the 2021 Census, per Local Authroity}
+#' \item{year}{Date}
+#' 
+#' ...
+#' }
+#' @source \url{https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/housing/datasets/overcrowdingandunderoccupancybyhouseholdcharacteristicsenglandandwalescensus2021/census2021/hou04dataset.xlsx}
+"hp_household_overcrowding"
