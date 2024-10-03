@@ -459,7 +459,7 @@ NULL
 #' ...
 #' }
 #' @source \url{https://www.gov.uk/government/statistics/children-in-low-income-families-local-area-statistics-2014-to-2022}
-#' "hp_child_poverty"
+"hp_child_poverty"
 
 #' Percentage of Households Experiencing Overcrowding in Wales (2021 Census)
 #' 
