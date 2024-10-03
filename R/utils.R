@@ -226,10 +226,8 @@ calculate_extent <-
     return(data)
   }
 
-#' ================================ DEPRECIATED ================================
-#' This function should no longer be used, and is only kept here
+#'DEPRECIATED: This function should no longer be used, and is only kept here
 #' for legacy reasons until code is updated with the new and revised version
-#' =============================================================================
 #' 
 #' Calculate the 'extent' scores when aggreating up small areas
 #'

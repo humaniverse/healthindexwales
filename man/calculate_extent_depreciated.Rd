@@ -2,7 +2,8 @@
 % Please edit documentation in R/utils.R
 \name{calculate_extent_depreciated}
 \alias{calculate_extent_depreciated}
-\title{================================ DEPRECIATED ================================This function should no longer be used, and is only kept herefor legacy reasons until code is updated with the new and revised version}
+\title{DEPRECIATED: This function should no longer be used, and is only kept here
+for legacy reasons until code is updated with the new and revised version}
 \usage{
 calculate_extent_depreciated(
   data,
