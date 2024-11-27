@@ -479,3 +479,66 @@ NULL
 #' }
 #' @source \url{https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/housing/datasets/overcrowdingandunderoccupancybyhouseholdcharacteristicsenglandandwalescensus2021/census2021/hou04dataset.xlsx}
 "hp_household_overcrowding"
+
+#' Travel time to GPs
+#'
+#' A dataset containing the average (median) travel time (in minutes) to the nearest
+#' GP in each Local Authority This is based on the travel time to the
+#' nearest GP in each MSOA within a Local Authority.
+#'
+#' Travel times are calculated using the TravelTime API (https://traveltime.com/apis/distance-matrix)
+#' and are based on travelling by public transport on a weekday morning.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla24_code}{Local Authority Code}
+#'   \item{gp_median_travel_time}{Median travel time (in minutes) to the nearest
+#'   GP among all the MSOAs within a Local Authority}
+#'   \item{year}{Year the data was last updated}
+#'   ...
+#' }
+#' @source \url{https://openstreetmap.org/}
+#'
+"places_gp_travel_time"
+
+#' Travel time to pharmacies
+#'
+#' A dataset containing the average (median) travel time (in minutes) to the nearest
+#' pharmacy in each Local Authority This is based on the travel time to the
+#' nearest sports centre in each MSOA within a Local Authority.
+#'
+#' Travel times are calculated using the TravelTime API (https://traveltime.com/apis/distance-matrix)
+#' and are based on travelling by public transport on a weekday morning.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla24_code}{Local Authority Code}
+#'   \item{pharmacy_median_travel_time}{Median travel time (in minutes) to the nearest
+#'   pharmacy among all the MSOAs within a Local Authority}
+#'   \item{year}{Year the data was last updated}
+#'   ...
+#' }
+#' @source \url{https://openstreetmap.org/}
+#'
+"places_pharmacy_travel_time"
+
+#' Travel time to sports facilities
+#'
+#' A dataset containing the average (median) travel time (in minutes) to the nearest
+#' sports centre in each Local Authority This is based on the travel time to the 
+#' nearest sports centre in each MSOA within a Local Authority.
+#'
+#' Travel times are calculated using the TravelTime API (https://traveltime.com/apis/distance-matrix)
+#' and are based on travelling by public transport on a weekday morning.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla24_code}{Local Authority Code}
+#'   \item{pharmacy_median_travel_time}{Median travel time (in minutes) to the nearest
+#'   pharmacy among all the MSOAs within a Local Authority}
+#'   \item{year}{Year the data was last updated}
+#'   ...
+#' }
+#' @source \url{https://openstreetmap.org/}
+#'
+"places_sports_centre_travel_time"
