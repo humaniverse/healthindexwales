@@ -8,8 +8,8 @@
 A data frame with 22 rows and 3 variables:
 \describe{
 \item{ltla24_code}{Local Authority Code}
-\item{pharmacy_median_travel_time}{Median travel time (in minutes) to the nearest
-pharmacy among all the MSOAs within a Local Authority}
+\item{sports_centre_mean_travel_time}{Mean travel time (in minutes) to the nearest
+sports centre among all the MSOAs within a Local Authority}
 \item{year}{Year the data was last updated}
 ...
 }
@@ -21,7 +21,7 @@ pharmacy among all the MSOAs within a Local Authority}
 places_sports_centre_travel_time
 }
 \description{
-A dataset containing the average (median) travel time (in minutes) to the nearest
+A dataset containing the average (mean) travel time (in minutes) to the nearest
 sports centre in each Local Authority This is based on the travel time to the
 nearest sports centre in each MSOA within a Local Authority.
 }

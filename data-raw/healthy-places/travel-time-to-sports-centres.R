@@ -206,32 +206,26 @@ sports_centre_travel_time <-
   sports_centre_travel_time |>
   left_join(lookup_msoa21_ltla22)
 
-# What are the fastest travel times within each MSOA?
-sports_centre_travel_time_fastest <-
+# What are the mean travel times within each MSOA (within each Local Authority)?
+sports_centre_travel_time_mean <-
   sports_centre_travel_time |>
-  select(-osm_id) |>  # We don't need to know the sports centre ID for this
-  group_by(msoa21_code) |>
-  filter(travel_time_mins == min(travel_time_mins)) |>
+  select(-osm_id) |>  # We don't need to know the GP ID for this
+  group_by(msoa21_code, ltla22_code) |>
+  summarise(
+    mean_travel_time_mins = mean(travel_time_mins, na.rm = TRUE)
+  ) |>
   ungroup() |>
   distinct()
 
-# Plot the distribution of fastest travel times within each Local Authority
-sports_centre_travel_time_fastest |>
-  ggplot(aes(x = travel_time_mins)) +
-  geom_histogram(binwidth = 5) +
-  facet_wrap(~ltla22_code, scales = "free")
-
-# Calculate average travel time for each Local Authority
-# Several of the distributions of travel times within Local Authorities are skewed
-# so we'll take the median travel time
+# Calculate average (mean) travel time for each Local Authority
 places_sports_centre_travel_time <-
-  sports_centre_travel_time_fastest |>
+  sports_centre_travel_time_mean |>
   group_by(ltla22_code) |>
-  summarise(median_travel_time = median(travel_time_mins, na.rm = TRUE)) |>
+  summarise(mean_travel_time = mean(mean_travel_time_mins, na.rm = TRUE)) |>
   ungroup() |>
   mutate(year = year(now())) |>
   rename(ltla24_code = ltla22_code,
-         gp_median_travel_time = median_travel_time)
+         sports_centre_mean_travel_time = mean_travel_time)
 
 # ---- Save output to data/ folder ----
 usethis::use_data(places_sports_centre_travel_time, overwrite = TRUE)
