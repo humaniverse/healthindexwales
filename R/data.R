@@ -462,19 +462,19 @@ NULL
 "hp_child_poverty"
 
 #' Percentage of Households Experiencing Overcrowding in Wales (2021 Census)
-#' 
+#'
 #' A dataset containing statistics on the percentage of households in each LA that are experiencing overcrowding, 2021.
-#' 
-#' Overcrowding is defined as households with an occupancy rating of -1 or less, 
+#'
+#' Overcrowding is defined as households with an occupancy rating of -1 or less,
 #' which implies that a household has at least one fewer bedroom than required.
-#' 
+#'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #' \item{ltla21_code}{Local Authority Code}
-#' \item{percentage_households_overcrowding}{Percentage of households assessed 
+#' \item{percentage_households_overcrowding}{Percentage of households assessed
 #' as overcrowded at the time of the 2021 Census, per Local Authroity}
 #' \item{year}{Date}
-#' 
+#'
 #' ...
 #' }
 #' @source \url{https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/housing/datasets/overcrowdingandunderoccupancybyhouseholdcharacteristicsenglandandwalescensus2021/census2021/hou04dataset.xlsx}
@@ -483,7 +483,7 @@ NULL
 #' Travel time to GPs
 #'
 #' A dataset containing the average (median) travel time (in minutes) to the nearest
-#' GP in each Local Authority This is based on the travel time to the
+#' GP in each Local Authority. This is based on the travel time to the
 #' nearest GP in each MSOA within a Local Authority.
 #'
 #' Travel times are calculated using the TravelTime API (https://traveltime.com/apis/distance-matrix)
@@ -504,7 +504,7 @@ NULL
 #' Travel time to pharmacies
 #'
 #' A dataset containing the average (median) travel time (in minutes) to the nearest
-#' pharmacy in each Local Authority This is based on the travel time to the
+#' pharmacy in each Local Authority. This is based on the travel time to the
 #' nearest sports centre in each MSOA within a Local Authority.
 #'
 #' Travel times are calculated using the TravelTime API (https://traveltime.com/apis/distance-matrix)
@@ -525,7 +525,7 @@ NULL
 #' Travel time to sports facilities
 #'
 #' A dataset containing the average (mean) travel time (in minutes) to the nearest
-#' sports centre in each Local Authority This is based on the travel time to the 
+#' sports centre in each Local Authority. This is based on the travel time to the
 #' nearest sports centre in each MSOA within a Local Authority.
 #'
 #' Travel times are calculated using the TravelTime API (https://traveltime.com/apis/distance-matrix)

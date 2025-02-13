@@ -22,7 +22,7 @@ places_gp_travel_time
 }
 \description{
 A dataset containing the average (median) travel time (in minutes) to the nearest
-GP in each Local Authority This is based on the travel time to the
+GP in each Local Authority. This is based on the travel time to the
 nearest GP in each MSOA within a Local Authority.
 }
 \details{

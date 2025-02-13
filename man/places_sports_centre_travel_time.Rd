@@ -22,7 +22,7 @@ places_sports_centre_travel_time
 }
 \description{
 A dataset containing the average (mean) travel time (in minutes) to the nearest
-sports centre in each Local Authority This is based on the travel time to the
+sports centre in each Local Authority. This is based on the travel time to the
 nearest sports centre in each MSOA within a Local Authority.
 }
 \details{
