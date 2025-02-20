@@ -544,17 +544,17 @@ NULL
 "places_sports_centre_travel_time"
 
 #' Internet access
-#' 
+#'
 #' Percentage of residential premises in each Local Authority that are below the
-#' Universal Service Obligation (USO) for broadband: no access to download speeds 
-#' at or above 10 Mbit/s and upload speeds at or above 1 Mbit/s from fixed 
+#' Universal Service Obligation (USO) for broadband: no access to download speeds
+#' at or above 10 Mbit/s and upload speeds at or above 1 Mbit/s from fixed
 #' broadband or a Wireless Internet Service Provider (WISP) or Mobile FWA
 #' (including non-matched records and zero predicted speeds).
-#' 
+#'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #'   \item{ltla24_code}{Local Authority code}
-#'   \item{poor_internet_access_percentage}{% of premises below the Universal 
+#'   \item{poor_internet_access_percentage}{% of premises below the Universal
 #'   Service Obligation (USO) for broadband}
 #'   \item{year}{Year the data was last updated}
 #'   ...
@@ -562,3 +562,24 @@ NULL
 #' @source \url{https://www.ofcom.org.uk/}
 #'
 "places_internet_access"
+
+#' Ease of getting GP appointments at a convenient time
+#'
+#' The percentage of people finding it very difficult to get a GP appointment
+#' at a convenient time. Data is from the National Survey for Wales 2021-22,
+#' based on the question "How easy or difficult was it to get a convenient
+#' appointment?"
+#'
+#' The data is provided for Local Health Boards. We spread this data across each
+#' Local Authority within the Health Boards.
+#'
+#' #' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla24_code}{Local Authority Code}
+#'   \item{gp_appointments_very_difficult}{Percentage of people reporting it was
+#'   very difficult to get a GP appointment at a convenient time}
+#'   \item{year}{Year the survey was conducted}
+#'   ...
+#' }
+#' @source \url{https://www.gov.wales/national-survey-wales-results-viewer}
+"places_gp_appointments"
