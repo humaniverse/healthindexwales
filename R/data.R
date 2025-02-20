@@ -542,3 +542,23 @@ NULL
 #' @source \url{https://openstreetmap.org/}
 #'
 "places_sports_centre_travel_time"
+
+#' Internet access
+#' 
+#' Percentage of residential premises in each Local Authority that are below the
+#' Universal Service Obligation (USO) for broadband: no access to download speeds 
+#' at or above 10 Mbit/s and upload speeds at or above 1 Mbit/s from fixed 
+#' broadband or a Wireless Internet Service Provider (WISP) or Mobile FWA
+#' (including non-matched records and zero predicted speeds).
+#' 
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#'   \item{ltla24_code}{Local Authority code}
+#'   \item{poor_internet_access_percentage}{% of premises below the Universal 
+#'   Service Obligation (USO) for broadband}
+#'   \item{year}{Year the data was last updated}
+#'   ...
+#' }
+#' @source \url{https://www.ofcom.org.uk/}
+#'
+"places_internet_access"
