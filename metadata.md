@@ -29,8 +29,6 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy People | Frailty | 2018-19 | [Public Health Observatory](https://public.tableau.com/app/profile/publichealthwalesobservatory/viz/PHOF2017LAHB-Charts/UHB-LAChart-Table) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_exclamation_mark: Indicator: used hip fractures as proxy | :heavy_check_mark: | :heavy_exclamation_mark: |
 | Healthy People | Children's Social, Emotional and Mental Health | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 | Healthy People | Mental Health Condition | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator:| :x: | :heavy_exclamation_mark: |
-
-
 | Healthy Places | Unemployment | :x:  | :x: | :x: | heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 | Healthy Places |  Child poverty | 2022 | [DWP](https://www.gov.uk/government/statistics/children-in-low-income-families-local-area-statistics-2014-to-2022) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark:| :heavy_exclamation_mark: |
 | Healthy Places | Private Outdoor Space | :x: | :x: | :x: | heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
