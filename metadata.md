@@ -28,13 +28,15 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy People |  Disability Impacting Daily Activities | 2020 | [Annual Population Survery](https://www.nomisweb.co.uk/query/construct/summary.asp?changing=yes&amp;dataset=17&amp;anal=5&amp;version=0) | [OGL3](https://www.nomisweb.co.uk/home/copyright.asp) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark: | :heavy_exclamation_mark: |
 | Healthy People | Frailty | 2018-19 | [Public Health Observatory](https://public.tableau.com/app/profile/publichealthwalesobservatory/viz/PHOF2017LAHB-Charts/UHB-LAChart-Table) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_exclamation_mark: Indicator: used hip fractures as proxy | :heavy_check_mark: | :heavy_exclamation_mark: |
 | Healthy People | Children's Social, Emotional and Mental Health | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
-| Healthy People | Mental Health Condition | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator:| :x: | :heavy_exclamation_mark: |
+| Healthy People | Mental Health Condition | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
+| Healthy People | Self-harm | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
+| Healthy People | Suicides | 2020-22 | [Public Health Observatory](https://public.tableau.com/app/profile/publichealthwalesobservatory/viz/PHOF2017LAHB-Charts/UHB-LAChart-Table) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark: | :heavy_exclamation_mark: |
+
+
 | Healthy Places | Unemployment | :x:  | :x: | :x: | heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 | Healthy Places |  Child poverty | 2022 | [DWP](https://www.gov.uk/government/statistics/children-in-low-income-families-local-area-statistics-2014-to-2022) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark:| :heavy_exclamation_mark: |
 | Healthy Places | Private Outdoor Space | :x: | :x: | :x: | heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 
-| Healthy People |  Mental health | Self-harm | :x: | :x: | :x: | :x: - data unavailable | :x: |
-| Healthy People |  Mental health | Suicides | 2020-22 | [Public Health Observatory](https://public.tableau.com/app/profile/publichealthwalesobservatory/viz/PHOF2017LAHB-Charts/UHB-LAChart-Table) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: | :heavy_check_mark: |
 | Healthy People | Mortality | Avoiable Deaths | 2019 | [ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/avoidablemortalitybylocalauthorityinenglandandwales) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: | :heavy_check_mark: |
 | Healthy People | Mortality |  Healthy Life Expectancy | 2016-2018 | [ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/datasets/healthstatelifeexpectancyatbirthandatage65bylocalareasuk) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: | :heavy_check_mark: |
 | Healthy People | Personal well-being | Anxiety | 2022-23 | [Annual Population Survey](https://www.ons.gov.uk/datasets/wellbeing-local-authority/editions/time-series/versions/1) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: | :heavy_check_mark: |
