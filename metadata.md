@@ -47,7 +47,7 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy People |  Respiratory Conditions: Asthma & COPD | 2022-23 | [Health Map Wales](https://www.healthmapswales.wales.nhs.uk/IAS/dataviews/view?viewId=142) | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 | Healthy Places | Unemployment | :x:  | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 | Healthy Places |  Child poverty | 2022 | [DWP](https://www.gov.uk/government/statistics/children-in-low-income-families-local-area-statistics-2014-to-2022) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark:| :heavy_exclamation_mark: |
-| Healthy Places | Private Outdoor Space | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
+| Healthy Places | Private Outdoor Space | 2020 | [ONS](https://www.ons.gov.uk/economy/environmentalaccounts/datasets/accesstogardensandpublicgreenspaceingreatbritain) | :x: | :x: Data too out-of-date | :x: | :x: |
 | Healthy Places | Household Overcrowding | 2021 | [ONS](https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/housing/datasets/overcrowdingandunderoccupancybyhouseholdcharacteristicsenglandandwalescensus2021/census2021/hou04dataset.xlsx) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark: | :heavy_exclamation_mark: |
 | Healthy Places |  Rough Sleeping | 2023-2024 | [StatsWales](https://statswales.gov.wales/Catalogue/Housing/Homelessness/homelessness-accommodation-provision-and-rough-sleeping/roughsleepers-by-localauthority) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark:| :heavy_exclamation_mark: |
 | Healthy Places | Distance to GP Services | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
@@ -57,6 +57,6 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy Places | Personal crime | 2023 |[ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea) | OGL3 | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 | Healthy Places | Low-level crime | 2023 |[ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea)| OGL3 | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 | Healthy Places | Air Pollution | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
-| Healthy Places | Noise complaints | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
+| Healthy Places | Noise complaints | 2019/20 | [Environmental Health](https://www.cieh.org/media/6318/wales-noise-survey-2019-2020.pdf) | :x: | :x: Data too out-of-date | :x: | :x: |
 | Healthy Places | Road Safety | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 | Healthy Places | Internet access | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
