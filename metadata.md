@@ -56,11 +56,7 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy Places | Patients offered acceptable GP practice appointments | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 | Healthy Places | Personal crime | 2023 |[ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea) | OGL3 | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 | Healthy Places | Low-level crime | 2023 |[ONS](https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea)| OGL3 | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
-
-
-
-| Healthy Places | Access to green space | Public Green Space | | | | | |
-| Healthy Places | Access to services | Internet access | | | | | |
-| Healthy Places | Living conditions | Air Pollution | | | | | |
-| Healthy Places | Living conditions | Noise complaints | | | | | |
-| Healthy Places | Living conditions | Road Safety | | | | | |
+| Healthy Places | Air Pollution | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
+| Healthy Places | Noise complaints | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
+| Healthy Places | Road Safety | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
+| Healthy Places | Internet access | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
