@@ -39,19 +39,18 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy People | Anxiety | 2022-23 | [Annual Population Survey](https://www.ons.gov.uk/datasets/wellbeing-local-authority/editions/time-series/versions/1) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark: | :heavy_exclamation_mark: |
 | Healthy People |  Life Satisfaction | 2022-23 | [Annual Population Survey](https://www.ons.gov.uk/datasets/wellbeing-local-authority/editions/time-series/versions/1) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark: | :heavy_exclamation_mark: |
 | Healthy People |  Life Worthwhileness | 2022-23 | [Annual Population Survey](https://www.ons.gov.uk/datasets/wellbeing-local-authority/editions/time-series/versions/1) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark: | :heavy_exclamation_mark: |
+| Healthy People |  Cancer | 2019 | [IMD](https://statswales.gov.wales/Catalogue/Community-Safety-and-Social-Inclusion/Welsh-Index-of-Multiple-Deprivation/WIMD-Indicator-data-2019/indicatordata-by-localauthority) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark: | :heavy_exclamation_mark: |
+| Healthy People | Dementia | 2022 | [Health Map Wales](https://www.healthmapswales.wales.nhs.uk/IAS/dataviews/view?viewId=214) | [OGL3](https://www.healthmapswales.wales.nhs.uk/IAS/legal) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark: | :heavy_exclamation_mark: |
+| Healthy People |  Diabetes | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :heavy_check_mark: | :heavy_exclamation_mark: |
+| Healthy People |  Kidney and Liver Disease | 2022 | [Health Map Wales](https://www.healthmapswales.wales.nhs.uk/IAS/dataviews/view?viewId=213) | [OGL3](https://www.healthmapswales.wales.nhs.uk/IAS/legal) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark: | :heavy_exclamation_mark: |
+| Healthy People |   Musculoskeletal Conditions | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :heavy_check_mark: | :heavy_exclamation_mark: |
+| Healthy People |  Respiratory Conditions: Asthma & COPD | 2022-23 | [Health Map Wales](https://www.healthmapswales.wales.nhs.uk/IAS/dataviews/view?viewId=142) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark: | :heavy_exclamation_mark: |
+
 
 | Healthy Places | Unemployment | :x:  | :x: | :x: | heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 | Healthy Places |  Child poverty | 2022 | [DWP](https://www.gov.uk/government/statistics/children-in-low-income-families-local-area-statistics-2014-to-2022) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark:| :heavy_exclamation_mark: |
 | Healthy Places | Private Outdoor Space | :x: | :x: | :x: | heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 
-| Healthy People | Physical health conditions | Cancer | 2019 | [IMD](https://statswales.gov.wales/Catalogue/Community-Safety-and-Social-Inclusion/Welsh-Index-of-Multiple-Deprivation/WIMD-Indicator-data-2019/indicatordata-by-localauthority) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_check_mark: | :heavy_check_mark: |
-| Healthy People |  Physical health conditions | Dementia | 2022 | [Health Map Wales](https://www.healthmapswales.wales.nhs.uk/IAS/dataviews/view?viewId=214) | [OGL3](https://www.healthmapswales.wales.nhs.uk/IAS/legal) | :heavy_check_mark: - dementia death rate was used as a proxy | :heavy_check_mark: |
-| Healthy People |  Physical health conditions | Diabetes | :x: | :x: | :x: | :x: - data unavailable | :x: |
-| Healthy People |  Physical health conditions | Kidney Disease | 2022 | [Health Map Wales](https://www.healthmapswales.wales.nhs.uk/IAS/dataviews/view?viewId=213) | [OGL3](https://www.healthmapswales.wales.nhs.uk/IAS/legal) | :heavy_check_mark: - urinary system mortality rate was used as a proxy | :heavy_check_mark: |
-| Healthy People |  Physical health conditions | Musculoskeletal Conditions: Osteoporosis | :x: | :x: | :x: | :x: - data unavialble | :x: |
-| Healthy People |  Physical health conditions | Musculoskeletal Conditions: Rheumatoid Arthritis | :x: | :x: | :x: | :x: - data unavialble | :x: |
-| Healthy People |  Physical health conditions | Respiratory Conditions: Asthma | 2022-23 | [Health Map Wales](https://www.healthmapswales.wales.nhs.uk/IAS/dataviews/view?viewId=142) | :heavy_check_mark: - asthma emergency admission rate was used as a proxy | :heavy_check_mark: |
-| Healthy People |  Physical health conditions | Respiratory Conditions: COPD | 2022 | [Health Map Wales](https://www.healthmapswales.wales.nhs.uk/IAS/dataviews/view?viewId=142) | :heavy_check_mark: - COPD emergency admission rate was used as a proxy | :heavy_check_mark: |
 | Healthy Places | Access to green space | Public Green Space | | | | | |
 | Healthy Places | Access to services | Distance to GP Services | | | | | |
 | Healthy Places | Access to services | Distance to Pharmacies | | | | | |
