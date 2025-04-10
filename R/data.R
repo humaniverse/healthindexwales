@@ -480,7 +480,7 @@ NULL
 #' @source \url{https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/housing/datasets/overcrowdingandunderoccupancybyhouseholdcharacteristicsenglandandwalescensus2021/census2021/hou04dataset.xlsx}
 "hp_household_overcrowding"
 
-#' Travel time to GPs
+#' Travel time to GPs (2025)
 #'
 #' A dataset containing the average (median) travel time (in minutes) to the nearest
 #' GP in each Local Authority. This is based on the travel time to the
@@ -501,7 +501,7 @@ NULL
 #'
 "places_gp_travel_time"
 
-#' Travel time to pharmacies
+#' Travel time to pharmacies (2025)
 #'
 #' A dataset containing the average (median) travel time (in minutes) to the nearest
 #' pharmacy in each Local Authority. This is based on the travel time to the
@@ -522,7 +522,7 @@ NULL
 #'
 "places_pharmacy_travel_time"
 
-#' Travel time to sports facilities
+#' Travel time to sports facilities (2025)
 #'
 #' A dataset containing the average (mean) travel time (in minutes) to the nearest
 #' sports centre in each Local Authority. This is based on the travel time to the
@@ -543,7 +543,7 @@ NULL
 #'
 "places_sports_centre_travel_time"
 
-#' Internet access
+#' Internet access (2024)
 #'
 #' Percentage of residential premises in each Local Authority that are below the
 #' Universal Service Obligation (USO) for broadband: no access to download speeds
@@ -563,7 +563,7 @@ NULL
 #'
 "places_internet_access"
 
-#' Ease of getting GP appointments at a convenient time
+#' Ease of getting GP appointments at a convenient time (2021-22)
 #'
 #' The percentage of people finding it very difficult to get a GP appointment
 #' at a convenient time. Data is from the National Survey for Wales 2021-22,
