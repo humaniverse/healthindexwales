@@ -6,6 +6,6 @@ The Health Index for Wales is based on the [Office for National Statistics Healt
 - Healthy lives
 - Healthy places
 
-This repo is a work in progress (WIP). All data and outputs need to be carefully reviewed. 
+This repo is a work in progress. All data and outputs need to be carefully reviewed. 
 
-Data collection is paused until 2025, when the new [StatsWales API](https://digitalanddata.blog.gov.wales/2024/10/02/latest-update-for-statswales-odata-users/) will be in place.
+Data collection is paused until 2025, when the new [StatsWales API](https://digitalanddata.blog.gov.wales/2024/10/02/latest-update-for-statswales-odata-users/) will be in place. 
