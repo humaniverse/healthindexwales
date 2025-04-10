@@ -191,19 +191,6 @@ NULL
 #' @source \url{https://phw.nhs.wales/services-and-teams/cervical-screening-wales/information-resources/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
 "hl_cancer_screening_cervical"
 
-#' Diphtheria vaccination coverage Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of children in Wales immunized against diphtheria by their second birthday
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{Diphtheria percentage coverage by 2nd birthday}{Percentage of children immunised against diphtheria reaching their second birthday in the year}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
-"hl_diphtheria_vaccination_coverage"
 
 #' Hib vaccination coverage Wales 2021-2023
 #'
@@ -219,47 +206,6 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
 "hl_hib_vaccination_coverage"
 
-#' Tetanus vaccination coverage Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of children in Wales immunized against tetanus by their second birthday
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{Tetanus percentage coverage by 2nd birthday}{Percentage of children immunised against tetanus reaching their second birthday in the year}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
-"hl_tetanus_vaccination_coverage"
-
-#' Whooping cough vaccination coverage Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of children in Wales immunized against whooping cough by their second birthday
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{Whooping cough percentage coverage by 2nd birthday}{Percentage of children immunised against whooping cough reaching their second birthday in the year}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
-"hl_whooping_cough_vaccination_coverage"
-
-#' Polio vaccination coverage Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of children in Wales immunized against polio by their second birthday
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{Polio percentage coverage by 2nd birthday}{Percentage of children immunised against polio reaching their second birthday in the year}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
-"hl_polio_vaccination_coverage"
 
 #' MMR vaccination coverage Wales 2021-2023
 #'
@@ -275,19 +221,6 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
 "hl_mmr_vaccination_coverage"
 
-#' Pneumococcal vaccination coverage Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of children in Wales immunized against pneumococcal disease by their second birthday
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{Pneumococcal percentage coverage by 2nd birthday}{Percentage of children immunised against pneumococcal disease reaching their second birthday in the year}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
-"hl_pneumococcal_vaccination_coverage"
 
 #' Meningitis B vaccination coverage Wales 2021-2023
 #'
@@ -390,18 +323,6 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 "hl_low_birth_weight"
 
-#' Percentage of Overweight and Obese Adults (aged 16+) in Wales
-#'
-#' Dataset containing information about the percentage of overweight and obese adults in Wales aged 16+
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{percentage_overweight_obese}{The percentage of overweight and obese adults in each local authority of Wales}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
-"hl_adult_overweight_obese"
 
 #' Percentage of Overweight and Obese Children (aged 4-5) in Wales
 #'
