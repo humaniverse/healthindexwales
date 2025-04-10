@@ -72,64 +72,6 @@ NULL
 "hl_teenage_pregnancy"
 
 
-#' Hib vaccination coverage Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of children in Wales immunized against haemophilus influenzae type B by their second birthday
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{Hib percentage coverage by 2nd birthday}{Percentage of children immunised against haemophilus influenzae type B reaching their second birthday in the year}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
-"hl_hib_vaccination_coverage"
-
-
-#' MMR vaccination coverage Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of children in Wales immunized against Measles, Mumps and Rubella (MMR) by their second birthday
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{MMR percentage coverage by 2nd birthday}{Percentage of children immunised against Measles, Mumps and Rubella (MMR) reaching their second birthday in the year}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
-"hl_mmr_vaccination_coverage"
-
-
-#' Meningitis B vaccination coverage Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of children in Wales immunized against meningitis B by their second birthday
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{Meningitis B percentage coverage by 2nd birthday}{Percentage of children immunised against meningitis B reaching their second birthday in the year}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
-"hl_meningitisb_vaccination_coverage"
-
-#' Greenspace Provision in Wales 2024
-#'
-#' Dataset containing information about greenspace provision in Wales
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{ltla21_name}{Area name}
-#'   \item{provision_per_person}{The amount of public greenspace available per person, SQM}
-#' .  ...
-#' }
-#' @source \url{https://fieldsintrust.org/insights/green-space-index}
-"hp_greenspace_access"
-
 #' Low-Level Crime Scores for Wales
 #'
 #' A dataset containing low-level crime scores for local authorities in Wales.
@@ -176,19 +118,6 @@ NULL
 #' @source \url{https://www.ons.gov.uk/} and \url{https://opendata.arcgis.com/}
 "hp_personal_crime"
 
-#' Young people in education, employment and apprenticeships Wales 2009/2010
-#'
-#' Dataset containing information about the standard participation rate in sustained education, employment or an apprenticeship for 16-24 year olds after key stage 4
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{Participation rate under 20}{Participation rate in post-16 (after Key Stage 4) Education and Training in Wales for under 20 year olds. Participation rate is calculated using census data population count by local authority, with participation measured against the Welsh national average of 100. Participation rates above 100 reflect high participation rates, below 100 low participation rates}
-#'   \item{Year}{Academic year}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/Education-and-Skills/Post-16-Education-and-Training/Further-Education-and-Work-Based-Learning/Standardised-Participation-Rates}
-"hl_education_employment_apprenticeship"
 
 #' Low Birth Weight Percentage by year Wales
 #'
