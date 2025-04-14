@@ -16,19 +16,6 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 "hl_sedentary_behaviour"
 
-#' Secondary Pupil Absences Wales 2022/2023
-#'
-#' Dataset containing information about the percentage of absences for secondary school students in Wales for the academic year 2022/2023 up until the late May bank holiday
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{Secondary percentage of absences}{Percentage of half day sessions missed for secondary school students, aged 11-15, for the academic year up until the late May bank holiday (due to effect of exams in May and June on absences), in Wales}
-#'   \item{Year}{Academic year (until late May bank holiday)}
-#' .  ...
-#' }
-#' @source \url{https://www.gov.wales/absenteeism-secondary-schools-september-2022-august-2023}
-"hl_secondary_pupil_absences"
 
 #' Smoking Wales 2021-2023
 #'
@@ -43,17 +30,6 @@ NULL
 #' }
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
 "hl_smoking"
-
-#' Physical activity Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of physically active adults in Wales
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{Percent adults active at least 150 minutes last week}{Percentage of people aged 16 and over in each local authority claiming to have exercised for at least 150 minutes the previous week, age standardised}
-#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
-"hl_physical_activity"
 
 
 #' Teenage Pregnancy Wales 2021-2023
@@ -101,31 +77,7 @@ NULL
 #' @source \url {https://phw.nhs.wales/services-and-teams/child-measurement-programme/cmp-2022-23/}
 "hl_reception_overweight_obese"
 
-#' Rates of Rough Sleepers in Wales (2023-24)
-#'
-#' A dataset containing statistics on rates of rough sleepers per 1,000 individuals, by
-#' Local Authority, 2023-2024.
-#'
-#' Rough sleepers are defined as persons who are sleeping overnight in the open air
-#' (such as shop doorways, bus shelters or parks) or in buildings, vehicles or other
-#' places not designed for habitation (such as stairwells, barns, sheds, car parks, tents, cars/vans).
-#'
-#' Mid-year population estimates for 2023 are used.
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#' \item{ltla22_code}{Local Authority Code}
-#' \item{rough_sleepers_per_1k_population}{Annual rate of people assessed as rough sleepers per 1,000
-#' individuals in the Local Authority}
-#' \item{year}{Date}
-#'
-#' ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/Housing/Homelessness/homelessness-accommodation-provision-and-rough-sleeping/roughsleepers-by-localauthority}
-#' and \url{https://statswales.gov.wales/Catalogue/Population-and-Migration/Population/Estimates/Local-Authority/populationestimates-by-localauthority-year}
-"hp_rough_sleepers"
 
-#'
 #' Percentage of children (Under 16) in Absolute Poverty in Wales (2022)
 #'
 #' A dataset containing statistics on the percentage of children under 16 experiencing

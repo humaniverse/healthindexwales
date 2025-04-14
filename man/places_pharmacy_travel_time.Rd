@@ -3,7 +3,7 @@
 \docType{data}
 \name{places_pharmacy_travel_time}
 \alias{places_pharmacy_travel_time}
-\title{Travel time to pharmacies}
+\title{Travel time to pharmacies (2025)}
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{

@@ -3,7 +3,7 @@
 \docType{data}
 \name{places_gp_appointments}
 \alias{places_gp_appointments}
-\title{Ease of getting GP appointments at a convenient time}
+\title{Ease of getting GP appointments at a convenient time (2021-22)}
 \format{
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 21 rows and 3 columns.
 }

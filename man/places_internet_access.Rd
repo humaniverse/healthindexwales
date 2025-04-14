@@ -3,7 +3,7 @@
 \docType{data}
 \name{places_internet_access}
 \alias{places_internet_access}
-\title{Internet access}
+\title{Internet access (2024)}
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
