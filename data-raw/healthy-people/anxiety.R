@@ -1,41 +1,25 @@
 # ---- Load packages ----
 library(tidyverse)
-library(httr)
-library(readxl)
-library(geographr)
-library(sf)
 
-# ---- Load functions from utils.R ----
-source("R/utils.R")
-
-# ---- Load data ----
-# Load Welsh ltla codes and names from geographr 
-wales_lookup <-
-  boundaries_ltla21 |>
-  as_tibble() |>
-  select(starts_with("ltla21")) |>
-  filter_codes(ltla21_code, "^W")
-
-# Scrape URL and save dataset as tempfile
+# ---- Get and clean data ----
+# Anxiety
 # Source: https://www.ons.gov.uk/datasets/wellbeing-local-authority/editions/time-series/versions/4
-GET(
-  "https://download.ons.gov.uk/downloads/datasets/wellbeing-local-authority/editions/time-series/versions/4.xlsx",
-  write_disk(tf <- tempfile(fileext = ".xlsx"))
-)
 
-# ---- Clean data ----
-# The 'Average (mean)' estimate provides the score out of 0-10. The other estimates are
-# thresholds (percentages) described in the QMI: https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/methodologies/personalwellbeingintheukqmi
-hpe_anxiety <-
-  read_excel(tf, sheet = "Dataset", skip = 2) |>
-  filter(Estimate == "Average (mean)") |>
-  filter(MeasureOfWellbeing == "Anxiety") |>
-  select(
-    ltla21_code = `Geography code`,
-    anxiety_score_out_of_10 = `2022-23`
+anxiety_raw <- read_csv("https://download.ons.gov.uk/downloads/datasets/wellbeing-local-authority/editions/time-series/versions/4.csv")
+
+people_anxiety <- anxiety_raw |>
+  filter(
+    str_starts(`administrative-geography`, "W"),
+    MeasureOfWellbeing == "Anxiety",
+    `yyyy-yy` == "2022-23",
+    `wellbeing-estimate` == "average-mean"
   ) |>
-  right_join(wales_lookup) |>
-  select(-ltla21_name)
+  filter(`administrative-geography` != "W92000004") |>
+  select(
+    ltla25_code = `administrative-geography`,
+    anxiety_score_out_of_10 = `v4_3`,
+    year = `Time`
+  )
 
 # ---- Save output to data/ folder ----
-usethis::use_data(hpe_anxiety, overwrite = TRUE)
+usethis::use_data(people_anxiety, overwrite = TRUE)
