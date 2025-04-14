@@ -303,19 +303,6 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Immunisation}
 "hl_meningitisb_vaccination_coverage"
 
-#' Greenspace Provision in Wales 2024
-#'
-#' Dataset containing information about greenspace provision in Wales
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{ltla21_name}{Area name}
-#'   \item{provision_per_person}{The amount of public greenspace available per person, SQM}
-#' .  ...
-#' }
-#' @source \url{https://fieldsintrust.org/insights/green-space-index}
-"hp_greenspace_access"
 
 #' Low-Level Crime Scores for Wales
 #'
