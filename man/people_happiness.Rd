@@ -5,7 +5,7 @@
 \alias{people_happiness}
 \title{Average Measurement of Happiness Out of 10 (2022-23)}
 \format{
-A data frame with 11 rows and 3 variables:
+A data frame with 22 rows and 3 variables:
 \describe{
 \item{ltla25_code}{Local Authority Code}
 \item{happiness_score_out_of_10}{Average personal ratings on feelings of
