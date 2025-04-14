@@ -85,21 +85,6 @@ NULL
 "hl_sedentary_behaviour"
 
 
-#' Smoking Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of smokers in Wales
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{Percent smokers}{Percentage of people aged 16 and over in each local authority who are self-reported smokers, age standardised}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
-"hl_smoking"
-
-
 #' Teenage Pregnancy Wales 2021-2023
 #'
 #' Dataset containing information about the percentage of teenage pregnancies in Wales
@@ -114,20 +99,6 @@ NULL
 #' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/conceptionandfertilityrates/datasets/quarterlyconceptionstowomenagedunder18englandandwales}
 #' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland}
 "hl_teenage_pregnancy"
-
-
-#' Low Birth Weight Percentage by year Wales
-#'
-#' Dataset containing information about the percentage of live births under 2500g in Wales
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{percentage_low_birth_weight}{The percentage of singleton live births under 2500g in each local authority of Wales}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
-"hl_low_birth_weight"
 
 
 #' Percentage of children (Under 16) in Absolute Poverty in Wales (2022)
