@@ -7,7 +7,7 @@ library(geographr)
 wales_hb_ltla <- lookup_ltla21_lhb22
 
 
-# Respiratory Conditions data
+# Musculoskeletal Conditions data
 # Source: https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard
 
 temp_zip <- tempfile(fileext = ".zip")
