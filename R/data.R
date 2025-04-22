@@ -19,6 +19,24 @@ NULL
 "people_anxiety"
 
 
+#' Rate of Avoidable Deaths per 100k (2020-2022)
+#'
+#' A dataset containing statistics on age-standardised death rates per 100k, by
+#' Welsh Council (2020-2022).
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authority Code}
+#' \item{avoidable_deaths_per_100k}{Age-standardised avoidable mortality rates per
+#' 100k}
+#' \item{year}{3-year aggregate period}
+#'
+#' ...
+#' }
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/avoidablemortalitybylocalauthorityinenglandandwales}
+"people_avoidable_mortality"
+
+
 #' Average Measurement of Happiness Out of 10 (2022-23)
 #'
 #' A dataset containing statistics of personal ratings on feelings of
