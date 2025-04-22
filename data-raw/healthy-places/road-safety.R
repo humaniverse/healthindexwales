@@ -18,14 +18,17 @@ wales_ltla25 <- lookup_ward21_ltla21 |>
 temp_zip <- tempfile(fileext = ".zip")
 temp_dir <- tempdir()
 
-download.file("https://statswales.gov.wales/Download/File?fileName=TRAN0180.zip", destfile = temp_zip, mode = "wb")
+download.file(
+  "https://statswales.gov.wales/Download/File?fileName=TRAN0180.zip",
+  destfile = temp_zip,
+  mode = "wb"
+)
 
 unzip(temp_zip, exdir = temp_dir)
 
 unzipped_files <- list.files(temp_dir, full.names = TRUE)
-print(unzipped_files)
 
-road_safety_raw <- read_csv(unzipped_files[3])
+road_safety_raw <- read_csv(unzipped_files[2])
 
 road_safety <- road_safety_raw |>
   filter(
