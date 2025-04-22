@@ -22,7 +22,6 @@ download.file(
 unzip(temp_zip, exdir = temp_dir)
 
 unzipped_files <- list.files(temp_dir, full.names = TRUE)
-print(unzipped_files)
 
 respiratory_conditions_raw <- read_csv(unzipped_files[2])
 
