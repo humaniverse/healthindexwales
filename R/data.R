@@ -23,15 +23,15 @@ NULL
 #'
 #' A dataset containing statistics on the percentage of people who self-reported
 #' as having Diabetes mellitus (aged 17+) in Welsh Council Areas.
-#' 
-#' To note: StatsWales Disease Prevalence data only captures disease prevalence 
-#' in a 'snapshot', or a single point of time. This means the year data 
+#'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
 #' represents when the data was extracted, not the period covered.
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #' \item{ltla25_code}{Local Authroity Code}
-#' \item{diabetes_percentage}{Percentage of people who 
+#' \item{diabetes_percentage}{Percentage of people who
 #' self-reported as having Diabetes mellitus}
 #' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
 #' April 2024}
@@ -94,13 +94,38 @@ NULL
 "people_life_worthwhileness"
 
 
+#' Percentage Rate of Musculoskeletal Conditions (Rheumatoid Arthritis
+#' (patients aged 16+)) (2024)
+#'
+#' A dataset containing statistics on the percentage of people who self-reported
+#' as having Rheumatoid Arthritis (aged 16+) in Welsh Council Areas.
+#'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
+#' represents when the data was extracted, not the period covered.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authroity Code}
+#' \item{musculoskeletal_conditions_percentage}{Percentage of people who
+#' self-reported as having Rheumatoid Arthritis}
+#' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
+#' April 2024}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard}
+#'
+"people_musculoskeletal_conditions"
+
+
 #' Percentage Rate of Respiratory Conditions (Asthma and COPD) (2024)
 #'
 #' A dataset containing statistics on the percentage of people who self-reported
 #' as having asthma and/or COPD in Welsh Council Areas.
-#' 
-#' To note: StatsWales Disease Prevalence data only captures disease prevalence 
-#' in a 'snapshot', or a single point of time. This means the year data 
+#'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
 #' represents when the data was extracted, not the period covered.
 #'
 #' @format A data frame with 22 rows and 3 variables:
@@ -125,8 +150,8 @@ NULL
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #'   \item{ltla21_code}{Area code}
-#'   \item{Percent adults active less than 30 minutes last week}{Percentage of 
-#'   people aged 16 and over in each local authority claiming to have exercised 
+#'   \item{Percent adults active less than 30 minutes last week}{Percentage of
+#'   people aged 16 and over in each local authority claiming to have exercised
 #'   for less than 30 minutes the previous week, age standardised}
 #'   \item{Year}{Time frame}
 #' .  ...
@@ -153,17 +178,17 @@ NULL
 
 #' Percentage of Absolute Child Poverty (2022)
 #'
-#' A dataset containing statistics on the percentage of children under 16 
-#' experiencing absolute poverty, living in absolute low income families, by 
+#' A dataset containing statistics on the percentage of children under 16
+#' experiencing absolute poverty, living in absolute low income families, by
 #' Local Authority, 2022.
 #'
-#' Absolute poverty refers to people living in households with income below 60% 
+#' Absolute poverty refers to people living in households with income below 60%
 #' of median income in a base year, usually 2010/11.
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #' \item{ltla25_code}{Local Authority Code}
-#' \item{child_poverty_percentage}{Percentage of children (aged 16 and under) 
+#' \item{child_poverty_percentage}{Percentage of children (aged 16 and under)
 #' living in absolute low income families}
 #' \item{year}{Date}
 #'
@@ -173,12 +198,11 @@ NULL
 "places_child_poverty"
 
 
-
 #' Percentage Household Overcrowding (2021)
 #'
 #' A dataset containing statistics on the percentage of households experiencing
 #' household overcrowding, per Council (2021).
-#' Household overcrowding is  defined as households with an occupancy rating of 
+#' Household overcrowding is  defined as households with an occupancy rating of
 #' -1 or lower.
 #'
 #' @format A data frame with 22 rows and 3 variables:
@@ -192,8 +216,6 @@ NULL
 #' }
 #' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/overcrowdingandunderoccupancybyhouseholdcharacteristicsenglandandwalescensus2021}
 "places_household_overcrowding"
-
-
 
 
 #' Air pollution (2019)
@@ -258,13 +280,13 @@ NULL
 
 #' Road safety (2023)
 #'
-#' A dataset containing number of people killed or injured in each Welsh Council 
+#' A dataset containing number of people killed or injured in each Welsh Council
 #' Area in 2023 (latest revised and checked data available).
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #' \item{ltla25_code}{Local Authority Code}
-#' \item{road_accident_count}{Number of people killed or injured, per Local 
+#' \item{road_accident_count}{Number of people killed or injured, per Local
 #' Authority}
 #' \item{year}{Year}
 #'
@@ -353,4 +375,3 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/Business-Economy-and-Labour-Market/People-and-Work/Economic-Inactivity/economicinactivityratesexcludingstudents-by-welshlocalarea-year}
 #'
 "places_unemployment"
-
