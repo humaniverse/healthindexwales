@@ -9,7 +9,11 @@ library(readxl)
 # Source: https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/suicidesbylocalauthority
 
 tf <- tempfile(fileext = ".xlsx")
-download.file("https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/suicidesbylocalauthority/current/local.xlsx", tf, mode = "wb")
+download.file(
+  "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/suicidesbylocalauthority/current/local.xlsx",
+  tf,
+  mode = "wb"
+)
 
 suicide_raw <- read_excel(tf, sheet = 6, skip = 6)
 
@@ -24,7 +28,8 @@ people_suicide <- suicide_raw |>
     ltla25_code = `Area Code \r\n[note 2]`,
     suicide_rate_per_100k = `2021 to 2023 \r\nRate per 100,000 \r\n[note 4]`,
     year
-  )
+  ) |>
+  mutate(suicide_rate_per_100k = as.numeric(suicide_rate_per_100k))
 
 
 # ---- Save output to data/ folder ----
