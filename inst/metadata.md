@@ -27,7 +27,7 @@ For details about what each indicator is measuring, see the [underlying indicato
 | Healthy Places | Workplace Safety | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 | Healthy People |  Disability Impacting Daily Activities | 2020 | [Annual Population Survery](https://www.nomisweb.co.uk/query/construct/summary.asp?changing=yes&amp;dataset=17&amp;anal=5&amp;version=0) | [OGL3](https://www.nomisweb.co.uk/home/copyright.asp) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark: | :heavy_exclamation_mark: |
 | Healthy People | Frailty | :x: | :x: | :x: | :x: Data unavailable | :x: | :x: |
-| Healthy People | Children's Social, Emotional and Mental Health | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
+| Healthy People | Children's Social, Emotional and Mental Health | :x: | :x: | :x: | :heavy_exclamation_mark: Data only available for children looked after by the state or has an open case with a LA, not all children in each LA. To review. | :x: | :x: |
 | Healthy People | Mental Health Condition | :x: | :x: | :x: | :heavy_exclamation_mark: Indicator: | :x: | :heavy_exclamation_mark: |
 | Healthy People | Self-harm | :x: | :x: | :x: | :x: Data unavailable | :x: | :x: |
 | Healthy People | Suicides | 2020-22 | [Public Health Observatory](https://public.tableau.com/app/profile/publichealthwalesobservatory/viz/PHOF2017LAHB-Charts/UHB-LAChart-Table) | [OGL3](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) | :heavy_exclamation_mark: Indicator: | :heavy_check_mark: | :heavy_exclamation_mark: |
