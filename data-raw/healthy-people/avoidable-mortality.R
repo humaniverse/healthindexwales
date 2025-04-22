@@ -25,6 +25,7 @@ avoidable_mortality <- avoidable_mortality_raw |>
     Sex == "Persons"
   )
 
+# Join datasets
 people_avoidable_mortality <- avoidable_mortality |>
   left_join(wales_la, by = c("Area Code" = "ltla22_code")) |>
   mutate(year = "2020-2022") |>
