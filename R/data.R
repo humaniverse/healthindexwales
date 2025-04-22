@@ -70,6 +70,24 @@ NULL
 "people_life_worthwhileness"
 
 
+#' Death Rate per 100k from Suicide (2021-2023)
+#'
+#' A dataset containing statistics on death rate per 100k by suicide, by Welsh
+#' Council.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authority Code}
+#' \item{suicide_rate_per_100k}{Deaths from suicide (16+). Age standardised
+#' rate per 100,000.}
+#' \item{year}{Time period - 3 year aggregate}
+#'
+#' ...
+#' }
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/suicidesbylocalauthority}
+"people_suicide"
+
+
 #' Sedentary behaviour Wales 2021-2023
 #'
 #' Dataset containing information about the percentage of sedentary adults in Wales
