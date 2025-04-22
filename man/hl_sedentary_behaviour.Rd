@@ -8,7 +8,9 @@
 A data frame with 22 rows and 3 variables:
 \describe{
 \item{ltla21_code}{Area code}
-\item{Percent adults active less than 30 minutes last week}{Percentage of people aged 16 and over in each local authority claiming to have exercised for less than 30 minutes the previous week, age standardised}
+\item{Percent adults active less than 30 minutes last week}{Percentage of
+people aged 16 and over in each local authority claiming to have exercised
+for less than 30 minutes the previous week, age standardised}
 \item{Year}{Time frame}
 .  ...
 }
