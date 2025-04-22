@@ -1,6 +1,24 @@
 #' @importFrom tibble tibble
 NULL
 
+#' Mortality all causes rate per 100k (2023)
+#'
+#' A dataset containing statistics from an age-sex standardised rate for all
+#' causes of mortality per 100k, by Council (2023).
+#'
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authority Code}
+#' \item{all_deaths_per_100k}{age-sex standardised rate for all causes of
+#' mortality per 100k}
+#' \item{year}{Year}
+#' ...
+#' }
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/deathsregisteredinenglandandwalesseriesdrreferencetables}
+#'
+"people_all_mortality"
+
 
 #' Average Measurement of Anxiety Out of 10 (2022-23)
 #'
