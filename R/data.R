@@ -178,6 +178,30 @@ NULL
 "people_life_worthwhileness"
 
 
+#' Percentage Rate of Mental Health Conditions (2024)
+#'
+#' A dataset containing statistics on the percentage of people who self-reported
+#' as having a Mental Health Condition (aged 16+) in Welsh Council Areas.
+#'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
+#' represents when the data was extracted, not the period covered.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authroity Code}
+#' \item{mental_health_percentage}{Percentage of people who
+#' self-reported as having a Mental Health Condition}
+#' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
+#' April 2024}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard}
+#'
+"people_mental_health"
+
+
 #' Percentage Rate of Musculoskeletal Conditions (Rheumatoid Arthritis
 #' (patients aged 16+)) (2024)
 #'
