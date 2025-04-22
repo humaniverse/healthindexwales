@@ -14,7 +14,11 @@ wales_lookup <- lookup_ltla24_csp24_pfa24 |>
 # Source: https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables
 
 tf <- tempfile(fileext = ".xlsx")
-download.file("https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables/yearendingseptember2024/policeforceareatablesyearendingseptember2024final.xlsx", tf, mode = "wb")
+download.file(
+  "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables/yearendingseptember2024/policeforceareatablesyearendingseptember2024final.xlsx",
+  tf,
+  mode = "wb"
+)
 
 personal_crime_raw <- read_excel(tf, sheet = 6, skip = 7)
 
@@ -23,8 +27,21 @@ personal_crime <- personal_crime_raw |>
     str_starts(`Area Code`, "W"),
     `Area Code` != "W92000004"
   ) |>
-  mutate(across(c(`Total recorded crime (excluding fraud)\r\n [note 2]`:`Miscellaneous crimes against society`), as.numeric),
-    personal_crime_rate_per_1k = rowMeans(across(c(`Violence against the person`, `Sexual offences`, `Criminal damage and arson`)), na.rm = TRUE),
+  mutate(
+    across(
+      c(
+        `Total recorded crime (excluding fraud)\r\n [note 2]`:`Miscellaneous crimes against society`
+      ),
+      as.numeric
+    ),
+    personal_crime_rate_per_1k = rowMeans(
+      across(c(
+        `Violence against the person`,
+        `Sexual offences`,
+        `Criminal damage and arson`
+      )),
+      na.rm = TRUE
+    ),
     year = "2023-2024"
   )
 
@@ -37,7 +54,6 @@ places_personal_crime <- personal_crime |>
     personal_crime_rate_per_1k,
     year
   )
-
 
 
 # ---- Save output to data/ folder ----
