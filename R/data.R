@@ -1,6 +1,24 @@
 #' @importFrom tibble tibble
 NULL
 
+#' Mortality all causes rate per 100k (2023)
+#'
+#' A dataset containing statistics from an age-sex standardised rate for all
+#' causes of mortality per 100k, by Council (2023).
+#'
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authority Code}
+#' \item{all_deaths_per_100k}{age-sex standardised rate for all causes of
+#' mortality per 100k}
+#' \item{year}{Year}
+#' ...
+#' }
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/deathsregisteredinenglandandwalesseriesdrreferencetables}
+#'
+"people_all_mortality"
+
 
 #' Average Measurement of Anxiety Out of 10 (2022-23)
 #'
@@ -17,6 +35,96 @@ NULL
 #' }
 #' @source \url{https://www.ons.gov.uk/datasets/wellbeing-local-authority/editions/time-series/versions/4}
 "people_anxiety"
+
+
+#' Rate of Avoidable Deaths per 100k (2020-2022)
+#'
+#' A dataset containing statistics on age-standardised death rates per 100k, by
+#' Welsh Council (2020-2022).
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authority Code}
+#' \item{avoidable_deaths_per_100k}{Age-standardised avoidable mortality rates per
+#' 100k}
+#' \item{year}{3-year aggregate period}
+#'
+#' ...
+#' }
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/avoidablemortalitybylocalauthorityinenglandandwales}
+"people_avoidable_mortality"
+
+
+#' Percentage Rate of Cancer (2024)
+#'
+#' A dataset containing statistics on the percentage of people who self-reported
+#' as having Cancer in Welsh Council Areas.
+#'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
+#' represents when the data was extracted, not the period covered.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authroity Code}
+#' \item{cancer_percentage}{Percentage of people who
+#' self-reported as having Cancer}
+#' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
+#' April 2024}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard}
+#'
+"people_cancer"
+
+
+#' Percentage Rate of Dementia (2024)
+#'
+#' A dataset containing statistics on the percentage of people who self-reported
+#' as having Dementia in Welsh Council Areas.
+#'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
+#' represents when the data was extracted, not the period covered.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authroity Code}
+#' \item{dementia_percentage}{Percentage of people who
+#' self-reported as having Dementia}
+#' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
+#' April 2024}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard}
+#'
+"people_dementia"
+
+
+#' Percentage Rate of Diabetes (Diabetes mellitus (patients aged 17+)) (2024)
+#'
+#' A dataset containing statistics on the percentage of people who self-reported
+#' as having Diabetes mellitus (aged 17+) in Welsh Council Areas.
+#'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
+#' represents when the data was extracted, not the period covered.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authroity Code}
+#' \item{diabetes_percentage}{Percentage of people who
+#' self-reported as having Diabetes mellitus}
+#' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
+#' April 2024}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard}
+#'
+"people_diabetes"
 
 
 #' Average Measurement of Happiness Out of 10 (2022-23)
@@ -74,15 +182,15 @@ NULL
 #'
 #' A dataset containing statistics on the percentage of people who self-reported
 #' as having a Mental Health Condition (aged 16+) in Welsh Council Areas.
-#' 
-#' To note: StatsWales Disease Prevalence data only captures disease prevalence 
-#' in a 'snapshot', or a single point of time. This means the year data 
+#'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
 #' represents when the data was extracted, not the period covered.
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #' \item{ltla25_code}{Local Authroity Code}
-#' \item{mental_health_percentage}{Percentage of people who 
+#' \item{mental_health_percentage}{Percentage of people who
 #' self-reported as having a Mental Health Condition}
 #' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
 #' April 2024}
@@ -94,6 +202,73 @@ NULL
 "people_mental_health"
 
 
+#' Percentage Rate of Musculoskeletal Conditions (Rheumatoid Arthritis
+#' (patients aged 16+)) (2024)
+#'
+#' A dataset containing statistics on the percentage of people who self-reported
+#' as having Rheumatoid Arthritis (aged 16+) in Welsh Council Areas.
+#'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
+#' represents when the data was extracted, not the period covered.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authroity Code}
+#' \item{musculoskeletal_conditions_percentage}{Percentage of people who
+#' self-reported as having Rheumatoid Arthritis}
+#' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
+#' April 2024}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard}
+#'
+"people_musculoskeletal_conditions"
+
+
+#' Percentage Rate of Respiratory Conditions (Asthma and COPD) (2024)
+#'
+#' A dataset containing statistics on the percentage of people who self-reported
+#' as having asthma and/or COPD in Welsh Council Areas.
+#'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
+#' represents when the data was extracted, not the period covered.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authroity Code}
+#' \item{respiratory_conditions_percentage}{Percentage of people who self-reported
+#' as having asthma and/or COPD}
+#' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
+#' April 2024}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard}
+#'
+"people_respiratory_conditions"
+
+
+#' Death Rate per 100k from Suicide (2021-2023)
+#'
+#' A dataset containing statistics on death rate per 100k by suicide, by Welsh
+#' Council.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authority Code}
+#' \item{suicide_rate_per_100k}{Deaths from suicide (16+). Age standardised
+#' rate per 100,000.}
+#' \item{year}{Time period - 3 year aggregate}
+#'
+#' ...
+#' }
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/suicidesbylocalauthority}
+"people_suicide"
+
+
 #' Sedentary behaviour Wales 2021-2023
 #'
 #' Dataset containing information about the percentage of sedentary adults in Wales
@@ -101,8 +276,8 @@ NULL
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #'   \item{ltla21_code}{Area code}
-#'   \item{Percent adults active less than 30 minutes last week}{Percentage of 
-#'   people aged 16 and over in each local authority claiming to have exercised 
+#'   \item{Percent adults active less than 30 minutes last week}{Percentage of
+#'   people aged 16 and over in each local authority claiming to have exercised
 #'   for less than 30 minutes the previous week, age standardised}
 #'   \item{Year}{Time frame}
 #' .  ...
@@ -129,17 +304,17 @@ NULL
 
 #' Percentage of Absolute Child Poverty (2022)
 #'
-#' A dataset containing statistics on the percentage of children under 16 
-#' experiencing absolute poverty, living in absolute low income families, by 
+#' A dataset containing statistics on the percentage of children under 16
+#' experiencing absolute poverty, living in absolute low income families, by
 #' Local Authority, 2022.
 #'
-#' Absolute poverty refers to people living in households with income below 60% 
+#' Absolute poverty refers to people living in households with income below 60%
 #' of median income in a base year, usually 2010/11.
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #' \item{ltla25_code}{Local Authority Code}
-#' \item{child_poverty_percentage}{Percentage of children (aged 16 and under) 
+#' \item{child_poverty_percentage}{Percentage of children (aged 16 and under)
 #' living in absolute low income families}
 #' \item{year}{Date}
 #'
@@ -149,12 +324,11 @@ NULL
 "places_child_poverty"
 
 
-
 #' Percentage Household Overcrowding (2021)
 #'
 #' A dataset containing statistics on the percentage of households experiencing
 #' household overcrowding, per Council (2021).
-#' Household overcrowding is  defined as households with an occupancy rating of 
+#' Household overcrowding is  defined as households with an occupancy rating of
 #' -1 or lower.
 #'
 #' @format A data frame with 22 rows and 3 variables:
@@ -168,8 +342,6 @@ NULL
 #' }
 #' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/overcrowdingandunderoccupancybyhouseholdcharacteristicsenglandandwalescensus2021}
 "places_household_overcrowding"
-
-
 
 
 #' Air pollution (2019)
@@ -230,6 +402,25 @@ NULL
 #' @source \url{https://openstreetmap.org/}
 #'
 "places_pharmacy_travel_time"
+
+
+#' Road safety (2023)
+#'
+#' A dataset containing number of people killed or injured in each Welsh Council
+#' Area in 2023 (latest revised and checked data available).
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authority Code}
+#' \item{road_accident_count}{Number of people killed or injured, per Local
+#' Authority}
+#' \item{year}{Year}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Transport/Roads/Road-Accidents/Casualties/numberofcasualties-by-quarter-year-localauthority-policeforce}
+"places_road_safety"
+
 
 #' Travel time to sports facilities (2025)
 #'
@@ -293,7 +484,64 @@ NULL
 #' @source \url{https://www.gov.wales/national-survey-wales-results-viewer}
 "places_gp_appointments"
 
-##' Percentage of People Experiencing Unemployment (2023-24)
+
+#' Average rates of Personal Crime per 1k (2023-2024)
+#'
+#' A dataset containing statistics on the mean rate of personal crime (Violence
+#' against the person, sexual offences, and criminal damage and arson) per
+#' 1,000, per Welsh Local Authority.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authority Code}
+#' \item{personal_crime_rate_per_1k}{Average rate of low-level-crime (Violence
+#' against the person, sexual offences, and criminal damage and arson)}
+#' \item{year}{September 2023 - September 2024}
+#' ...
+#' }
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables}
+#'
+"places_personal_crime"
+
+
+#' Average rates of Personal Crime per 1k (2023-2024)
+#'
+#' A dataset containing statistics on the mean rate of personal crime (Violence
+#' against the person, sexual offences, and criminal damage and arson) per
+#' 1,000, per Welsh Local Authority.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authority Code}
+#' \item{personal_crime_rate_per_1k}{Average rate of low-level-crime (Violence
+#' against the person, sexual offences, and criminal damage and arson)}
+#' \item{year}{September 2023 - September 2024}
+#' ...
+#' }
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables}
+#'
+"places_personal_crime"
+
+
+#' Average rates of Low-Level Crime per 1k (2023-2024)
+#'
+#' A dataset containing statistics on the mean rate of low-level crime (bicycle
+#' theft and shoplifting) per 1,000, per Welsh Local Authority.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authority Code}
+#' \item{low_level_crime_rate_per_1k}{Average rate of low-level-crime (bicycle
+#' theft and shoplifting)}
+#' \item{year}{September 2023 - September 2024}
+#' ...
+#' }
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables}
+#'
+"places_low_level_crime"
+
+
+#' Percentage of People Experiencing Unemployment (2023-24)
 #'
 #' A dataset containing statistics on the percentage of people experiencing
 #' unemployment, excluding students.
@@ -310,4 +558,3 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/Business-Economy-and-Labour-Market/People-and-Work/Economic-Inactivity/economicinactivityratesexcludingstudents-by-welshlocalarea-year}
 #'
 "places_unemployment"
-
