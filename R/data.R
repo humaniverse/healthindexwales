@@ -242,6 +242,26 @@ NULL
 #' @source \url{https://www.gov.wales/national-survey-wales-results-viewer}
 "places_gp_appointments"
 
+
+#' Average rates of Personal Crime per 1k (2023-2024)
+#' 
+#' A dataset containing statistics on the mean rate of personal crime (Violence 
+#' against the person, sexual offences, and criminal damage and arson) per 
+#' 1,000, per Welsh Local Authority.
+#' 
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla25_code}{Local Authority Code}
+#' \item{personal_crime_rate_per_1k}{Average rate of low-level-crime (Violence 
+#' against the person, sexual offences, and criminal damage and arson)}
+#' \item{year}{September 2023 - September 2024}
+#' ...
+#' }
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables}
+#' 
+"places_personal_crime"
+
+
 ##' Percentage of People Experiencing Unemployment (2023-24)
 #'
 #' A dataset containing statistics on the percentage of people experiencing
