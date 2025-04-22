@@ -11,6 +11,6 @@ library(geographr)
 
 # Wales LTLA and Postcode data
 
-lookup_
+wales_lookup <- lookup_ltla24_csp24_pfa24
 
 
