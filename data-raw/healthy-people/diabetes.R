@@ -13,7 +13,11 @@ wales_hb_ltla <- lookup_ltla21_lhb22
 temp_zip <- tempfile(fileext = ".zip")
 temp_dir <- tempdir()
 
-download.file("https://statswales.gov.wales/Download/File?fileName=HLTH1113.zip", destfile = temp_zip, mode = "wb")
+download.file(
+  "https://statswales.gov.wales/Download/File?fileName=HLTH1113.zip",
+  destfile = temp_zip,
+  mode = "wb"
+)
 
 unzip(temp_zip, exdir = temp_dir)
 
