@@ -13,7 +13,11 @@ wales_hb_ltla <- lookup_ltla21_lhb22
 temp_zip <- tempfile(fileext = ".zip")
 temp_dir <- tempdir()
 
-download.file("https://statswales.gov.wales/Download/File?fileName=HLTH1113.zip", destfile = temp_zip, mode = "wb")
+download.file(
+  "https://statswales.gov.wales/Download/File?fileName=HLTH1113.zip",
+  destfile = temp_zip,
+  mode = "wb"
+)
 
 unzip(temp_zip, exdir = temp_dir)
 
@@ -26,7 +30,8 @@ respiratory_conditions_raw <- read_csv(unzipped_files[2])
 respiratory_conditions <- respiratory_conditions_raw |>
   filter(
     `Year_Code_INT` == "2024",
-    `Register_ItemName_ENG_STR` %in% c("Asthma", "Chronic obstructive pulmonary disease"),
+    `Register_ItemName_ENG_STR` %in%
+      c("Asthma", "Chronic obstructive pulmonary disease"),
     `Measure_ItemName_ENG_STR` == "Prevalence rate (%)"
   ) |>
   group_by(Area_ItemName_ENG_STR) |>
