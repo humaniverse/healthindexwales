@@ -10,7 +10,7 @@ wales_la <- lookup_ltla22_ltla23 |>
   filter(str_starts(ltla23_code, "W"))
 
 
-# Mortality All Causes data
+# Avoidable Mortality data
 # Source: https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/causesofdeath/datasets/avoidablemortalitybylocalauthorityinenglandandwales
 
 tf <- tempfile(fileext = ".xlsx")
