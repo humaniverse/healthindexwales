@@ -6,6 +6,10 @@ NULL
 #' A dataset containing statistics on percentage of adults diagnosed with high
 #' blood pressure, by Council (2024).
 #'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
+#' represents when the data was extracted, not the period covered.
+#'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #' \item{ltla25_code}{Local Authority Code}
