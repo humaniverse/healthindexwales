@@ -44,4 +44,3 @@ lives_obesity_adults <- obesity_adults |>
 
 # ---- Save output to data/ folder ----
 usethis::use_data(lives_obesity_adults, overwrite = TRUE)
-
