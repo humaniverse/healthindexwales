@@ -10,6 +10,10 @@ NULL
 #' aged 16+. However, Wales only captures adults classed as obese. This has been
 #' included as the closest proxy.
 #'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
+#' represents when the data was extracted, not the period covered.
+#'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #' \item{ltla25_code}{Local Authority Code}
