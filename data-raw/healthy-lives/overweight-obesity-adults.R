@@ -7,7 +7,7 @@ library(geographr)
 wales_hb_ltla <- lookup_ltla21_lhb22
 
 
-# Musculoskeletal Conditions data
+# Overweight and Obesity in Adults data
 # Source: https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard
 
 temp_zip <- tempfile(fileext = ".zip")
