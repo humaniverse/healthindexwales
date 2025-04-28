@@ -1,6 +1,25 @@
 #' @importFrom tibble tibble
 NULL
 
+#' Percentage of People Exhibiting Sedentary Behaviour (Very Low Activity Levels)
+#' (2021-22 and 2022-23)
+#'
+#' A dataset containing statistics on very low activity levels (less than 30 
+#' minutes a week) in each Council, 2021-22 and 2022-23.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla23_code}{Local Authority Code}
+#' \item{sedentary_behaviour_percentage}{Percentage of people with very low
+#' activity levels, defined as less than 30 minutes activity a week}
+#' \item{year}{Time periods over a 2 year period}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles/adultlifestyles-by-healthboard-from-202021}
+"lives_sedentary_behaviour"
+
+
 #' Mortality all causes rate per 100k (2023)
 #'
 #' A dataset containing statistics from an age-sex standardised rate for all
