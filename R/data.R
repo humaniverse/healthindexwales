@@ -1,6 +1,24 @@
 #' @importFrom tibble tibble
 NULL
 
+#' Drug misuse per 1k (2024)
+#' 
+#' A dataset containing statistics on the number of drug-related crimes recorded 
+#' by the police, per 1,000 people, per Welsh Council (2024).
+#' 
+#' 
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla23_code}{Local Authority Code}
+#' \item{drug_misuse_per_1k}{Average rate of drug offences per 1,000 people}
+#' \item{year}{Year}
+#' ...
+#' }
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables}
+#'
+"lives_drug_misuse"
+
+
 #' Mortality all causes rate per 100k (2023)
 #'
 #' A dataset containing statistics from an age-sex standardised rate for all
