@@ -11,12 +11,15 @@ wales_hb_ltla <- lookup_ltla21_lhb22
 # Low Birth Weight data
 # Source: https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Community-Child-Health/livebirthstowelshresidents-by-localhealthboard-birthweight
 
-temp_zip <- tempfile(fileext = ".zip")
-temp_dir <- tempdir()
+low_birth_weight_raw <- read_csv("data-raw/healthy-lives/raw-data/low_birth_weight.csv", skip = 6)
 
-download.file("https://statswales.gov.wales/Download/File?fileName=HLTH1113.zip", destfile = temp_zip, mode = "wb")
 
-unzip(temp_zip, exdir = temp_dir)
+low_birth_weight <- low_birth_weight_raw |>
+  mutate(low_birth_weight_total = (`<2000g` + `2000-2499g`),
+         low_birth_weight_percentage = (low_birth_weight_total / Total) * 100)
 
-unzipped_files <- list.files(temp_dir, full.names = TRUE)
-print(unzipped_files)
+
+# next need to join datasets
+
+
+names(low_birth_weight_raw)
