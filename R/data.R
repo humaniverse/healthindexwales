@@ -1,6 +1,24 @@
 #' @importFrom tibble tibble
 NULL
 
+#' Percentage of Babies Born Not at a Healthy Birth Weight (2023)
+#'
+#' A dataset containing percentage babies born not at a healthy birth weight 
+#' (<2,500g).
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla23_code}{Local Authority Code}
+#' \item{low_birth_weight_percentage}{Percentage of babies born not at a healthy 
+#' birth weight (<2,500g)}
+#' \item{year}{Year}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Community-Child-Health/livebirthstowelshresidents-by-localhealthboard-birthweight}
+"lives_low_birth_weight"
+
+
 #' Mortality all causes rate per 100k (2023)
 #'
 #' A dataset containing statistics from an age-sex standardised rate for all
