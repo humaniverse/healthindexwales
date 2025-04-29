@@ -7,7 +7,7 @@ library(geographr)
 # Wales LTLA and HB Codes
 wales_hb_ltla <- lookup_ltla21_lhb22
 
-# Physical Activity data
+# Sedentary Behaviour data
 # Source: https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles/adultlifestyles-by-healthboard-from-202021
 
 sedentary_behaviour_raw <- read_csv("data-raw/healthy-lives/raw-data/adult_lifestyle.csv", skip = 8)
