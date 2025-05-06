@@ -10,7 +10,10 @@ wales_hb_ltla <- lookup_ltla21_lhb22
 # Healthy Eating data
 # Source: https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles/adultlifestyles-by-healthboard-from-202021
 
-healthy_eating_raw <- read_csv("data-raw/healthy-lives/raw-data/adult_lifestyle.csv", skip = 8)
+healthy_eating_raw <- read_csv(
+  "data-raw/healthy-lives/raw-data/adult_lifestyle.csv",
+  skip = 8
+)
 
 healthy_eating <- healthy_eating_raw |>
   slice(14:16) |>
@@ -26,9 +29,7 @@ lives_healthy_eating <- healthy_eating |>
   left_join(wales_hb_ltla, by = c("wales_areas" = "ltla21_name")) |>
   filter(!is.na(ltla21_code)) |>
   mutate(year = "2021-22 and 2022-23") |>
-  select(ltla23_code = ltla21_code,
-         healthy_eating_percentage,
-         year)
+  select(ltla23_code = ltla21_code, healthy_eating_percentage, year)
 
 
 # ---- Save output to data/ folder ----
