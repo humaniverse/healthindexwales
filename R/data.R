@@ -43,6 +43,60 @@ NULL
 "lives_cancer_screening"
 
 
+#' Percentage of Pupil Absences (2023/24)
+#'
+#' A dataset containing statistics on the percentage of unauthorised school
+#' absences.
+#'
+#' To note: England's Health Index records the percentage of pupils (at
+#' state-funded primary and secondary, and special schools) who are persistent
+#' absentees, that is, have overall absences equating to 10% or more of their
+#' possible sessions. However, Wales only records percentage of half-day
+#' sessions missed for unauthorised absence for primary and secondary schools.
+#' This has been used as best proxy.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{total_pupil_absence_percentage}{Percentage of unauthorised school
+#' absences across primary and secondary schools}
+#' \item{year}{School Year}
+#'
+#' ...
+#' }
+#' @source \url{https://www.gov.wales/absenteeism-primary-schools-september-2023-august-2024}
+#' @source \url{https://www.gov.wales/absenteeism-secondary-schools-september-2023-august-2024}
+#'
+"lives_pupil_absence"
+
+
+#' Percentage of Pupil Absences (2023/24)
+#'
+#' A dataset containing statistics on the percentage of unauthorised school
+#' absences.
+#'
+#' To note: England's Health Index records the percentage of pupils (at
+#' state-funded primary and secondary, and special schools) who are persistent
+#' absentees, that is, have overall absences equating to 10% or more of their
+#' possible sessions. However, Wales only records percentage of half-day
+#' sessions missed for unauthorised absence for primary and secondary schools.
+#' This has been used as best proxy.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{total_pupil_absence_percentage}{Percentage of unauthorised school
+#' absences across primary and secondary schools}
+#' \item{year}{School Year}
+#'
+#' ...
+#' }
+#' @source \url{https://www.gov.wales/absenteeism-primary-schools-september-2023-august-2024}
+#' @source \url{https://www.gov.wales/absenteeism-secondary-schools-september-2023-august-2024}
+#'
+"lives_pupil_absence"
+
+
 #' Percentage of People that Eat Healthy (2021-22 and 2022-23)
 #'
 #' A dataset containing statistics on fruit and vegetable consumption in
