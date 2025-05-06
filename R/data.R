@@ -21,6 +21,28 @@ NULL
 "lives_alcohol_misuse"
 
 
+#' Percentage of Cancer Screening Uptake (2021-22)
+#'
+#' A dataset containing statistics on the percentage of cancer screening uptake
+#' for bowel, breast, and cervical cancer in each Welsh Council, 2021-22.
+#'
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{total_cancer_screening_percentage}{Percentage of cancer screening
+#' uptake; breast, bowel, and cervical cancer.}
+#' \item{year}{Time period}
+#'
+#' ...
+#' }
+#' @source \url{https://phw.nhs.wales/services-and-teams/screening/bowel-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+#' @source \url{https://phw.nhs.wales/services-and-teams/cervical-screening-wales/information-resources/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+#' @source \url{https://phw.nhs.wales/services-and-teams/screening/breast-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+#'
+"lives_cancer_screening"
+
+
 #' Mortality all causes rate per 100k (2023)
 #'
 #' A dataset containing statistics from an age-sex standardised rate for all
