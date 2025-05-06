@@ -70,6 +70,55 @@ NULL
 "lives_pupil_absence"
 
 
+#' Percentage of Pupil Absences (2023/24)
+#'
+#' A dataset containing statistics on the percentage of unauthorised school
+#' absences.
+#'
+#' To note: England's Health Index records the percentage of pupils (at
+#' state-funded primary and secondary, and special schools) who are persistent
+#' absentees, that is, have overall absences equating to 10% or more of their
+#' possible sessions. However, Wales only records percentage of half-day
+#' sessions missed for unauthorised absence for primary and secondary schools.
+#' This has been used as best proxy.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{total_pupil_absence_percentage}{Percentage of unauthorised school
+#' absences across primary and secondary schools}
+#' \item{year}{School Year}
+#'
+#' ...
+#' }
+#' @source \url{https://www.gov.wales/absenteeism-primary-schools-september-2023-august-2024}
+#' @source \url{https://www.gov.wales/absenteeism-secondary-schools-september-2023-august-2024}
+#'
+"lives_pupil_absence"
+
+
+#' Percentage of People that Eat Healthy (2021-22 and 2022-23)
+#'
+#' A dataset containing statistics on fruit and vegetable consumption in
+#' each Welsh Council, 2021-22 and 2022-23.
+#'
+#' To note: England's Health Index captures percentage of healthy eating per
+#' year, but Wales only has data combining over a 2 year period.
+#'
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{healthy_eating_percentage}{Percentage of people that consume
+#' 5 portions or more of fruit and vegetable per day}
+#' \item{year}{Time periods combined}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles/adultlifestyles-by-healthboard-from-202021}
+#'
+"lives_healthy_eating"
+
 #' Mortality all causes rate per 100k (2023)
 #'
 #' A dataset containing statistics from an age-sex standardised rate for all
