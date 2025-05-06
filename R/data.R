@@ -5,14 +5,14 @@ NULL
 #'
 #' A dataset containing statistics on fruit and vegetable consumption in
 #' each Welsh Council, 2021-22 and 2022-23.
-#' 
-#' To note: England's Health Index captures percentage of healthy eating per 
+#'
+#' To note: England's Health Index captures percentage of healthy eating per
 #' year, but Wales only has data combining over a 2 year period.
 #'
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla23_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{healthy_eating_percentage}{Percentage of people that consume
 #' 5 portions or more of fruit and vegetable per day}
 #' \item{year}{Time periods combined}
@@ -22,8 +22,6 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles/adultlifestyles-by-healthboard-from-202021}
 #'
 "lives_healthy_eating"
-
-
 
 #' Mortality all causes rate per 100k (2023)
 #'

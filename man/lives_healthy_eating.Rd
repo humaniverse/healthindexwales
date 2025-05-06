@@ -7,7 +7,7 @@
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
-\item{ltla23_code}{Local Authority Code}
+\item{ltla24_code}{Local Authority Code}
 \item{healthy_eating_percentage}{Percentage of people that consume
 5 portions or more of fruit and vegetable per day}
 \item{year}{Time periods combined}

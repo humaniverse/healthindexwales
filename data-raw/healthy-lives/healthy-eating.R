@@ -27,7 +27,7 @@ lives_healthy_eating <- healthy_eating |>
   left_join(wales_hb_ltla, by = c("wales_areas" = "ltla21_name")) |>
   filter(!is.na(ltla21_code)) |>
   mutate(year = "2021-22 and 2022-23") |>
-  select(ltla23_code = ltla21_code, healthy_eating_percentage, year)
+  select(ltla24_code = ltla21_code, healthy_eating_percentage, year)
 
 # ---- Save output to data/ folder ----
 usethis::use_data(lives_healthy_eating, overwrite = TRUE)
