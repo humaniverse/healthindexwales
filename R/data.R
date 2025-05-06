@@ -1,15 +1,170 @@
 #' @importFrom tibble tibble
 NULL
 
+#' Rate of Patient Admissions for Alcohol Related Conditions per 100k (2023/24)
+#'
+#' A dataset containing statistics on the rate of patient admissions for
+#' all alcohol-related admissions per 100k in each Welsh Council, 2023/24.
+#'
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla23_code}{Local Authority Code}
+#' \item{alcohol_admissions_rate_per_100k}{Rate of patient admissions per 100k
+#' population, based on population numbers per Local Authority}
+#' \item{year}{Time period}
+#'
+#' ...
+#' }
+#' @source \url{https://phw.nhs.wales/publications/publications1/data-mining-wales-the-annual-profile-for-substance-misuse-2023-2024/}
+#'
+"lives_alcohol_misuse"
+
+
+#' Percentage of Cancer Screening Uptake (2021-22)
+#'
+#' A dataset containing statistics on the percentage of cancer screening uptake
+#' for bowel, breast, and cervical cancer in each Welsh Council, 2021-22.
+#'
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{total_cancer_screening_percentage}{Percentage of cancer screening
+#' uptake; breast, bowel, and cervical cancer.}
+#' \item{year}{Time period}
+#'
+#' ...
+#' }
+#' @source \url{https://phw.nhs.wales/services-and-teams/screening/bowel-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+#' @source \url{https://phw.nhs.wales/services-and-teams/cervical-screening-wales/information-resources/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+#' @source \url{https://phw.nhs.wales/services-and-teams/screening/breast-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+#'
+"lives_cancer_screening"
+
+
+#' Percentage of Pupil Absences (2023/24)
+#'
+#' A dataset containing statistics on the percentage of unauthorised school
+#' absences.
+#'
+#' To note: England's Health Index records the percentage of pupils (at
+#' state-funded primary and secondary, and special schools) who are persistent
+#' absentees, that is, have overall absences equating to 10% or more of their
+#' possible sessions. However, Wales only records percentage of half-day
+#' sessions missed for unauthorised absence for primary and secondary schools.
+#' This has been used as best proxy.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{total_pupil_absence_percentage}{Percentage of unauthorised school
+#' absences across primary and secondary schools}
+#' \item{year}{School Year}
+#'
+#' ...
+#' }
+#' @source \url{https://www.gov.wales/absenteeism-primary-schools-september-2023-august-2024}
+#' @source \url{https://www.gov.wales/absenteeism-secondary-schools-september-2023-august-2024}
+#'
+"lives_pupil_absence"
+
+
+#' Percentage of Pupil Absences (2023/24)
+#'
+#' A dataset containing statistics on the percentage of unauthorised school
+#' absences.
+#'
+#' To note: England's Health Index records the percentage of pupils (at
+#' state-funded primary and secondary, and special schools) who are persistent
+#' absentees, that is, have overall absences equating to 10% or more of their
+#' possible sessions. However, Wales only records percentage of half-day
+#' sessions missed for unauthorised absence for primary and secondary schools.
+#' This has been used as best proxy.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{total_pupil_absence_percentage}{Percentage of unauthorised school
+#' absences across primary and secondary schools}
+#' \item{year}{School Year}
+#'
+#' ...
+#' }
+#' @source \url{https://www.gov.wales/absenteeism-primary-schools-september-2023-august-2024}
+#' @source \url{https://www.gov.wales/absenteeism-secondary-schools-september-2023-august-2024}
+#'
+"lives_pupil_absence"
+
+
+#' Percentage of People that Eat Healthy (2021-22 and 2022-23)
+#'
+#' A dataset containing statistics on fruit and vegetable consumption in
+#' each Welsh Council, 2021-22 and 2022-23.
+#'
+#' To note: England's Health Index captures percentage of healthy eating per
+#' year, but Wales only has data combining over a 2 year period.
+#'
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{healthy_eating_percentage}{Percentage of people that consume
+#' 5 portions or more of fruit and vegetable per day}
+#' \item{year}{Time periods combined}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles/adultlifestyles-by-healthboard-from-202021}
+#'
+"lives_healthy_eating"
+
+#' Percentage of Current Smokers (2021-21 and 2022-23)
+#'
+#' A dataset containing statistics on smoking status in
+#' each Welsh Council, 2021-21 and 2022-23.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{smoking_percentage}{Percentage of people that are current smokers}
+#' \item{year}{Time periods over a 2 year period}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles/adultlifestyles-by-healthboard-from-202021}
+#'
+"lives_smoking"
+
+
+#' Percentage of People Exhibiting Sedentary Behaviour (Very Low Activity Levels)
+#' (2021-22 and 2022-23)
+#'
+#' A dataset containing statistics on very low activity levels (less than 30
+#' minutes a week) in each Council, 2021-22 and 2022-23.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{sedentary_behaviour_percentage}{Percentage of people with very low
+#' activity levels, defined as less than 30 minutes activity a week}
+#' \item{year}{Time periods over a 2 year period}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles/adultlifestyles-by-healthboard-from-202021}
+"lives_sedentary_behaviour"
+
+
 #' Percentage of Babies Born Not at a Healthy Birth Weight (2023)
 #'
-#' A dataset containing percentage babies born not at a healthy birth weight 
+#' A dataset containing percentage babies born not at a healthy birth weight
 #' (<2,500g).
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #' \item{ltla23_code}{Local Authority Code}
-#' \item{low_birth_weight_percentage}{Percentage of babies born not at a healthy 
+#' \item{low_birth_weight_percentage}{Percentage of babies born not at a healthy
 #' birth weight (<2,500g)}
 #' \item{year}{Year}
 #'
