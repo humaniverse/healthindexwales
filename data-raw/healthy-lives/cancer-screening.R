@@ -78,24 +78,12 @@ breast <- breast_raw |>
 lives_cancer_screening <- cervical |>
   left_join(bowel) |>
   left_join(breast) |>
-  rowwise() |>
-  mutate(
-    total_cancer_screening_percentage = mean(
-      c_across(c(
-        cervical_screening_percentage,
-        breast_screening_percentage,
-        bowel_screening_percentage
-      )),
-      na.rm = TRUE
-    ),
-    year = "2021-22"
+  pivot_longer(!ltla24_code) |>
+  summarise(
+    total_cancer_screening_percentage = mean(value),
+    .by = ltla24_code
   ) |>
-  ungroup() |>
-  select(
-    ltla24_code,
-    total_cancer_screening_percentage,
-    year
-  )
+  mutate(year = "2021-22")
 
 # ---- Save output to data/ folder ----
 usethis::use_data(lives_cancer_screening, overwrite = TRUE)
