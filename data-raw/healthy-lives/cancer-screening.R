@@ -21,10 +21,10 @@ bowel_raw <- read_excel(download, sheet = 2, skip = 2)
 bowel <- bowel_raw |>
   left_join(wales_hb_ltla, by = c("Unitary Authority Name" = "ltla21_name")) |>
   select(
-    ltla23_code = ltla21_code,
+    ltla24_code = ltla21_code,
     bowel_screening_percentage = `Uptake %`
   ) |>
-  filter(!is.na(ltla23_code))
+  filter(!is.na(ltla24_code))
 
 # Cervical screening data
 # Source: https://phw.nhs.wales/services-and-teams/cervical-screening-wales/information-resources/programme-reports/uptake-coverage-by-local-authority-and-health-boards/
@@ -45,10 +45,10 @@ cervical <- cervical_raw |>
   ) |>
   left_join(wales_hb_ltla, by = c("Unitary Authority Name" = "ltla21_name")) |>
   select(
-    ltla23_code = ltla21_code,
+    ltla24_code = ltla21_code,
     cervical_screening_percentage = `Coverage %`
   ) |>
-  filter(!is.na(ltla23_code))
+  filter(!is.na(ltla24_code))
 
 # Breast screening data
 # Source: https://phw.nhs.wales/services-and-teams/screening/breast-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/
@@ -69,10 +69,10 @@ breast <- breast_raw |>
   ) |>
   left_join(wales_hb_ltla, by = c("Unitary Authority Name" = "ltla21_name")) |>
   select(
-    ltla23_code = ltla21_code,
+    ltla24_code = ltla21_code,
     breast_screening_percentage = `Coverage %`
   ) |>
-  filter(!is.na(ltla23_code))
+  filter(!is.na(ltla24_code))
 
 # Join datasets
 lives_cancer_screening <- cervical |>
@@ -92,7 +92,7 @@ lives_cancer_screening <- cervical |>
   ) |>
   ungroup() |>
   select(
-    ltla23_code,
+    ltla24_code,
     total_cancer_screening_percentage,
     year
   )
