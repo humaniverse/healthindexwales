@@ -3,14 +3,14 @@ NULL
 
 #' Percentage of Cancer Screening Uptake (2021-22)
 #'
-#' A dataset containing statistics on the percentage of cancer screening uptake 
+#' A dataset containing statistics on the percentage of cancer screening uptake
 #' for bowel, breast, and cervical cancer in each Welsh Council, 2021-22.
 #'
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla23_code}{Local Authority Code}
-#' \item{total_cancer_screening_percentage}{Percentage of cancer screening 
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{total_cancer_screening_percentage}{Percentage of cancer screening
 #' uptake; breast, bowel, and cervical cancer.}
 #' \item{year}{Time period}
 #'
