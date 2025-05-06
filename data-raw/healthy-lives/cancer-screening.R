@@ -1,24 +1,22 @@
 # ---- Load packages ----
 library(tidyverse)
 library(geographr)
-library(httr)
+library(httr2)
 library(readxl)
-
 
 # ---- Get and clean data ----
 # Wales LTLA and HB Codes
 wales_hb_ltla <- lookup_ltla21_lhb22
-
 
 # Bowel screening data
 # Source: https://phw.nhs.wales/services-and-teams/screening/bowel-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/
 bowel_url <- "https://phw.nhs.wales/services-and-teams/screening/bowel-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/bsw-uptake-by-ua-and-hb-2021-22/"
 download <- tempfile(fileext = ".xls")
 
-httr2::request(bowel_url) |>
-  httr2::req_perform(download)
+request(bowel_url) |>
+  req_perform(download)
 
-bowel_raw <- readxl::read_excel(download, sheet = 2, skip = 2)
+bowel_raw <- read_excel(download, sheet = 2, skip = 2)
 
 bowel <- bowel_raw |>
   left_join(wales_hb_ltla, by = c("Unitary Authority Name" = "ltla21_name")) |>
@@ -28,22 +26,23 @@ bowel <- bowel_raw |>
   ) |>
   filter(!is.na(ltla23_code))
 
-
 # Cervical screening data
 # Source: https://phw.nhs.wales/services-and-teams/cervical-screening-wales/information-resources/programme-reports/uptake-coverage-by-local-authority-and-health-boards/
 cervical_url <- "https://phw.nhs.wales/services-and-teams/cervical-screening-wales/information-resources/programme-reports/uptake-coverage-by-local-authority-and-health-boards/csw-coverage-by-ua-and-hb-2021-22/"
 download <- tempfile(fileext = ".xls")
 
-httr2::request(cervical_url) |>
-  httr2::req_perform(download)
+request(cervical_url) |>
+  req_perform(download)
 
-cervical_raw <- readxl::read_excel(download, sheet = 2, skip = 2)
+cervical_raw <- read_excel(download, sheet = 2, skip = 2)
 
 cervical <- cervical_raw |>
-  mutate(`Unitary Authority Name` = case_when(
-    `Unitary Authority Name` == "Anglesey" ~ "Isle of Anglesey",
-    TRUE ~ `Unitary Authority Name`
-  )) |>
+  mutate(
+    `Unitary Authority Name` = case_when(
+      `Unitary Authority Name` == "Anglesey" ~ "Isle of Anglesey",
+      TRUE ~ `Unitary Authority Name`
+    )
+  ) |>
   left_join(wales_hb_ltla, by = c("Unitary Authority Name" = "ltla21_name")) |>
   select(
     ltla23_code = ltla21_code,
@@ -51,22 +50,23 @@ cervical <- cervical_raw |>
   ) |>
   filter(!is.na(ltla23_code))
 
-
 # Breast screening data
 # Source: https://phw.nhs.wales/services-and-teams/screening/breast-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/
 breast_url <- "https://phw.nhs.wales/services-and-teams/screening/breast-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/uptake-coverage-by-local-authority-and-health-boards-as-at-may-2021/"
 download <- tempfile(fileext = ".xls")
 
-httr2::request(cervical_url) |>
-  httr2::req_perform(download)
+request(cervical_url) |>
+  req_perform(download)
 
-breast_raw <- readxl::read_excel(download, sheet = 2, skip = 2)
+breast_raw <- read_excel(download, sheet = 2, skip = 2)
 
 breast <- breast_raw |>
-  mutate(`Unitary Authority Name` = case_when(
-    `Unitary Authority Name` == "Anglesey" ~ "Isle of Anglesey",
-    TRUE ~ `Unitary Authority Name`
-  )) |>
+  mutate(
+    `Unitary Authority Name` = case_when(
+      `Unitary Authority Name` == "Anglesey" ~ "Isle of Anglesey",
+      TRUE ~ `Unitary Authority Name`
+    )
+  ) |>
   left_join(wales_hb_ltla, by = c("Unitary Authority Name" = "ltla21_name")) |>
   select(
     ltla23_code = ltla21_code,
@@ -74,14 +74,20 @@ breast <- breast_raw |>
   ) |>
   filter(!is.na(ltla23_code))
 
-
 # Join datasets
 lives_cancer_screening <- cervical |>
   left_join(bowel) |>
   left_join(breast) |>
   rowwise() |>
   mutate(
-    total_cancer_screening_percentage = mean(c_across(c(cervical_screening_percentage, breast_screening_percentage, bowel_screening_percentage)), na.rm = TRUE),
+    total_cancer_screening_percentage = mean(
+      c_across(c(
+        cervical_screening_percentage,
+        breast_screening_percentage,
+        bowel_screening_percentage
+      )),
+      na.rm = TRUE
+    ),
     year = "2021-22"
   ) |>
   ungroup() |>
@@ -90,7 +96,6 @@ lives_cancer_screening <- cervical |>
     total_cancer_screening_percentage,
     year
   )
-
 
 # ---- Save output to data/ folder ----
 usethis::use_data(lives_cancer_screening, overwrite = TRUE)
