@@ -11,7 +11,10 @@ wales_hb_ltla <- lookup_ltla21_lhb22
 # Low Birth Weight data
 # Source: https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Community-Child-Health/livebirthstowelshresidents-by-localhealthboard-birthweight
 
-low_birth_weight_raw <- read_csv("data-raw/healthy-lives/raw-data/low_birth_weight.csv", skip = 6)
+low_birth_weight_raw <- read_csv(
+  "data-raw/healthy-lives/raw-data/low_birth_weight.csv",
+  skip = 6
+)
 
 
 low_birth_weight <- low_birth_weight_raw |>
@@ -27,7 +30,7 @@ lives_low_birth_weight <- low_birth_weight |>
   left_join(wales_hb_ltla, by = c("...3" = "ltla21_name")) |>
   filter(!is.na(ltla21_code)) |>
   select(
-    ltla23_code = ltla21_code,
+    ltla24_code = ltla21_code,
     low_birth_weight_percentage,
     year
   )

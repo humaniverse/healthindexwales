@@ -7,7 +7,7 @@
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
-\item{ltla23_code}{Local Authority Code}
+\item{ltla24_code}{Local Authority Code}
 \item{low_birth_weight_percentage}{Percentage of babies born not at a healthy
 birth weight (<2,500g)}
 \item{year}{Year}
