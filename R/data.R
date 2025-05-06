@@ -119,6 +119,24 @@ NULL
 #'
 "lives_healthy_eating"
 
+#' Percentage of Current Smokers (2021-21 and 2022-23)
+#'
+#' A dataset containing statistics on smoking status in
+#' each Welsh Council, 2021-21 and 2022-23.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{smoking_percentage}{Percentage of people that are current smokers}
+#' \item{year}{Time periods over a 2 year period}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles/adultlifestyles-by-healthboard-from-202021}
+#'
+"lives_smoking"
+
+
 #' Mortality all causes rate per 100k (2023)
 #'
 #' A dataset containing statistics from an age-sex standardised rate for all
