@@ -1,6 +1,26 @@
 #' @importFrom tibble tibble
 NULL
 
+#' Rate of Patient Admissions for Alcohol Related Conditions per 100k (2023/24)
+#'
+#' A dataset containing statistics on the rate of patient admissions for
+#' all alcohol-related admissions per 100k in each Welsh Council, 2023/24.
+#'
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla23_code}{Local Authority Code}
+#' \item{alcohol_admissions_rate_per_100k}{Rate of patient admissions per 100k
+#' population, based on population numbers per Local Authority}
+#' \item{year}{Time period}
+#'
+#' ...
+#' }
+#' @source \url{https://phw.nhs.wales/publications/publications1/data-mining-wales-the-annual-profile-for-substance-misuse-2023-2024/}
+#'
+"lives_alcohol_misuse"
+
+
 #' Percentage of Cancer Screening Uptake (2021-22)
 #'
 #' A dataset containing statistics on the percentage of cancer screening uptake
