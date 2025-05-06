@@ -156,6 +156,24 @@ NULL
 "lives_sedentary_behaviour"
 
 
+#' Percentage of Babies Born Not at a Healthy Birth Weight (2023)
+#'
+#' A dataset containing percentage babies born not at a healthy birth weight
+#' (<2,500g).
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{low_birth_weight_percentage}{Percentage of babies born not at a healthy
+#' birth weight (<2,500g)}
+#' \item{year}{Year}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Community-Child-Health/livebirthstowelshresidents-by-localhealthboard-birthweight}
+"lives_low_birth_weight"
+
+
 #' Mortality all causes rate per 100k (2023)
 #'
 #' A dataset containing statistics from an age-sex standardised rate for all
@@ -422,39 +440,6 @@ NULL
 #' }
 #' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/suicidesbylocalauthority}
 "people_suicide"
-
-
-#' Sedentary behaviour Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of sedentary adults in Wales
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{Percent adults active less than 30 minutes last week}{Percentage of
-#'   people aged 16 and over in each local authority claiming to have exercised
-#'   for less than 30 minutes the previous week, age standardised}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
-"hl_sedentary_behaviour"
-
-
-#' Teenage Pregnancy Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of teenage pregnancies in Wales
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code of usual residence}
-#'   \item{Percentage teenage pregnancies}{Percentage of conceptions for women aged 15-17, based on quarterly numbers of conceptions aged 15-17 and ONS population estimates. Conception includes live or still births and legal abortions, does not include miscarriages or illegal abortions}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/conceptionandfertilityrates/datasets/quarterlyconceptionstowomenagedunder18englandandwales}
-#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland}
-"hl_teenage_pregnancy"
 
 
 #' Percentage of Absolute Child Poverty (2022)
