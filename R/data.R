@@ -163,7 +163,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla23_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{low_birth_weight_percentage}{Percentage of babies born not at a healthy
 #' birth weight (<2,500g)}
 #' \item{year}{Year}
@@ -440,39 +440,6 @@ NULL
 #' }
 #' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/suicidesbylocalauthority}
 "people_suicide"
-
-
-#' Sedentary behaviour Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of sedentary adults in Wales
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{Percent adults active less than 30 minutes last week}{Percentage of
-#'   people aged 16 and over in each local authority claiming to have exercised
-#'   for less than 30 minutes the previous week, age standardised}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
-"hl_sedentary_behaviour"
-
-
-#' Teenage Pregnancy Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of teenage pregnancies in Wales
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code of usual residence}
-#'   \item{Percentage teenage pregnancies}{Percentage of conceptions for women aged 15-17, based on quarterly numbers of conceptions aged 15-17 and ONS population estimates. Conception includes live or still births and legal abortions, does not include miscarriages or illegal abortions}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/conceptionandfertilityrates/datasets/quarterlyconceptionstowomenagedunder18englandandwales}
-#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland}
-"hl_teenage_pregnancy"
 
 
 #' Percentage of Absolute Child Poverty (2022)
