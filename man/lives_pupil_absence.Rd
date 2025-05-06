@@ -7,7 +7,7 @@
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
-\item{ltla23_code}{Local Authority Code}
+\item{ltla24_code}{Local Authority Code}
 \item{total_pupil_absence_percentage}{Percentage of unauthorised school
 absences across primary and secondary schools}
 \item{year}{School Year}
