@@ -1,6 +1,48 @@
 #' @importFrom tibble tibble
 NULL
 
+#' Rate of Patient Admissions for Alcohol Related Conditions per 100k (2023/24)
+#'
+#' A dataset containing statistics on the rate of patient admissions for
+#' all alcohol-related admissions per 100k in each Welsh Council, 2023/24.
+#'
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla23_code}{Local Authority Code}
+#' \item{alcohol_admissions_rate_per_100k}{Rate of patient admissions per 100k
+#' population, based on population numbers per Local Authority}
+#' \item{year}{Time period}
+#'
+#' ...
+#' }
+#' @source \url{https://phw.nhs.wales/publications/publications1/data-mining-wales-the-annual-profile-for-substance-misuse-2023-2024/}
+#'
+"lives_alcohol_misuse"
+
+
+#' Percentage of Cancer Screening Uptake (2021-22)
+#'
+#' A dataset containing statistics on the percentage of cancer screening uptake
+#' for bowel, breast, and cervical cancer in each Welsh Council, 2021-22.
+#'
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{total_cancer_screening_percentage}{Percentage of cancer screening
+#' uptake; breast, bowel, and cervical cancer.}
+#' \item{year}{Time period}
+#'
+#' ...
+#' }
+#' @source \url{https://phw.nhs.wales/services-and-teams/screening/bowel-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+#' @source \url{https://phw.nhs.wales/services-and-teams/cervical-screening-wales/information-resources/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+#' @source \url{https://phw.nhs.wales/services-and-teams/screening/breast-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+#'
+"lives_cancer_screening"
+
+
 #' Percentage of People that Eat Healthy (2021-22 and 2022-23)
 #'
 #' A dataset containing statistics on fruit and vegetable consumption in
