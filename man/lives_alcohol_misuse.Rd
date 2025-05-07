@@ -7,7 +7,7 @@
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
-\item{ltla23_code}{Local Authority Code}
+\item{ltla24_code}{Local Authority Code}
 \item{alcohol_admissions_rate_per_100k}{Rate of patient admissions per 100k
 population, based on population numbers per Local Authority}
 \item{year}{Time period}

@@ -26,7 +26,7 @@ alcohol_misuse <- alcohol_misuse_raw |>
 lives_alcohol_misuse <- alcohol_misuse |>
   left_join(wales_hb_ltla, by = c("Local Authority" = "ltla21_name")) |>
   select(
-    ltla23_code = ltla21_code,
+    ltla24_code = ltla21_code,
     alcohol_admissions_rate_per_100k = `EASR per 100,000 population 2023/24`,
     year
   )
