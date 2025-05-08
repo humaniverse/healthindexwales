@@ -25,7 +25,7 @@ places_household_overcrowding <- overcrowding_raw |>
     year = "2021"
   ) |>
   select(
-    ltla25_code = `Area code`,
+    ltla24_code = `Area code`,
     percentage_households_overcrowding,
     year
   )

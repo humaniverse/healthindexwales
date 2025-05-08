@@ -173,7 +173,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{anxiety_score_out_of_10}{Average personal ratings on feelings of
 #' anxiety out of 10 - 10 is most anxious, 1 is least anxious}
 #' \item{year}{Time period}
@@ -190,7 +190,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{avoidable_deaths_per_100k}{Age-standardised avoidable mortality rates per
 #' 100k}
 #' \item{year}{3-year aggregate period}
@@ -260,7 +260,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authroity Code}
+#' \item{ltla24_code}{Local Authroity Code}
 #' \item{diabetes_percentage}{Percentage of people who
 #' self-reported as having Diabetes mellitus}
 #' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
@@ -280,7 +280,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{happiness_score_out_of_10}{Average personal ratings on feelings of
 #' happiness out of 10 - 10 is most happy, 1 is least happy}
 #' \item{year}{Time period}
@@ -297,7 +297,7 @@ NULL
 #'
 #' @format A data frame with 11 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{satisfaction_score_out_of_10}{Average personal ratings on feelings of
 #' life satisfaction out of 10 - 10 is most satisfied, 1 is least satisfied}
 #' \item{year}{Time period}
@@ -314,7 +314,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{worthwhile_score_out_of_10}{Average personal ratings on feelings of
 #' life worthwhileness out of 10 - 10 is most worthwhile, 1 is least worthwhile}
 #' \item{year}{Time period}
@@ -404,7 +404,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{suicide_rate_per_100k}{Deaths from suicide (16+). Age standardised
 #' rate per 100,000.}
 #' \item{year}{Time period - 3 year aggregate}
@@ -426,7 +426,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{child_poverty_percentage}{Percentage of children (aged 16 and under)
 #' living in absolute low income families}
 #' \item{year}{Date}
@@ -446,7 +446,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{percentage_households_overcrowding}{Percentage of households
 #' experiencing household overcrowding}
 #' \item{year}{Year}
@@ -464,7 +464,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{air_pollution_weighted}{Population-weighted annual mean PM2.5}
 #' \item{year}{Year}
 #'
@@ -606,26 +606,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
-#' \item{personal_crime_rate_per_1k}{Average rate of low-level-crime (Violence
-#' against the person, sexual offences, and criminal damage and arson)}
-#' \item{year}{September 2023 - September 2024}
-#' ...
-#' }
-#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables}
-#'
-"places_personal_crime"
-
-
-#' Average rates of Personal Crime per 1k (2023-2024)
-#'
-#' A dataset containing statistics on the mean rate of personal crime (Violence
-#' against the person, sexual offences, and criminal damage and arson) per
-#' 1,000, per Welsh Local Authority.
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{personal_crime_rate_per_1k}{Average rate of low-level-crime (Violence
 #' against the person, sexual offences, and criminal damage and arson)}
 #' \item{year}{September 2023 - September 2024}
@@ -643,7 +624,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{low_level_crime_rate_per_1k}{Average rate of low-level-crime (bicycle
 #' theft and shoplifting)}
 #' \item{year}{September 2023 - September 2024}
