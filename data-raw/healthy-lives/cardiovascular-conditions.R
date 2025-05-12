@@ -42,7 +42,7 @@ lives_cardiovascular_conditions <- cardiovascular_conditions |>
   left_join(wales_hb_ltla, by = c("Area_ItemName_ENG_STR" = "lhb22_name")) |>
   filter(!is.na(ltla21_code)) |>
   select(
-    ltla25_code = ltla21_code,
+    ltla24_code = ltla21_code,
     cardiovascular_conditions_percentage,
     year = Year_Code_INT
   )

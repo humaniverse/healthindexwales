@@ -14,7 +14,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authroity Code}
+#' \item{ltla24_code}{Local Authroity Code}
 #' \item{cardiovascular_conditions_percentage}{Percentage of people who self-reported
 #' as having CHD, Atrial Fibrillation, Heart Failure, and/or Stroke & TIA}
 #' \item{year}{Year}

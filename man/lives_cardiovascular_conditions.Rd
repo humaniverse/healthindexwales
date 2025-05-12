@@ -8,7 +8,7 @@ Heart Failure, Stroke & TIA) (2024)}
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
-\item{ltla25_code}{Local Authroity Code}
+\item{ltla24_code}{Local Authroity Code}
 \item{cardiovascular_conditions_percentage}{Percentage of people who self-reported
 as having CHD, Atrial Fibrillation, Heart Failure, and/or Stroke & TIA}
 \item{year}{Year}
@@ -26,5 +26,10 @@ lives_cardiovascular_conditions
 A dataset containing statistics on the percentage of people who self-reported
 as having CHD, Atrial Fibrillation, Heart Failure, and/or Stroke & TIA in
 Welsh Council Areas.
+}
+\details{
+To note: StatsWales Disease Prevalence data only captures disease prevalence
+in a 'snapshot', or a single point of time. This means the year data
+represents when the data was extracted, not the period covered.
 }
 \keyword{datasets}
