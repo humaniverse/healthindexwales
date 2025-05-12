@@ -13,7 +13,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{overweight_obesity_child_percentage}{Average percentage of children 
 #' clinically classed as overweight and obese aged 4/5}
 #' \item{year}{School Year}

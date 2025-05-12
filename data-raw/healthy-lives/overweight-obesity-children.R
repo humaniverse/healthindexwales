@@ -41,7 +41,7 @@ overweight_obesity_children <- overweight_obesity_children_raw |>
 lives_overweight_obesity_children <- overweight_obesity_children |>
   left_join(wales_hb_ltla, by = c("Area_ItemName_ENG_STR" = "ltla21_name")) |>
   select(
-    ltla25_code = ltla21_code,
+    ltla24_code = ltla21_code,
     overweight_obesity_child_percentage,
     year = Year_ItemName_ENG_STR
   )
