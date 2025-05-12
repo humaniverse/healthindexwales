@@ -118,7 +118,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{disability_activities_limited_percentage}{percentage of people aged 15-64
 #' with long-term health problem/disability that limits daily activities by a
 #' lot or by a little.}

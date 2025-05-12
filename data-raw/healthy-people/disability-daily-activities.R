@@ -18,7 +18,7 @@ people_disability_daily_activities <- disability_daily_activities_raw |>
   mutate(across(c(`\r\nDisabled under the Equality Act: Day-to-day activities limited a lot\r\n2021\r\n(age-standardised proportion)`:`Not disabled under the Equality Act\r\n2021\r\n(age-standardised proportion)`), as.numeric),
          disability_activities_limited_percentage = `\r\nDisabled under the Equality Act: Day-to-day activities limited a lot\r\n2021\r\n(age-standardised proportion)` + `\r\nDisabled under the Equality Act: Day-to-day activities limited a little\r\n2021\r\n(age-standardised proportion)`,
          year = "2021") |>
-  select(ltla25_code = `Area code`,
+  select(ltla24_code = `Area code`,
          disability_activities_limited_percentage,
          year)
 
