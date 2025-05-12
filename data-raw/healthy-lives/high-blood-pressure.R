@@ -36,7 +36,7 @@ lives_high_blood_pressure <- high_blood_pressure |>
   left_join(wales_hb_ltla, by = c("Area_ItemName_ENG_STR" = "lhb22_name")) |>
   filter(!is.na(ltla21_code)) |>
   select(
-    ltla25_code = ltla21_code,
+    ltla24_code = ltla21_code,
     high_blood_pressure_percentage = Data_DEC,
     year = Year_Code_INT
   )

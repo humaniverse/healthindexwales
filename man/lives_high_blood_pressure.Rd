@@ -7,7 +7,7 @@
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
-\item{ltla25_code}{Local Authority Code}
+\item{ltla24_code}{Local Authority Code}
 \item{high_blood_pressure_percentage}{Percentage of adults diagnosed with
 high blood pressure}
 \item{year}{Year}
@@ -24,5 +24,10 @@ lives_high_blood_pressure
 \description{
 A dataset containing statistics on percentage of adults diagnosed with high
 blood pressure, by Council (2024).
+}
+\details{
+To note: StatsWales Disease Prevalence data only captures disease prevalence
+in a 'snapshot', or a single point of time. This means the year data
+represents when the data was extracted, not the period covered.
 }
 \keyword{datasets}
