@@ -236,7 +236,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authroity Code}
+#' \item{ltla24_code}{Local Authroity Code}
 #' \item{dementia_percentage}{Percentage of people who
 #' self-reported as having Dementia}
 #' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
@@ -335,7 +335,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authroity Code}
+#' \item{ltla24_code}{Local Authroity Code}
 #' \item{mental_health_percentage}{Percentage of people who
 #' self-reported as having a Mental Health Condition}
 #' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
@@ -360,7 +360,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authroity Code}
+#' \item{ltla24_code}{Local Authroity Code}
 #' \item{musculoskeletal_conditions_percentage}{Percentage of people who
 #' self-reported as having Rheumatoid Arthritis}
 #' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
@@ -384,7 +384,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authroity Code}
+#' \item{ltla24_code}{Local Authroity Code}
 #' \item{respiratory_conditions_percentage}{Percentage of people who self-reported
 #' as having asthma and/or COPD}
 #' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
