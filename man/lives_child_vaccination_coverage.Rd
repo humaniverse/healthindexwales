@@ -7,7 +7,7 @@
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
-\item{ltla25_code}{Local Authority Code}
+\item{ltla24_code}{Local Authority Code}
 \item{child_vaccination_coverage_percentage}{Percentage of vaccine coverage.
 Includes the following immunisations: Diphtheria, Tetanus, Pertussis, Polio,
 Haemophilus influenzae (Hib), Measles, Mumps, Rubella, Meningitis C and

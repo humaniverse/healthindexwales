@@ -34,7 +34,7 @@ vaccination_coverage <- vaccination_coverage_raw |>
 # Join datasets
 lives_child_vaccination_coverage <- vaccination_coverage |>
   left_join(wales_hb_ltla, by = c("Area_ItemName_ENG_STR" = "ltla21_name")) |>
-  select(ltla25_code = ltla21_code,
+  select(ltla24_code = ltla21_code,
          child_vaccination_coverage_percentage = Data_DEC,
          year = Year_ItemName_ENG_STR)
 
