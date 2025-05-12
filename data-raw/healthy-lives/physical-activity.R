@@ -28,7 +28,7 @@ lives_physical_activity <- physical_activity |>
   filter(!is.na(ltla21_code)) |>
   mutate(year = "2021-22 and 2022-23") |>
   select(
-    ltla23_code = ltla21_code,
+    ltla24_code = ltla21_code,
     activity_levels_met_percentage,
     year
   )
