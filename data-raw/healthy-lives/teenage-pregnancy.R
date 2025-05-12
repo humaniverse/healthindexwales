@@ -20,7 +20,7 @@ lives_teenage_pregnancy <- teenage_pregnancy_raw |>
   ) |>
   mutate(year = "2021") |>
   select(
-    ltla25_code = `Code`,
+    ltla24_code = `Code`,
     teenage_pregnancies_per_1k = `2021 Conceptions at ages under 18 \r\nConception rate per 1,000 women in age-group`,
     year
   )

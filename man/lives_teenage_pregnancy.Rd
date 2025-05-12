@@ -7,7 +7,7 @@
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
-\item{ltla25_code}{Local Authority Code}
+\item{ltla24_code}{Local Authority Code}
 \item{teenage_pregnancies_per_1k}{Rate of teenage pregnancies per 1k where
 teenagers are aged between 13 and 18}
 \item{year}{Year}
