@@ -34,7 +34,7 @@ lives_drug_misuse <- drug_misuse |>
   left_join(wales_lookup, by = c("Area Code" = "pfa24_code")) |>
   mutate(year = "2024") |>
   select(
-    ltla23_code = ltla24_code,
+    ltla24_code,
     drug_misuse_per_1k = `Drug offences`,
     year
   )
