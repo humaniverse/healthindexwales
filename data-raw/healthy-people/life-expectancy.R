@@ -27,7 +27,7 @@ people_life_expectancy <- life_expectancy_raw |>
   ungroup() |>
   distinct(`Area code`, .keep_all = TRUE) |>
   select(
-    ltla25_code = `Area code`,
+    ltla24_code = `Area code`,
     life_expectancy_combined,
     year = `Period`
   )
