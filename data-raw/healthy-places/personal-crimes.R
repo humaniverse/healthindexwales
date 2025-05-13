@@ -50,7 +50,7 @@ personal_crime <- personal_crime_raw |>
 places_personal_crime <- personal_crime |>
   left_join(wales_lookup, by = c("Area Code" = "pfa24_code")) |>
   select(
-    ltla25_code = ltla24_code,
+    ltla24_code,
     personal_crime_rate_per_1k,
     year
   )
