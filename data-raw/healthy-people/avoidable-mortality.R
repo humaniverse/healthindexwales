@@ -30,7 +30,7 @@ people_avoidable_mortality <- avoidable_mortality |>
   left_join(wales_la, by = c("Area Code" = "ltla22_code")) |>
   mutate(year = "2020-2022") |>
   select(
-    ltla25_code = ltla23_code,
+    ltla24_code = ltla23_code,
     avoidable_deaths_per_100k = `Rate per 100,000 population\r\n2020-2022`,
     year
   )

@@ -7,7 +7,7 @@
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
-\item{ltla25_code}{Local Authority Code}
+\item{ltla24_code}{Local Authority Code}
 \item{unemployment_percentage}{Percentage of people experiencing unemployment
 excluding students. Ages 16-64.}
 \item{year}{September 2023 to September 2024}
