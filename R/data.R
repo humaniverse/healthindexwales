@@ -305,6 +305,27 @@ NULL
 "lives_teenage_pregnancy"
 
 
+#' Drug misuse per 1k (2024)
+#'
+#' A dataset containing statistics on the number of drug-related crimes recorded
+#' by the police, per 1,000 people, per Welsh Council (2024). Note, that these
+#' data have been aggregated up from the four police areas: Dyfed-Powys, Gwent
+#' and North and South Wales, and so repeated obersations will be seen across
+#' local authorities.
+#'
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{drug_misuse_per_1k}{Average rate of drug offences per 1,000 people}
+#' \item{year}{Year}
+#' ...
+#' }
+#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables}
+#'
+"lives_drug_misuse"
+
+
 #' Mortality all causes rate per 100k (2023)
 #'
 #' A dataset containing statistics from an age-sex standardised rate for all
@@ -485,7 +506,6 @@ NULL
 #' }
 #' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/healthandlifeexpectancies/datasets/lifeexpectancyforlocalareasofgreatbritain}
 "people_life_expectancy"
-
 
 
 #' Average Measurement of Life Satisfaction Out of 10 (2022-23)
