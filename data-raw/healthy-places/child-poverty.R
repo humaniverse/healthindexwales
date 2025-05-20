@@ -18,7 +18,7 @@ places_child_poverty <- child_poverty_raw |>
   filter(str_starts(`Area Code`, "W")) |>
   mutate(year = "2022") |>
   select(
-    ltla25_code = "Area Code",
+    ltla24_code = "Area Code",
     child_poverty_percentage = `Percentage of children \nFYE 2022\n(%)\n[p] [note 3]`,
     year
   ) |>

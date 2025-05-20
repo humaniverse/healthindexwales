@@ -7,7 +7,7 @@
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
-\item{ltla25_code}{Local Authority Code}
+\item{ltla24_code}{Local Authority Code}
 \item{air_pollution_weighted}{Population-weighted annual mean PM2.5}
 \item{year}{Year}
 

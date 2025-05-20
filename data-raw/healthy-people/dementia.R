@@ -36,7 +36,7 @@ people_dementia <- dementia |>
   left_join(wales_hb_ltla, by = c("Area_ItemName_ENG_STR" = "lhb22_name")) |>
   filter(!is.na(ltla21_code)) |>
   select(
-    ltla25_code = ltla21_code,
+    ltla24_code = ltla21_code,
     dementia_percentage = Data_DEC,
     year = Year_Code_INT
   )

@@ -16,7 +16,7 @@ people_happiness <- happiness_raw |>
   ) |>
   filter(`administrative-geography` != "W92000004") |>
   select(
-    ltla25_code = `administrative-geography`,
+    ltla24_code = `administrative-geography`,
     happiness_score_out_of_10 = `v4_3`,
     year = `Time`
   )

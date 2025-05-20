@@ -34,7 +34,7 @@ places_air_pollution <-
   wales_ltla25 |>
   left_join(air_pollution, by = "ltla25_name") |>
   select(
-    ltla25_code,
+    ltla24_code = ltla25_code,
     air_pollution_weighted
   ) |>
   mutate(year = "2019")

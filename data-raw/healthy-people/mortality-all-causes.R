@@ -23,7 +23,7 @@ people_all_mortality <- mortality_all_causes_raw |>
     `Geography level` == "Unitary Authority"
   ) |>
   select(
-    ltla25_code = `Area code`,
+    ltla24_code = `Area code`,
     all_deaths_per_100k = `Age Standardised Mortality Rate (ASMR)`,
     year = `Year of registration`
   )
