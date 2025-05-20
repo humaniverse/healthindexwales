@@ -232,7 +232,7 @@ NULL
 #' \item{ltla24_code}{Local Authority Code}
 #' \item{obesity_adults_percentage}{Average percentage of adults
 #' (aged 16+) clinically classed as overweight and obese}
-#' \item{year}{School Year}
+#' \item{year}{Year}
 #'
 #' ...
 #' }
