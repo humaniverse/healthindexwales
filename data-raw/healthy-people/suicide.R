@@ -25,7 +25,7 @@ people_suicide <- suicide_raw |>
   ) |>
   mutate(year = "2021-2023") |>
   select(
-    ltla25_code = `Area Code \r\n[note 2]`,
+    ltla24_code = `Area Code \r\n[note 2]`,
     suicide_rate_per_100k = `2021 to 2023 \r\nRate per 100,000 \r\n[note 4]`,
     year
   ) |>

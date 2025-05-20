@@ -7,7 +7,7 @@ library(geographr)
 wales_hb_ltla <- lookup_ltla21_lhb22
 
 
-# Musculoskeletal Conditions data
+# Mental Health data
 # Source: https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard
 
 temp_zip <- tempfile(fileext = ".zip")
@@ -38,7 +38,7 @@ people_mental_health <- mental_health |>
   left_join(wales_hb_ltla, by = c("Area_ItemName_ENG_STR" = "lhb22_name")) |>
   filter(!is.na(ltla21_code)) |>
   select(
-    ltla25_code = ltla21_code,
+    ltla24_code = ltla21_code,
     mental_health_percentage = Data_DEC,
     year = Year_Code_INT
   )
