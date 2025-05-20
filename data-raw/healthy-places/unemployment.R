@@ -42,7 +42,7 @@ places_unemployment <- unemployment |>
   filter(!is.na(ltla25name)) |>
   mutate(year = "2023-24") |>
   select(
-    ltla25_code = Area_Code_STR,
+    ltla24_code = Area_Code_STR,
     unemployment_percentage = Data_DEC,
     year
   )
