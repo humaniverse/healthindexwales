@@ -232,7 +232,7 @@ NULL
 #' \item{ltla24_code}{Local Authority Code}
 #' \item{obesity_adults_percentage}{Average percentage of adults
 #' (aged 16+) clinically classed as overweight and obese}
-#' \item{year}{School Year}
+#' \item{year}{Year}
 #'
 #' ...
 #' }
@@ -260,6 +260,30 @@ NULL
 #' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/flying-start/childrenlivinginflyingstartnonflyingstartareaswhoarefullyimmunisedbytheir4thbirthday-by-localauthority}
 #'
 "lives_child_vaccination_coverage"
+
+
+#' Average percentage of Children Overweight/Obese (2022/23)
+#'
+#' A dataset containing statistics on the average percentage of children
+#' clinically classed as overweight and obese in each Council, 2022/23.
+#'
+#' To note: England's Health Index captures the percentage of children aged 4-5
+#' and 10-11 respectively who are classed as being overweight or obese. However,
+#' the only available Welsh data captured overweight and obesity data for 4-5
+#' year olds, so this has been included as the closest proxy here.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{overweight_obesity_child_percentage}{Average percentage of children
+#' clinically classed as overweight and obese aged 4/5}
+#' \item{year}{School Year}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/flying-start/prevalenceofchildrenin-healthy-weight-categoriesforchildrenaged4to5yearsresidentwithinflyingstartandnonflyingstartareas-by-localauthority}
+#'
+"lives_overweight_obesity_children"
 
 
 #' Mortality all causes rate per 100k (2023)
