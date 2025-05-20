@@ -192,6 +192,28 @@ NULL
 "lives_physical_activity"
 
 
+#' Percentage of Adults Diagnosed with High Blood Pressure (2024)
+#'
+#' A dataset containing statistics on percentage of adults diagnosed with high
+#' blood pressure, by Council (2024).
+#'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
+#' represents when the data was extracted, not the period covered.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{high_blood_pressure_percentage}{Percentage of adults diagnosed with
+#' high blood pressure}
+#' \item{year}{Year}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard}
+"lives_high_blood_pressure"
+
+
 #' Mortality all causes rate per 100k (2023)
 #'
 #' A dataset containing statistics from an age-sex standardised rate for all
