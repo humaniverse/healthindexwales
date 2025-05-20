@@ -45,7 +45,7 @@ low_level_crime <- low_level_crime_raw |>
 # Join datasets
 places_low_level_crime <- low_level_crime |>
   left_join(wales_lookup, by = c("Area Code" = "pfa24_code")) |>
-  select(ltla25_code = ltla24_code, low_level_crime_rate_per_1k, year)
+  select(ltla24_code, low_level_crime_rate_per_1k, year)
 
 
 # ---- Save output to data/ folder ----
