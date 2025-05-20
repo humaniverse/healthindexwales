@@ -7,7 +7,7 @@
 \format{
 A data frame with 22 rows and 3 variables:
 \describe{
-\item{ltla25_code}{Local Authority Code}
+\item{ltla24_code}{Local Authority Code}
 \item{avoidable_deaths_per_100k}{Age-standardised avoidable mortality rates per
 100k}
 \item{year}{3-year aggregate period}

@@ -1,11 +1,224 @@
 #' @importFrom tibble tibble
 NULL
 
+#' Rate of Patient Admissions for Alcohol Related Conditions per 100k (2023/24)
+#'
+#' A dataset containing statistics on the rate of patient admissions for
+#' all alcohol-related admissions per 100k in each Welsh Council, 2023/24.
+#'
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{alcohol_admissions_rate_per_100k}{Rate of patient admissions per 100k
+#' population, based on population numbers per Local Authority}
+#' \item{year}{Time period}
+#'
+#' ...
+#' }
+#' @source \url{https://phw.nhs.wales/publications/publications1/data-mining-wales-the-annual-profile-for-substance-misuse-2023-2024/}
+#'
+"lives_alcohol_misuse"
+
+
+#' Percentage of Cancer Screening Uptake (2021-22)
+#'
+#' A dataset containing statistics on the percentage of cancer screening uptake
+#' for bowel, breast, and cervical cancer in each Welsh Council, 2021-22.
+#'
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{total_cancer_screening_percentage}{Percentage of cancer screening
+#' uptake; breast, bowel, and cervical cancer.}
+#' \item{year}{Time period}
+#'
+#' ...
+#' }
+#' @source \url{https://phw.nhs.wales/services-and-teams/screening/bowel-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+#' @source \url{https://phw.nhs.wales/services-and-teams/cervical-screening-wales/information-resources/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+#' @source \url{https://phw.nhs.wales/services-and-teams/screening/breast-screening/programme-reports/uptake-coverage-by-local-authority-and-health-boards/}
+#'
+"lives_cancer_screening"
+
+
+#' Percentage of Pupil Absences (2023/24)
+#'
+#' A dataset containing statistics on the percentage of unauthorised school
+#' absences.
+#'
+#' To note: England's Health Index records the percentage of pupils (at
+#' state-funded primary and secondary, and special schools) who are persistent
+#' absentees, that is, have overall absences equating to 10% or more of their
+#' possible sessions. However, Wales only records percentage of half-day
+#' sessions missed for unauthorised absence for primary and secondary schools.
+#' This has been used as best proxy.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{total_pupil_absence_percentage}{Percentage of unauthorised school
+#' absences across primary and secondary schools}
+#' \item{year}{School Year}
+#'
+#' ...
+#' }
+#' @source \url{https://www.gov.wales/absenteeism-primary-schools-september-2023-august-2024}
+#' @source \url{https://www.gov.wales/absenteeism-secondary-schools-september-2023-august-2024}
+#'
+"lives_pupil_absence"
+
+
+#' Percentage of People that Eat Healthy (2021-22 and 2022-23)
+#'
+#' A dataset containing statistics on fruit and vegetable consumption in
+#' each Welsh Council, 2021-22 and 2022-23.
+#'
+#' To note: England's Health Index captures percentage of healthy eating per
+#' year, but Wales only has data combining over a 2 year period.
+#'
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{healthy_eating_percentage}{Percentage of people that consume
+#' 5 portions or more of fruit and vegetable per day}
+#' \item{year}{Time periods combined}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles/adultlifestyles-by-healthboard-from-202021}
+#'
+"lives_healthy_eating"
+
+#' Percentage of Current Smokers (2021-21 and 2022-23)
+#'
+#' A dataset containing statistics on smoking status in
+#' each Welsh Council, 2021-21 and 2022-23.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{smoking_percentage}{Percentage of people that are current smokers}
+#' \item{year}{Time periods over a 2 year period}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles/adultlifestyles-by-healthboard-from-202021}
+#'
+"lives_smoking"
+
+
+#' Percentage of People Exhibiting Sedentary Behaviour (Very Low Activity Levels)
+#' (2021-22 and 2022-23)
+#'
+#' A dataset containing statistics on very low activity levels (less than 30
+#' minutes a week) in each Council, 2021-22 and 2022-23.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{sedentary_behaviour_percentage}{Percentage of people with very low
+#' activity levels, defined as less than 30 minutes activity a week}
+#' \item{year}{Time periods over a 2 year period}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles/adultlifestyles-by-healthboard-from-202021}
+"lives_sedentary_behaviour"
+
+
+#' Percentage of Babies Born Not at a Healthy Birth Weight (2023)
+#'
+#' A dataset containing percentage babies born not at a healthy birth weight
+#' (<2,500g).
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{low_birth_weight_percentage}{Percentage of babies born not at a healthy
+#' birth weight (<2,500g)}
+#' \item{year}{Year}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/Community-Child-Health/livebirthstowelshresidents-by-localhealthboard-birthweight}
+"lives_low_birth_weight"
+
+
+#' Percentage Rate of Cardiovascular Conditions (CHD, Atrial Fibrillation,
+#' Heart Failure, Stroke & TIA) (2024)
+#'
+#' A dataset containing statistics on the percentage of people who self-reported
+#' as having CHD, Atrial Fibrillation, Heart Failure, and/or Stroke & TIA in
+#' Welsh Council Areas.
+#'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
+#' represents when the data was extracted, not the period covered.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authroity Code}
+#' \item{cardiovascular_conditions_percentage}{Percentage of people who self-reported
+#' as having CHD, Atrial Fibrillation, Heart Failure, and/or Stroke & TIA}
+#' \item{year}{Year}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard}
+#'
+"lives_cardiovascular_conditions"
+
+
+#' Percentage of People Meeting Recommended Activity Levels (2021-22 and 2022-23)
+#'
+#' A dataset containing statistics on the percentage of people that meet the
+#' recommended activity levels of at least 150 minutes a week in each Welsh
+#' Council, 2021-22 and 2022-23.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{activity_levels_met_percentage}{Percentage of people that meet the
+#' recommended activity levels of at least 150 minutes a week}
+#' \item{year}{Time periods over a 2 year period}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles/adultlifestyles-by-healthboard-from-202021}
+#'
+"lives_physical_activity"
+
+
+#' Percentage of Adults Diagnosed with High Blood Pressure (2024)
+#'
+#' A dataset containing statistics on percentage of adults diagnosed with high
+#' blood pressure, by Council (2024).
+#'
+#' To note: StatsWales Disease Prevalence data only captures disease prevalence
+#' in a 'snapshot', or a single point of time. This means the year data
+#' represents when the data was extracted, not the period covered.
+#'
+#' @format A data frame with 22 rows and 3 variables:
+#' \describe{
+#' \item{ltla24_code}{Local Authority Code}
+#' \item{high_blood_pressure_percentage}{Percentage of adults diagnosed with
+#' high blood pressure}
+#' \item{year}{Year}
+#'
+#' ...
+#' }
+#' @source \url{https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard}
+"lives_high_blood_pressure"
+
+
 #' Average percentage of Adults Obese (2024)
 #'
-#' A dataset containing statistics on the average percentage of adults (aged 
+#' A dataset containing statistics on the average percentage of adults (aged
 #' 16+) clinically classed as obese in each Council, 2024.
-#' 
+#'
 #' To note: England's Health Index captures data on overweight and obese adults
 #' aged 16+. However, Wales only captures adults classed as obese. This has been
 #' included as the closest proxy.
@@ -17,7 +230,7 @@ NULL
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
 #' \item{ltla24_code}{Local Authority Code}
-#' \item{obesity_adults_percentage}{Average percentage of adults 
+#' \item{obesity_adults_percentage}{Average percentage of adults
 #' (aged 16+) clinically classed as overweight and obese}
 #' \item{year}{School Year}
 #'
@@ -36,7 +249,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{all_deaths_per_100k}{age-sex standardised rate for all causes of
 #' mortality per 100k}
 #' \item{year}{Year}
@@ -54,7 +267,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{anxiety_score_out_of_10}{Average personal ratings on feelings of
 #' anxiety out of 10 - 10 is most anxious, 1 is least anxious}
 #' \item{year}{Time period}
@@ -71,7 +284,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{avoidable_deaths_per_100k}{Age-standardised avoidable mortality rates per
 #' 100k}
 #' \item{year}{3-year aggregate period}
@@ -93,7 +306,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authroity Code}
+#' \item{ltla24_code}{Local Authroity Code}
 #' \item{cancer_percentage}{Percentage of people who
 #' self-reported as having Cancer}
 #' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
@@ -117,7 +330,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authroity Code}
+#' \item{ltla24_code}{Local Authroity Code}
 #' \item{dementia_percentage}{Percentage of people who
 #' self-reported as having Dementia}
 #' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
@@ -141,7 +354,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authroity Code}
+#' \item{ltla24_code}{Local Authroity Code}
 #' \item{diabetes_percentage}{Percentage of people who
 #' self-reported as having Diabetes mellitus}
 #' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
@@ -161,7 +374,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{happiness_score_out_of_10}{Average personal ratings on feelings of
 #' happiness out of 10 - 10 is most happy, 1 is least happy}
 #' \item{year}{Time period}
@@ -178,7 +391,7 @@ NULL
 #'
 #' @format A data frame with 11 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{satisfaction_score_out_of_10}{Average personal ratings on feelings of
 #' life satisfaction out of 10 - 10 is most satisfied, 1 is least satisfied}
 #' \item{year}{Time period}
@@ -195,7 +408,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{worthwhile_score_out_of_10}{Average personal ratings on feelings of
 #' life worthwhileness out of 10 - 10 is most worthwhile, 1 is least worthwhile}
 #' \item{year}{Time period}
@@ -216,7 +429,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authroity Code}
+#' \item{ltla24_code}{Local Authroity Code}
 #' \item{mental_health_percentage}{Percentage of people who
 #' self-reported as having a Mental Health Condition}
 #' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
@@ -241,7 +454,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authroity Code}
+#' \item{ltla24_code}{Local Authroity Code}
 #' \item{musculoskeletal_conditions_percentage}{Percentage of people who
 #' self-reported as having Rheumatoid Arthritis}
 #' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
@@ -265,7 +478,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authroity Code}
+#' \item{ltla24_code}{Local Authroity Code}
 #' \item{respiratory_conditions_percentage}{Percentage of people who self-reported
 #' as having asthma and/or COPD}
 #' \item{year}{Snapshot of a single point in time in 2024 - specifically 1
@@ -285,7 +498,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{suicide_rate_per_100k}{Deaths from suicide (16+). Age standardised
 #' rate per 100,000.}
 #' \item{year}{Time period - 3 year aggregate}
@@ -294,39 +507,6 @@ NULL
 #' }
 #' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/suicidesbylocalauthority}
 "people_suicide"
-
-
-#' Sedentary behaviour Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of sedentary adults in Wales
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code}
-#'   \item{Percent adults active less than 30 minutes last week}{Percentage of
-#'   people aged 16 and over in each local authority claiming to have exercised
-#'   for less than 30 minutes the previous week, age standardised}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://statswales.gov.wales/Catalogue/National-Survey-for-Wales/Population-Health/Adult-Lifestyles}
-"hl_sedentary_behaviour"
-
-
-#' Teenage Pregnancy Wales 2021-2023
-#'
-#' Dataset containing information about the percentage of teenage pregnancies in Wales
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#'   \item{ltla21_code}{Area code of usual residence}
-#'   \item{Percentage teenage pregnancies}{Percentage of conceptions for women aged 15-17, based on quarterly numbers of conceptions aged 15-17 and ONS population estimates. Conception includes live or still births and legal abortions, does not include miscarriages or illegal abortions}
-#'   \item{Year}{Time frame}
-#' .  ...
-#' }
-#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/conceptionandfertilityrates/datasets/quarterlyconceptionstowomenagedunder18englandandwales}
-#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland}
-"hl_teenage_pregnancy"
 
 
 #' Percentage of Absolute Child Poverty (2022)
@@ -340,7 +520,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{child_poverty_percentage}{Percentage of children (aged 16 and under)
 #' living in absolute low income families}
 #' \item{year}{Date}
@@ -360,7 +540,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{percentage_households_overcrowding}{Percentage of households
 #' experiencing household overcrowding}
 #' \item{year}{Year}
@@ -378,7 +558,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{air_pollution_weighted}{Population-weighted annual mean PM2.5}
 #' \item{year}{Year}
 #'
@@ -520,26 +700,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
-#' \item{personal_crime_rate_per_1k}{Average rate of low-level-crime (Violence
-#' against the person, sexual offences, and criminal damage and arson)}
-#' \item{year}{September 2023 - September 2024}
-#' ...
-#' }
-#' @source \url{https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/policeforceareadatatables}
-#'
-"places_personal_crime"
-
-
-#' Average rates of Personal Crime per 1k (2023-2024)
-#'
-#' A dataset containing statistics on the mean rate of personal crime (Violence
-#' against the person, sexual offences, and criminal damage and arson) per
-#' 1,000, per Welsh Local Authority.
-#'
-#' @format A data frame with 22 rows and 3 variables:
-#' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{personal_crime_rate_per_1k}{Average rate of low-level-crime (Violence
 #' against the person, sexual offences, and criminal damage and arson)}
 #' \item{year}{September 2023 - September 2024}
@@ -557,7 +718,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{low_level_crime_rate_per_1k}{Average rate of low-level-crime (bicycle
 #' theft and shoplifting)}
 #' \item{year}{September 2023 - September 2024}
@@ -575,7 +736,7 @@ NULL
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
-#' \item{ltla25_code}{Local Authority Code}
+#' \item{ltla24_code}{Local Authority Code}
 #' \item{unemployment_percentage}{Percentage of people experiencing unemployment
 #' excluding students. Ages 16-64.}
 #' \item{year}{September 2023 to September 2024}
