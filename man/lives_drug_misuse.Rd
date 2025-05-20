@@ -21,6 +21,9 @@ lives_drug_misuse
 }
 \description{
 A dataset containing statistics on the number of drug-related crimes recorded
-by the police, per 1,000 people, per Welsh Council (2024).
+by the police, per 1,000 people, per Welsh Council (2024). Note, that these
+data have been aggregated up from the four police areas: Dyfed-Powys, Gwent
+and North and South Wales, and so repeated obersations will be seen across
+local authorities.
 }
 \keyword{datasets}
