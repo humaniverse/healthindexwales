@@ -78,7 +78,7 @@ subdomains <- indicators |>
   mutate(subdomain = paste0(domain, "_", str_replace_all(subdomain, " ", "_"))) |>
   select(-domain) |>
   group_split(subdomain) |>
-  map(pivot_wider, names_from = indicator, values_from = value) |>
+  map(pivot_wider, names_from = indicator, values_from = value, values_fill = 0) |>
   map(~ mutate(.x, pcscore = build_pc_indicators(.x[,-c(1:2)]))) |>
   map(~ select(.x, ltla24_code, subdomain, pcscore)) |>
   map(~ rename(.x, !!.x$subdomain[1] := pcscore)) |>
@@ -114,10 +114,10 @@ scores <- tibble(ltla24_code = subdomains$ltla24_code) |>
 
 #--- save ----------------------------------------------------------------------
 
-scotland_health_index            <- scores
-scotland_health_index_subdomains <- subdomains
-scotland_health_index_indicators <- indicators
+wales_health_index            <- scores
+wales_health_index_subdomains <- subdomains
+wales_health_index_indicators <- indicators
 
-usethis::use_data(scotland_health_index,            overwrite = TRUE)
-usethis::use_data(scotland_health_index_subdomains, overwrite = TRUE)
-usethis::use_data(scotland_health_index_indicators, overwrite = TRUE)
+usethis::use_data(wales_health_index,            overwrite = TRUE)
+usethis::use_data(wales_health_index_subdomains, overwrite = TRUE)
+usethis::use_data(wales_health_index_indicators, overwrite = TRUE)
