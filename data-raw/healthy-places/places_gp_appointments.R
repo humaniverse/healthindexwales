@@ -26,7 +26,7 @@ lhb_ltla_lookup <-
 # excel_sheets("data-raw/healthy-places/national-survey-results-viewer.xlsx")
 
 # Manually figured out the cell range from the Results Viewer Excel file
-gp_data <- read_excel("data-raw/healthy-places/national-survey-results-viewer.xlsx", sheet = "Results", range = "A151:E158")
+gp_data <- read_excel("data-raw/healthy-places/raw-data/national-survey-results-viewer.xlsx", sheet = "Results", range = "A151:E158")
 
 gp_data <- gp_data |> 
   rename(lhb22_name = `...1`)  
@@ -38,7 +38,14 @@ places_gp_appointments <-
   gp_data |>
   left_join(lhb_ltla_lookup) |>
   select(ltla24_code = ltla21_code, gp_appointments_very_difficult = `Very difficult`) |>
-  mutate(year = "2021-22")
+  mutate(year = "2021-22") |>
+  filter(!is.na(ltla24_code))
+
+places_gp_appointments <- places_gp_appointments |>
+  mutate(domain = "places") |>
+  mutate(subdomain = "access to services") |>
+  mutate(is_higher_better = FALSE)
+
 
 # ---- Save output to data/ folder ----
 usethis::use_data(places_gp_appointments, overwrite = TRUE)

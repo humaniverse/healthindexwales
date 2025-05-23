@@ -47,6 +47,11 @@ places_unemployment <- unemployment |>
     year
   )
 
+places_unemployment <- places_unemployment |>
+  mutate(domain = "places") |>
+  mutate(subdomain = "economic_and_working_conditions") |>
+  mutate(is_higher_better = FALSE)
+
 
 # ---- Save output to data/ folder ----
 usethis::use_data(places_unemployment, overwrite = TRUE)

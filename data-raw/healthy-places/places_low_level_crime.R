@@ -20,9 +20,9 @@ download.file(
   mode = "wb"
 )
 
-personal_crime_raw <- read_excel(tf, sheet = 6, skip = 7)
+low_level_crime_raw <- read_excel(tf, sheet = 6, skip = 7)
 
-personal_crime <- personal_crime_raw |>
+low_level_crime <- low_level_crime_raw |>
   filter(
     str_starts(`Area Code`, "W"),
     `Area Code` != "W92000004"
@@ -34,12 +34,8 @@ personal_crime <- personal_crime_raw |>
       ),
       as.numeric
     ),
-    personal_crime_rate_per_1k = rowMeans(
-      across(c(
-        `Violence against the person`,
-        `Sexual offences`,
-        `Criminal damage and arson`
-      )),
+    low_level_crime_rate_per_1k = rowMeans(
+      across(c(`Bicycle theft`, `Shoplifting`)),
       na.rm = TRUE
     ),
     year = "2023-2024"
@@ -47,14 +43,15 @@ personal_crime <- personal_crime_raw |>
 
 
 # Join datasets
-places_personal_crime <- personal_crime |>
+places_low_level_crime <- low_level_crime |>
   left_join(wales_lookup, by = c("Area Code" = "pfa24_code")) |>
-  select(
-    ltla24_code,
-    personal_crime_rate_per_1k,
-    year
-  )
+  select(ltla24_code, low_level_crime_rate_per_1k, year)
+
+places_low_level_crime <- places_low_level_crime |>
+  mutate(domain = "places") |>
+  mutate(subdomain = "crime") |>
+  mutate(is_higher_better = FALSE)
 
 
 # ---- Save output to data/ folder ----
-usethis::use_data(places_personal_crime, overwrite = TRUE)
+usethis::use_data(places_low_level_crime, overwrite = TRUE)

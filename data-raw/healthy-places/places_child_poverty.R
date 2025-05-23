@@ -24,6 +24,11 @@ places_child_poverty <- child_poverty_raw |>
   ) |>
   mutate(child_poverty_percentage = child_poverty_percentage * 100)
 
+places_child_poverty <- places_child_poverty |>
+  mutate(domain = "places") |>
+  mutate(subdomain = "economic and working conditions") |>
+  mutate(is_higher_better = FALSE)
+
 
 # ---- Save output to data/ folder ----
 usethis::use_data(places_child_poverty, overwrite = TRUE)

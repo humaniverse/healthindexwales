@@ -28,5 +28,11 @@ places_internet_access <-
   filter(str_detect(ltla24_code, "^W")) |> 
   mutate(year = 2024)
 
+places_internet_access <- places_internet_access |>
+  mutate(domain = "places") |>
+  mutate(subdomain = "access to services") |>
+  mutate(is_higher_better = FALSE)
+
+
 # ---- Save output to data/ folder ----
 usethis::use_data(places_internet_access, overwrite = TRUE)

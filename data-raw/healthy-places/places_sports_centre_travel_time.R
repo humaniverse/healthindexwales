@@ -227,5 +227,11 @@ places_sports_centre_travel_time <-
   rename(ltla24_code = ltla22_code,
          sports_centre_mean_travel_time = mean_travel_time)
 
+places_sports_centre_travel_time <- places_sports_centre_travel_time |>
+  mutate(domain = "places") |>
+  mutate(subdomain = "access to services") |>
+  mutate(is_higher_better = FALSE)
+
+
 # ---- Save output to data/ folder ----
 usethis::use_data(places_sports_centre_travel_time, overwrite = TRUE)
