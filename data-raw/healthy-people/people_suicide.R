@@ -31,6 +31,11 @@ people_suicide <- suicide_raw |>
   ) |>
   mutate(suicide_rate_per_100k = as.numeric(suicide_rate_per_100k))
 
+people_suicide <- people_suicide |>
+  mutate(domain = "people") |>
+  mutate(subdomain = "mental health") |>
+  mutate(is_higher_better = FALSE)
+
 
 # ---- Save output to data/ folder ----
 usethis::use_data(people_suicide, overwrite = TRUE)

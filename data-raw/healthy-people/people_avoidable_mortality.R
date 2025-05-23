@@ -35,6 +35,11 @@ people_avoidable_mortality <- avoidable_mortality |>
     year
   )
 
+people_avoidable_mortality <- people_avoidable_mortality |>
+  mutate(domain = "people") |>
+  mutate(subdomain = "mortality") |>
+  mutate(is_higher_better = FALSE)
+
 
 # ---- Save output to data/ folder ----
 usethis::use_data(people_avoidable_mortality, overwrite = TRUE)

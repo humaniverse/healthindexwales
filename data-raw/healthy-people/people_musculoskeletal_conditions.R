@@ -7,7 +7,7 @@ library(geographr)
 wales_hb_ltla <- lookup_ltla21_lhb22
 
 
-# Cancer data
+# Musculoskeletal Conditions data
 # Source: https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard
 
 temp_zip <- tempfile(fileext = ".zip")
@@ -20,27 +20,32 @@ unzip(temp_zip, exdir = temp_dir)
 unzipped_files <- list.files(temp_dir, full.names = TRUE)
 print(unzipped_files)
 
-cancer_raw <- read_csv(unzipped_files[2])
+musculoskeletal_conditions_raw <- read_csv(unzipped_files[2])
 
 
-cancer <- cancer_raw |>
+musculoskeletal_conditions <- musculoskeletal_conditions_raw |>
   filter(
     `Year_Code_INT` == "2024",
-    `Register_ItemName_ENG_STR` == "Cancer",
+    `Register_ItemName_ENG_STR` == "Rheumatoid Arthritis (patients aged 16+)",
     `Measure_ItemName_ENG_STR` == "Prevalence rate (%)"
   )
 
 
 # Join datasets
-people_cancer <- cancer |>
+people_musculoskeletal_conditions <- musculoskeletal_conditions |>
   left_join(wales_hb_ltla, by = c("Area_ItemName_ENG_STR" = "lhb22_name")) |>
   filter(!is.na(ltla21_code)) |>
   select(
     ltla24_code = ltla21_code,
-    cancer_percentage = Data_DEC,
+    musculoskeletal_conditions_percentage = Data_DEC,
     year = Year_Code_INT
   )
 
+people_musculoskeletal_conditions <- people_musculoskeletal_conditions |>
+  mutate(domain = "people") |>
+  mutate(subdomain = "physical health conditions") |>
+  mutate(is_higher_better = FALSE)
+
 
 # ---- Save output to data/ folder ----
-usethis::use_data(people_cancer, overwrite = TRUE)
+usethis::use_data(people_musculoskeletal_conditions, overwrite = TRUE)

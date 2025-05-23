@@ -7,7 +7,7 @@ library(geographr)
 wales_hb_ltla <- lookup_ltla21_lhb22
 
 
-# Dementia data
+# Cancer data
 # Source: https://statswales.gov.wales/Catalogue/Health-and-Social-Care/NHS-Primary-and-Community-Activity/GMS-Contract/diseaseregisters-by-localhealthboard
 
 temp_zip <- tempfile(fileext = ".zip")
@@ -20,27 +20,32 @@ unzip(temp_zip, exdir = temp_dir)
 unzipped_files <- list.files(temp_dir, full.names = TRUE)
 print(unzipped_files)
 
-dementia_raw <- read_csv(unzipped_files[2])
+cancer_raw <- read_csv(unzipped_files[2])
 
 
-dementia <- dementia_raw |>
+cancer <- cancer_raw |>
   filter(
     `Year_Code_INT` == "2024",
-    `Register_ItemName_ENG_STR` == "Dementia",
+    `Register_ItemName_ENG_STR` == "Cancer",
     `Measure_ItemName_ENG_STR` == "Prevalence rate (%)"
   )
 
 
 # Join datasets
-people_dementia <- dementia |>
+people_cancer <- cancer |>
   left_join(wales_hb_ltla, by = c("Area_ItemName_ENG_STR" = "lhb22_name")) |>
   filter(!is.na(ltla21_code)) |>
   select(
     ltla24_code = ltla21_code,
-    dementia_percentage = Data_DEC,
+    cancer_percentage = Data_DEC,
     year = Year_Code_INT
   )
 
+people_cancer <- people_cancer |>
+  mutate(domain = "people") |>
+  mutate(subdomain = "physical health conditions") |>
+  mutate(is_higher_better = FALSE)
+
 
 # ---- Save output to data/ folder ----
-usethis::use_data(people_dementia, overwrite = TRUE)
+usethis::use_data(people_cancer, overwrite = TRUE)
