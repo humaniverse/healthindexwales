@@ -30,6 +30,7 @@ lives_sedentary_behaviour <- sedentary_behaviour |>
   left_join(wales_hb_ltla, by = c("wales_areas" = "ltla21_name")) |>
   filter(!is.na(ltla21_code)) |>
   mutate(year = "2021-22 and 2022-23") |>
+  mutate(sedentary_behaviour_percentage = as.numeric(sedentary_behaviour_percentage)) |>
   select(ltla24_code = ltla21_code, sedentary_behaviour_percentage, year)
 
 lives_sedentary_behaviour <- lives_sedentary_behaviour |>

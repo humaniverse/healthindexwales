@@ -27,6 +27,7 @@ lives_smoking <- smoking |>
   left_join(wales_hb_ltla, by = c("wales_areas" = "ltla21_name")) |>
   filter(!is.na(ltla21_code)) |>
   mutate(year = "2021-22 and 2022-23") |>
+  mutate(smoking_percentage = as.numeric(smoking_percentage)) |>
   select(
     ltla24_code = ltla21_code,
     smoking_percentage,

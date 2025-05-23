@@ -37,7 +37,8 @@ lives_drug_misuse <- drug_misuse |>
     ltla24_code,
     drug_misuse_per_1k = `Drug offences`,
     year
-  )
+  ) |>
+  mutate(drug_misuse_per_1k = as.numeric(drug_misuse_per_1k))
 
 lives_drug_misuse <- lives_drug_misuse |>
   mutate(domain = "lives") |>
