@@ -39,6 +39,11 @@ lives_drug_misuse <- drug_misuse |>
     year
   )
 
+lives_drug_misuse <- lives_drug_misuse |>
+  mutate(domain = "lives") |>
+  mutate(subdomain = "behavioural risk factors") |>
+  mutate(is_higher_better = FALSE)
+
 
 # ---- Save output to data/ folder ----
 usethis::use_data(lives_drug_misuse, overwrite = TRUE)

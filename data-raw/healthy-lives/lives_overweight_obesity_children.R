@@ -46,6 +46,11 @@ lives_overweight_obesity_children <- overweight_obesity_children |>
     year = Year_ItemName_ENG_STR
   )
 
+lives_overweight_obesity_children <- lives_overweight_obesity_children |>
+  mutate(domain = "lives") |>
+  mutate(subdomain = "physiological risk factors") |>
+  mutate(is_higher_better = FALSE)
+
 
 # ---- Save output to data/ folder ----
 usethis::use_data(lives_overweight_obesity_children, overwrite = TRUE)

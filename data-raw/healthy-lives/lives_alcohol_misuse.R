@@ -29,7 +29,13 @@ lives_alcohol_misuse <- alcohol_misuse |>
     ltla24_code = ltla21_code,
     alcohol_admissions_rate_per_100k = `EASR per 100,000 population 2023/24`,
     year
-  )
+  ) |>
+  filter(!is.na(ltla24_code))
+
+lives_alcohol_misuse <- lives_alcohol_misuse |>
+  mutate(domain = "lives") |>
+  mutate(subdomain = "behavioural risk factors") |>
+  mutate(is_higher_better = FALSE)
 
 
 # ---- Save output to data/ folder ----

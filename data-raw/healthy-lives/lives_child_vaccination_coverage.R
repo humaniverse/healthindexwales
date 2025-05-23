@@ -38,6 +38,11 @@ lives_child_vaccination_coverage <- vaccination_coverage |>
          child_vaccination_coverage_percentage = Data_DEC,
          year = Year_ItemName_ENG_STR)
 
+lives_child_vaccination_coverage <- lives_child_vaccination_coverage |>
+  mutate(domain = "lives") |>
+  mutate(subdomain = "protective measures") |>
+  mutate(is_higher_better = TRUE)
+
 
 # ---- Save output to data/ folder ----
 usethis::use_data(lives_child_vaccination_coverage, overwrite = TRUE)

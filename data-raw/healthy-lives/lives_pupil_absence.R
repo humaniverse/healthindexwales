@@ -55,5 +55,11 @@ lives_pupil_absence <- pupil_absenteeism |>
   ) |>
   mutate(year = "2023/24")
 
+lives_pupil_absence <- lives_pupil_absence |>
+  mutate(domain = "lives") |>
+  mutate(subdomain = "children and young people") |>
+  mutate(is_higher_better = FALSE)
+
+
 # ---- Save output to data/ folder ----
 usethis::use_data(lives_pupil_absence, overwrite = TRUE)

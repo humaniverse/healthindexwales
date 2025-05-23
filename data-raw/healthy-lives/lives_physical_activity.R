@@ -33,6 +33,11 @@ lives_physical_activity <- physical_activity |>
     year
   )
 
+lives_physical_activity <- lives_physical_activity |>
+  mutate(domain = "lives") |>
+  mutate(subdomain = "behavioural risk factors") |>
+  mutate(is_higher_better = TRUE)
+
 
 # ---- Save output to data/ folder ----
 usethis::use_data(lives_physical_activity, overwrite = TRUE)

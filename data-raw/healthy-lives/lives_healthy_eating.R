@@ -29,5 +29,11 @@ lives_healthy_eating <- healthy_eating |>
   mutate(year = "2021-22 and 2022-23") |>
   select(ltla24_code = ltla21_code, healthy_eating_percentage, year)
 
+lives_healthy_eating <- lives_healthy_eating |>
+  mutate(domain = "lives") |>
+  mutate(subdomain = "behavioural risk factors") |>
+  mutate(is_higher_better = TRUE)
+
+
 # ---- Save output to data/ folder ----
 usethis::use_data(lives_healthy_eating, overwrite = TRUE)

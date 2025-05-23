@@ -41,6 +41,11 @@ lives_obesity_adults <- obesity_adults |>
     year = Year_Code_INT
   )
 
+lives_obesity_adults <- lives_obesity_adults |>
+  mutate(domain = "lives") |>
+  mutate(subdomain = "physiological risk factors") |>
+  mutate(is_higher_better = FALSE)
+
 
 # ---- Save output to data/ folder ----
 usethis::use_data(lives_obesity_adults, overwrite = TRUE)

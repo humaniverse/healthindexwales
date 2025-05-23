@@ -32,6 +32,11 @@ lives_sedentary_behaviour <- sedentary_behaviour |>
   mutate(year = "2021-22 and 2022-23") |>
   select(ltla24_code = ltla21_code, sedentary_behaviour_percentage, year)
 
+lives_sedentary_behaviour <- lives_sedentary_behaviour |>
+  mutate(domain = "lives") |>
+  mutate(subdomain = "behavioural risk factors") |>
+  mutate(is_higher_better = FALSE)
+
 
 # ---- Save output to data/ folder ----
 usethis::use_data(lives_sedentary_behaviour, overwrite = TRUE)
