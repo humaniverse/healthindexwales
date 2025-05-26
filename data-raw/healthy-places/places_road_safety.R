@@ -46,7 +46,7 @@ places_road_safety <- road_safety |>
   filter(!is.na(ltla25name)) |>
   mutate(year = "2023") |>
   select(
-    ltla25_code = Area_Code_STR,
+    ltla24_code = Area_Code_STR,
     road_accident_count = Data_INT,
     year
   )
