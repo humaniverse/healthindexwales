@@ -330,6 +330,8 @@ NULL
 #'
 #' A dataset containing statistics on total average rates of chlamydia,
 #' gonorrhoea, syphilis, and testing rates per 100k in each Welsh Council, 2023.
+#' Note, data were only available at the Health Board level, so all council
+#' areas within a given health board share the same statistic.
 #'
 #' @format A data frame with 22 rows and 3 variables:
 #' \describe{
