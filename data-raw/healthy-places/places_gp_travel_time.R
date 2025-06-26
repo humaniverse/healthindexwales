@@ -103,9 +103,12 @@ msoa21_centroids <-
 # Set up tibbles to store results
 GP_travel_time <- tibble()
 
-lookup_msoa21_ltla22 <- 
-  geographr::lookup_postcode_oa21_lsoa21_msoa21_ltla22 |> 
-  distinct(msoa21_code, ltla22_code)
+# lookup_msoa21_ltla22 <- 
+lookup_msoa21_ltla24 <- 
+  # geographr::lookup_postcode_oa21_lsoa21_msoa21_ltla22 |> 
+  geographr::lookup_postcode_oa_lsoa_msoa_ltla_2025 |> # Above lookup appears to be outdated
+  # distinct(msoa21_code, ltla22_code)
+  distinct(msoa21_code, ltla24_code)
 
 # Start loop at row 7; the first six rows are the English LADs
 # We don't need to calculate travel times within them
@@ -196,20 +199,44 @@ for (i in 7:nrow(wales_lad)) {
 # Save the complete dataset for travel time from MSOAs to GPs
 # This won't be available in the R package itself but want to keep it in the GitHub repo
 # since it takes quite a while to calculate
-write_csv(GP_travel_time, "data-raw/healthy-places/GP_travel_time.csv")
+# write_csv(GP_travel_time, "data-raw/healthy-places/GP_travel_time.csv")
+write_csv(GP_travel_time, "data-raw/healthy-places/raw-data/GP_travel_time.csv")
 
-GP_travel_time <- read_csv("data-raw/healthy-places/GP_travel_time.csv")
+# GP_travel_time <- read_csv("data-raw/healthy-places/GP_travel_time.csv")
+GP_travel_time <- read_csv("data-raw/healthy-places/raw-data/GP_travel_time.csv")
 
+# ---- Calculate travel time at MSOA level ----
+msoa_wales <- lookup_postcode_oa_lsoa_msoa_ltla_2025|>
+  filter(str_starts(msoa21_code, "W")) |>
+  distinct(msoa21_code)
+
+places_gp_travel_time_msoa <- GP_travel_time |>
+  group_by(msoa21_code) |>
+  summarise(
+    gp_mean_travel_time = mean(travel_time_mins, na.rm = TRUE)
+  ) |>
+  ungroup() |>
+  right_join(msoa_wales, by = "msoa21_code") |>  # Include all Welsh MSOAs
+  mutate(
+    gp_mean_travel_time = replace_na(gp_mean_travel_time, 999),  # 999 means unreachable
+    gp_within_3_hours = gp_mean_travel_time != 999,
+    year = year(now()),
+    domain = "places",
+    subdomain = "access to services",
+    is_higher_better = FALSE
+  )
+
+# ---- Calculate travel time at Local Authority Level ----
 # Look up Local Authorities for each MSOA and GP
 GP_travel_time <-
   GP_travel_time |>
-  left_join(lookup_msoa21_ltla22)
+  left_join(lookup_msoa21_ltla24)
 
 # What are the mean travel times within each MSOA (within each Local Authority)?
 gp_travel_time_mean <-
   GP_travel_time |>
   select(-osm_id) |>  # We don't need to know the GP ID for this
-  group_by(msoa21_code, ltla22_code) |>
+  group_by(msoa21_code, ltla24_code) |>
   summarise(
     mean_travel_time_mins = mean(travel_time_mins, na.rm = TRUE)
   ) |>
@@ -219,7 +246,7 @@ gp_travel_time_mean <-
 # Calculate average (mean) travel time for each Local Authority
 places_gp_travel_time <-
   gp_travel_time_mean |>
-  group_by(ltla22_code) |>
+  group_by(ltla24_code) |>
   summarise(mean_travel_time = mean(mean_travel_time_mins, na.rm = TRUE)) |>
   ungroup() |>
   mutate(year = year(now())) |>
@@ -234,3 +261,5 @@ places_gp_travel_time <- places_gp_travel_time |>
 
 # ---- Save output to data/ folder ----
 usethis::use_data(places_gp_travel_time, overwrite = TRUE)
+usethis::use_data(places_gp_travel_time_msoa, overwrite = TRUE)
+
